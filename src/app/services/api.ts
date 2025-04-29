@@ -4,8 +4,8 @@ import { Genre, Movie } from '../types/types';
 
 const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3/',
-  params: {
-    api_key: process.env.NEXT_PUBLIC_TMDB_API_KEY, 
+  headers: {
+    'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
   }
 });
 
