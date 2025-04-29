@@ -1,21 +1,11 @@
-"use client";
+'use client';
 
-import React from 'react';
-import type { AppProps } from 'next/app';
-import { Provider } from 'react-redux';
-import stores from './redux/reducers/store';
-import { ThemeProvider } from '../app/components/ThemeContext/ThemeContext';
+import { useRouter } from 'next/navigation';
+import { AdminHome } from './AdminHome';
+import "./AdminHome/style.css"
 
+export default function Home() {
+  const router = useRouter();
 
-
-const MyApp = ({ Component, pageProps }: AppProps) => (
-  <ThemeProvider>
-    <Provider store={stores}>
-      <div className="App">
-        <Component {...pageProps} />
-      </div>
-    </Provider>
-  </ThemeProvider>
-);
-
-export default MyApp;
+  return <AdminHome />;
+}

@@ -1,27 +1,22 @@
 "use client";
 
 import { useContext, useEffect, useState } from 'react';
-import { PageContainer } from '../../components/PageContainer';
-import { SidebarComponent } from '../../components/sidebar';
+import { PageContainer } from '../components/PageContainer';
+import { SidebarComponent } from '../components/sidebar';
 import './styles.css';;
-import { ThemeContext } from "../../components/ThemeContext/ThemeContext";
-import {  Trending } from './styles';
-import { getTrendingMovies, getGenres, getTopRatedMovies } from '../../services/api';
-import { Genre, Movie } from '../../types/types';
+import { ThemeContext } from "../components/ThemeContext/ThemeContext";
+import { Topfilmes } from './styles';
+import { getTopRatedMovies, getGenres, getTrendingMovies } from '../services/api';
+import { Genre, Movie } from '../types/types';
 
 
 
 
 
-export function TrendingPage() {
+export  default function TopfilmesPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [genres, setGenres] = useState<Genre[]>([]);
   const [years, setYears] = useState<number[]>([]);
-  const [TopMovies, setTopMovies] = useState<Movie[]>([])
-  const [message, setMessage] = useState<string>('');
-  const [ShowMovies, setshowMovies] = useState(false);
-  const [totalMovies, setTotalMovies] = useState<number>(0);
-
 
 
 
@@ -33,51 +28,33 @@ export function TrendingPage() {
   }
   const { darkMode } = themeContext;
 
-
- useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
-      
+      const storedMovies = localStorage.getItem('topRatedMovies');
+      if (storedMovies) {
+        setMovies(JSON.parse(storedMovies));
+      } else {
         let allMovies: Movie[] = [];
         for (let page = 1; page <= 13; page++) {
+          try {
             const result = await getTopRatedMovies(page);
             allMovies = [...allMovies, ...result];
+          } catch (error) {
+            console.error('Erro ao buscar top rated movies na página', page, error);
+            break;
           }
-       allMovies = allMovies.slice(0, 250);
-       setTopMovies(allMovies)
-
-
+        }
+        allMovies = allMovies.slice(0, 250);
+        setMovies(allMovies);
+        localStorage.setItem('topRatedMovies', JSON.stringify(allMovies));
+      }
       const genresList = await getGenres();
       setGenres(genresList);
-
-      const trendingMovies = await getTrendingMovies();
-      setMovies(trendingMovies);
     };
 
-     
-    const TrendingTopRatedMovies=TopMovies.filter(movie =>
-      movies.some(topRated => topRated.id === movie.id)
-      
-    );
-    const totalTrending = TrendingTopRatedMovies.length;
-    setTotalMovies(totalTrending);
-  
-    if (TrendingTopRatedMovies.length > 0) {
-      setshowMovies(true);
-    } else {
-      setMessage('Nenhum filme no trending');
-    }
-
-   
-  
     fetchData();
   }, []);
 
-
- 
-
-
-  
- 
 
 
   const formatDate = (date: string): string => {
@@ -100,7 +77,7 @@ export function TrendingPage() {
     if (movies.length > 0) {
       sortMoviesByYear(); 
     }
-  }, ); 
+  },[movies.length]); 
 
   // Função para obter o nome dos gêneros a partir dos IDs
   const getGenreNames = (genreIds: number[]): string => {
@@ -119,11 +96,10 @@ export function TrendingPage() {
         <SidebarComponent />
       </div>
       <div className="content-1">
-        <Trending darkMode={darkMode}>
-        <section className="cadastro-1-movies">
-        <h1 style={{ marginLeft: "1%" }}>Trending Filmes </h1>
-        <h5>Filmes: {totalMovies}</h5>
-          {ShowMovies?( 
+        <Topfilmes darkMode={darkMode}>
+          <section className="cadastro-1-movies">
+            <h1 style={{ marginLeft: "1%" }}>TOP FILMES</h1>
+            {movies.length > 0 ? (
               <ul className='lista'>
                 {movies.map((movie) => (
                   <div key={movie.id} className='card'>
@@ -142,13 +118,11 @@ export function TrendingPage() {
                   </div>
                 ))}
               </ul>
-            ):(
-            <p>{message}</p>
-          )}
+            ) : <p>filmes não encontrados</p>}
+
+
           </section>
-         
-          
-        </Trending>
+        </Topfilmes>
       </div>
     </PageContainer>
   );

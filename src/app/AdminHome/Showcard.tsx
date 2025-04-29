@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, useContext } from 'react';
-import { ThemeContext } from "../../components/ThemeContext/ThemeContext";
+import { ThemeContext } from "../components/ThemeContext/ThemeContext";
 import { CardContainer } from './styles';
 
 

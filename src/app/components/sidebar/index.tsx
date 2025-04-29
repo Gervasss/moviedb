@@ -1,6 +1,7 @@
 "use client";
 import { useContext, } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
+
 import {  IoIosTrendingUp } from "react-icons/io";
 import Sidebutton from './SideButton';
 import { Sidebar } from './styles';
@@ -12,7 +13,7 @@ import { GoSun } from 'react-icons/go';
 import { GiRaiseZombie } from 'react-icons/gi';
 import { IoCalendarNumberOutline } from 'react-icons/io5';
 import { FaRegMoon } from 'react-icons/fa';
-import { Router } from 'next/router';
+
 
 
 
@@ -39,7 +40,7 @@ export function SidebarComponent() {
         <div className="buttons">
          <Sidebutton  icon={<MdSpaceDashboard />} tittle="Dashboard" onClick={() => router.push('/')}  />
           <Sidebutton icon={<GiRaiseZombie />} tittle="Genêros" onClick={() => router.push('/generos')} />
-          <Sidebutton icon={<MdLocalMovies />} tittle="Top filmes" onClick={() => router.push('/topfilmes')} />
+          <Sidebutton icon={<MdLocalMovies />} tittle="Top filmes" onClick={() => router.push('/topFilmes')} />
           <Sidebutton icon={<IoIosTrendingUp/>}  tittle="Trending" onClick={() => router.push('/trending')} />
         </div>
        </section>

@@ -1,1 +1,0 @@
-export const SIDE_PAGE = 'SIDE_PAGE';

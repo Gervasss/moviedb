@@ -2,20 +2,23 @@
 
 import  { useContext } from 'react';
 import {  AiOutlineSearch } from 'react-icons/ai';
-import { PageContainer} from '../../components/PageContainer';
-import   '../../services/api';
+import { PageContainer} from '../components/PageContainer';
+import   '../services/api';
 import { ShowCard } from './Showcard';
 import { TopContainer } from './styles';
-import './styles.css';
-import { useRouter } from 'next/router';
-import { SidebarComponent } from '../../components/sidebar/index';
+import { useRouter } from 'next/navigation';
+
+import { SidebarComponent } from '../components/sidebar/index';
 import { MdLocalMovies} from "react-icons/md";
 import { IoIosTrendingUp } from 'react-icons/io';
-import { ThemeContext } from "../../components/ThemeContext/ThemeContext";
+import { ThemeContext } from "../components/ThemeContext/ThemeContext";
 import { GiRaiseZombie } from 'react-icons/gi';
 import { IoCalendarNumberOutline } from 'react-icons/io5';
 
-export function AdminHome() {
+
+
+
+export  function AdminHome() {
   const router = useRouter();
 
   const themeContext = useContext(ThemeContext);

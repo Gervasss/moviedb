@@ -1,20 +1,19 @@
 "use client";
 
 import { useContext, useEffect, useState } from 'react';
-import { PageContainer } from '../../components/PageContainer';
-import { SidebarComponent } from '../../components/sidebar';
+import { PageContainer } from '../components/PageContainer';
+import { SidebarComponent } from '../components/sidebar';
 import './styles.css';;
-import { ThemeContext } from "../../components/ThemeContext/ThemeContext";
+import { ThemeContext } from "../components/ThemeContext/ThemeContext";
 
-import { getTopRatedMovies, getGenres } from '../../services/api';
-import { Genre, Movie } from '../../types/types';
+import { getTopRatedMovies, getGenres } from '../services/api';
+import { Genre, Movie } from '../types/types';
 import { Generos } from './styles';
 
 
 
 
-
-export function GenerosPage() {
+export  default function GenerosPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [genres, setGenres] = useState<Genre[]>([]);
   const [genreAverages, setGenreAverages] = useState<{ [key: string]: number }>({});
@@ -75,12 +74,7 @@ export function GenerosPage() {
          setGenreAverages(averages);
       };
 
-      useEffect(() => {
-        if(movies.length > 0) {
-            calculateGenreAverages();
-        }
-        
-      })
+    
       
       const calculateGenreMovies= () :void=> {
         const genreMovies: { [key: string]: number } = {};
@@ -97,13 +91,13 @@ export function GenerosPage() {
          setGenreMovies(genreMovies);
       };
 
-      
       useEffect(() => {
-        if(movies.length>0){
+        if(genres.length > 0) {
+            calculateGenreAverages();
             calculateGenreMovies();
         }
-       
-      })
+        
+      },[movies,genres]);
       
     
   return (

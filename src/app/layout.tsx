@@ -1,19 +1,19 @@
-import './globals.css';
-import { Providers } from './providers';
+import './globals.css'
+import { Providers } from './app'
 
 export const metadata = {
   title: 'MovieDB',
-  description: 'App de filmes com Next.js',
-};
+  description: '...',
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="en">
       <body>
         <Providers>
           {children}
         </Providers>
       </body>
     </html>
-  );
+  )
 }
