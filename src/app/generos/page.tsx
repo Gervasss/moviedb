@@ -50,8 +50,17 @@ export  default function GenerosPage() {
         setMovies(allMovies);
         localStorage.setItem('topRatedMovies', JSON.stringify(allMovies));
       }
-      const genresList = await getGenres();
-      setGenres(genresList);
+
+      const storedGenres = localStorage.getItem('Genres');
+      if (storedGenres) {
+        setGenres(JSON.parse(storedGenres));
+      } else{
+        const genresList = await getGenres();
+        setGenres(genresList);
+        localStorage.setItem('Genres', JSON.stringify(genresList));
+      }
+      
+      
     };
 
     fetchData();

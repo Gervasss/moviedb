@@ -57,7 +57,7 @@ export  default function TopfilmesPage() {
 
 
 
-  const formatDate = (date: string): string => {
+  const formatDate = (date:string) => {
     const year = new Date(date).getFullYear();
     return `${year}`;
   };

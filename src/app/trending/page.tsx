@@ -21,6 +21,8 @@ export  default function TrendingPage() {
   const [message, setMessage] = useState<string>('');
   const [ShowMovies, setshowMovies] = useState(false);
   const [totalMovies, setTotalMovies] = useState<number>(0);
+  const [TrendingMovies, setTrendingMovies] = useState<Movie[]>([])
+
 
 
 
@@ -33,47 +35,50 @@ export  default function TrendingPage() {
   }
   const { darkMode } = themeContext;
 
-
- useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
-      
-        let allMovies: Movie[] = [];
-        for (let page = 1; page <= 13; page++) {
-            const result = await getTopRatedMovies(page);
-            allMovies = [...allMovies, ...result];
-          }
-       allMovies = allMovies.slice(0, 250);
-       setTopMovies(allMovies)
-
-
+      let allMovies: Movie[] = [];
+      for (let page = 1; page <= 13; page++) {
+        const result = await getTopRatedMovies(page);
+        allMovies = [...allMovies, ...result];
+      }
+      allMovies = allMovies.slice(0, 250);
+      setTopMovies(allMovies);
+  
       const genresList = await getGenres();
       setGenres(genresList);
-
-      const trendingMovies = await getTrendingMovies();
+   //metódo para fazer a chamada dos filmes que estão em trending nas primeiras 20 páginas 
+      let trendingMovies: Movie[] = [];
+      for (let page = 1; page <= 20; page++) {
+        const result = await getTrendingMovies();
+        trendingMovies = [...trendingMovies, ...result];
+      }
       setMovies(trendingMovies);
-    };
-
-     
-    const TrendingTopRatedMovies=TopMovies.filter(movie =>
-      movies.some(topRated => topRated.id === movie.id)
-      
-    );
-    const totalTrending = TrendingTopRatedMovies.length;
-    setTotalMovies(totalTrending);
+     //metódo para verificar se exitem filmes do toprated em trending e quantos são
+      const TrendingTopRatedMovies = trendingMovies.filter(movie =>
+        allMovies.some(topMovie => topMovie.id === movie.id)
+      );
   
-    if (TrendingTopRatedMovies.length > 0) {
-      setshowMovies(true);
-    } else {
-      setMessage('Nenhum filme no trending');
-    }
+      setTotalMovies(TrendingTopRatedMovies.length);
+      setTrendingMovies(TrendingTopRatedMovies);
+  
+      if (TrendingTopRatedMovies.length > 0) {
+        setshowMovies(true);
+      } else {
+        setMessage('Nenhum filme no trending');
+      }
 
-   
+  //metódo para que não seja mostrado os filmes de forma duplicada
+      const uniqueMovies = trendingMovies.filter(
+        (value, index, self) => index === self.findIndex((t) => t.id === value.id)
+      );
+
+      setMovies(uniqueMovies)
+
+    };
   
     fetchData();
   }, []);
-
-
- 
 
 
   
