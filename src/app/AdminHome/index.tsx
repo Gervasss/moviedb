@@ -50,7 +50,7 @@ export  function AdminHome() {
       </TopContainer>
       <div className='dash' >                   
         <ShowCard title="Genêros"  icon={<GiRaiseZombie  onClick={() => router.push('/generos')} style={{ cursor: "pointer" }} />} />
-        <ShowCard title="Top Filmes"  icon={<MdLocalMovies  onClick={() => router.push('/topfilmes')} style={{ cursor: "pointer" }} />} />
+        <ShowCard title="Top Filmes"  icon={<MdLocalMovies  onClick={() => router.push('/topFilmes')} style={{ cursor: "pointer" }} />} />
         <ShowCard title="Trending"  icon={<IoIosTrendingUp   onClick={() => router.push('/trending')} style={{ cursor: "pointer" }} />} />   
       </div>
       
