@@ -38,7 +38,7 @@ export default function TrendingPage() {
       
       let trendingMovies: Movie[] = [];
       for (let page = 1; page <= 20; page++) {
-        const result = await getTrendingMovies(page); // <- Adiciona suporte a páginas
+        const result = await getTrendingMovies(page); 
         trendingMovies = [...trendingMovies, ...result];
       }
 
@@ -47,7 +47,7 @@ export default function TrendingPage() {
         (value, index, self) => index === self.findIndex((t) => t.id === value.id)
       );
 
-      // Verifica quais trending estão no topRated
+      // Verifica quais dos top-rated  estao nos trending
       const intersection = uniqueTrending.filter(movie =>
         topRatedMovies.some(topMovie => topMovie.id === movie.id)
       );
