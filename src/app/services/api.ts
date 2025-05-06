@@ -24,8 +24,10 @@ export const getGenres = async (): Promise<Genre[]> => {
 };
 
 // Trending Movies
-export const getTrendingMovies = async (): Promise<Movie[]> => {
-  const response: AxiosResponse<{ results: Movie[] }> = await api.get('/trending/movie/week');
+export const getTrendingMovies = async (page:number): Promise<Movie[]> => {
+  const response: AxiosResponse<{ results: Movie[] }> = await api.get('/trending/movie/week',{
+    params: { page }
+  });
   return response.data.results;
 };
 

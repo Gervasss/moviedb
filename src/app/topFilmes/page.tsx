@@ -6,7 +6,7 @@ import { SidebarComponent } from '../components/sidebar';
 import './styles.css';;
 import { ThemeContext } from "../components/ThemeContext/ThemeContext";
 import { Topfilmes } from './styles';
-import { getTopRatedMovies, getGenres, getTrendingMovies } from '../services/api';
+import { getTopRatedMovies, getGenres} from '../services/api';
 import { Genre, Movie } from '../types/types';
 
 
@@ -16,7 +16,7 @@ import { Genre, Movie } from '../types/types';
 export  default function TopfilmesPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [genres, setGenres] = useState<Genre[]>([]);
-  const [years, setYears] = useState<number[]>([]);
+ 
 
 
 
