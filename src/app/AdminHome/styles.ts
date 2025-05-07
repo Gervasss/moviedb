@@ -1,11 +1,16 @@
 import styled from '@emotion/styled';
 
+
 type TopContainerProps = {
   darkMode: boolean;  
 };
 type CardContainerProps = {
   darkMode: boolean;  
 };
+
+
+
+
 export const TopContainer = styled.div<TopContainerProps>`
   width: 100%;
   height: 0.4%;

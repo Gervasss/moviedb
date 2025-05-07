@@ -5,7 +5,7 @@ import { PageContainer } from '../components/PageContainer';
 import { SidebarComponent } from '../components/sidebar';
 import './styles.css';;
 import { ThemeContext } from "../components/ThemeContext/ThemeContext";
-import { Topfilmes } from './styles';
+import { Spinner, Topfilmes } from './styles';
 import { getTopRatedMovies, getGenres} from '../services/api';
 import { Genre, Movie } from '../types/types';
 
@@ -16,6 +16,7 @@ import { Genre, Movie } from '../types/types';
 export  default function TopfilmesClient() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [genres, setGenres] = useState<Genre[]>([]);
+  const [loading, setLoading] = useState(false);
  
 
 
@@ -29,6 +30,7 @@ export  default function TopfilmesClient() {
   const { darkMode } = themeContext;
 
   useEffect(() => {
+    setLoading(true);
     const fetchData = async () => {
       const storedMovies = localStorage.getItem('topRatedMovies');
       if (storedMovies) {
@@ -51,7 +53,9 @@ export  default function TopfilmesClient() {
       const genresList = await getGenres();
       setGenres(genresList);
     };
-
+    setTimeout(() => {
+      setLoading(false);
+    }, 300);
     fetchData();
   }, []);
 
@@ -88,42 +92,52 @@ export  default function TopfilmesClient() {
     return genreNames.join(', ');
   };
 
-
+//no .map foi usando a combinação de movie.id com o index do filme ,pois estava dando conflito e indicando q existiam filmes que em algum momento 
+//possuiam o mesmo id ,entao dessa forma mesmo que tenha filmes com mesmo id a combinação com o index será única
 
   return (
     <PageContainer padding="0px" darkMode={darkMode}>
-      <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>
-        <SidebarComponent />
-      </div>
-      <div className="content-1">
-        <Topfilmes darkMode={darkMode}>
-          <section className="cadastro-1-movies">
-            <h1 style={{ marginLeft: "1%" }}>TOP FILMES</h1>
-            {movies.length > 0 ? (
-              <ul className='lista'>
-                {movies.map((movie) => (
-                  <div key={movie.id} className='card'>
-                    <div>
-                      <img
-                        className='poster'
-                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                        alt={movie.title}
-
-                      />
-                      <h3>{movie.title}</h3>
-                      <p className='nota'>Nota: {movie.vote_average?.toFixed(2)}</p>
-                      <p className='genero'>Gêneros: {getGenreNames(movie.genre_ids)}</p>
-                      <p className='lancamento'>Lançamento: {formatDate(movie.release_date)} </p>
-                    </div>
-                  </div>
-                ))}
-              </ul>
-            ) : <p>filmes não encontrados</p>}
-
-
-          </section>
-        </Topfilmes>
-      </div>
+      {loading && (
+        <div className="modal-overlay">
+          <Spinner />
+        </div>
+      )}
+      {!loading && (
+        <>
+          <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>
+            <SidebarComponent />
+          </div>
+          <div className="content-1">
+            <Topfilmes darkMode={darkMode}>
+              <section className="cadastro-1-movies">
+                <h1 style={{ marginLeft: "1%" }}>TOP FILMES</h1>
+                {movies.length > 0 ? (
+                  <ul className='lista'>
+                    {movies.map((movie,index) => (
+                      <div key={`${movie.id}-${index}`} className='card'>
+                        <div>
+                          <img
+                            className='poster'
+                            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                            alt={movie.title}
+                          />
+                          <h3>{movie.title}</h3>
+                          <p className='nota'>Nota: {movie.vote_average?.toFixed(2)}</p>
+                          <p className='genero'>Gêneros: {getGenreNames(movie.genre_ids)}</p>
+                          <p className='lancamento'>Lançamento: {formatDate(movie.release_date)}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>Filmes não encontrados</p>
+                )}
+              </section>
+            </Topfilmes>
+          </div>
+        </>
+      )}
     </PageContainer>
   );
 }
+

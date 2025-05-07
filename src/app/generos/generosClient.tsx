@@ -9,6 +9,7 @@ import { ThemeContext } from "../components/ThemeContext/ThemeContext";
 import { getTopRatedMovies, getGenres } from '../services/api';
 import { Genre, Movie } from '../types/types';
 import { Generos } from './styles';
+import { Spinner } from '../topFilmes/styles';
 
 
 
@@ -18,7 +19,7 @@ export  default function GenerosClient() {
   const [genres, setGenres] = useState<Genre[]>([]);
   const [genreAverages, setGenreAverages] = useState<{ [key: string]: number }>({});
   const [genreMovies, setGenreMovies] = useState<{ [key: string]: number }>({});
-
+  const [loading, setLoading] = useState(false);
 
 
 
@@ -30,6 +31,7 @@ export  default function GenerosClient() {
   const { darkMode } = themeContext;
 
   useEffect(() => {
+    setLoading(true);
     const fetchData = async () => {
       const storedMovies = localStorage.getItem('topRatedMovies');
       
@@ -59,10 +61,10 @@ export  default function GenerosClient() {
         setGenres(genresList);
         localStorage.setItem('Genres', JSON.stringify(genresList));
       }
-      
-      
     };
-
+    setTimeout(() => {
+      setLoading(false);
+    }, 300);
     fetchData();
   }, []);
 
@@ -111,6 +113,13 @@ export  default function GenerosClient() {
     
   return (
     <PageContainer padding="0px" darkMode={darkMode}>
+       {loading && (
+              <div className="modal-overlay">
+                <Spinner />
+              </div>
+            )}
+            {!loading && (
+        <>
       <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>
         <SidebarComponent />
       </div>
@@ -118,18 +127,14 @@ export  default function GenerosClient() {
         <Generos darkMode={darkMode}>
           <section className="cadastro-1-movies">
             <h1 style={{ marginLeft: "1%" }}>Gêneros</h1>
-          
             {genres.length > 0 ? (
               <ul className='lista-genero'>
                 {genres.map((genre) => (
                   <div key={genre.id} className='card'>
-                    
                     <div>
                       <h3 className='genero'>{genre.name}</h3>
                       <p>Média : {genreAverages[genre.name]?.toFixed(2)} </p>
                       <p>Total de Filmes: {genreMovies[genre.name]} </p>
-                      
-                 
                     </div>
                   </div>
                 ))}
@@ -139,6 +144,8 @@ export  default function GenerosClient() {
           </section>
         </Generos>
       </div>
+      </>
+      )}
     </PageContainer>
   );
 }

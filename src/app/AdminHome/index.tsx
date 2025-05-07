@@ -1,11 +1,11 @@
 "use client";
 
-import  { useContext } from 'react';
+import  { useContext, useEffect, useState } from 'react';
 import {  AiOutlineSearch } from 'react-icons/ai';
 import { PageContainer} from '../components/PageContainer';
 import   '../services/api';
 import { ShowCard } from './Showcard';
-import { TopContainer } from './styles';
+import {  TopContainer } from './styles';
 import { useRouter } from 'next/navigation';
 
 import { SidebarComponent } from '../components/sidebar/index';
@@ -21,6 +21,7 @@ import { IoCalendarNumberOutline } from 'react-icons/io5';
 export  function AdminHome() {
   const router = useRouter();
 
+
   const themeContext = useContext(ThemeContext);
 
   if (!themeContext) {
@@ -29,14 +30,13 @@ export  function AdminHome() {
 
   const { darkMode } = themeContext;
   
-  
 
-
-
+ 
 
 
   return (
     <PageContainer className='admin' padding="0px"  darkMode={darkMode} >
+     
      <div style={{height:"90%",width:"94.8%",marginTop:"10px",marginLeft:"10px"}}>
         <SidebarComponent  />
         </div>

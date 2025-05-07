@@ -4,7 +4,7 @@ import { PageContainer } from '../components/PageContainer';
 import { SidebarComponent } from '../components/sidebar';
 import './styles.css';
 import { ThemeContext } from "../components/ThemeContext/ThemeContext";
-import { Trending } from './styles';
+import { Spinner, Trending } from './styles';
 import { getTrendingMovies, getGenres, getTopRatedMovies } from '../services/api';
 import { Genre, Movie } from '../types/types';
 
@@ -15,6 +15,8 @@ export default function TrendingClient() {
   const [TrendingTopRatedMovies, setTrendingTopRatedMovies] = useState<Movie[]>([]);
   const [message, setMessage] = useState<string>('');
   const [showMovies, setShowMovies] = useState(false);
+  const [loading, setLoading] = useState(false);
+
 
   const themeContext = useContext(ThemeContext);
   if (!themeContext) {
@@ -23,6 +25,7 @@ export default function TrendingClient() {
   const { darkMode } = themeContext;
 
   useEffect(() => {
+    setLoading(true);
     const fetchData = async () => {
       let topRatedMovies: Movie[] = [];
       for (let page = 1; page <= 13; page++) {
@@ -62,6 +65,10 @@ export default function TrendingClient() {
       }
     };
 
+    setTimeout(() => {
+      setLoading(false);
+    }, 300);
+
     fetchData();
   }, []);
 
@@ -80,6 +87,13 @@ export default function TrendingClient() {
 
   return (
     <PageContainer padding="0px" darkMode={darkMode}>
+      {loading && (
+              <div className="modal-overlay">
+                <Spinner />
+              </div>
+            )}
+            {!loading && (
+        <>
       <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>
         <SidebarComponent />
       </div>
@@ -112,6 +126,8 @@ export default function TrendingClient() {
           </section>
         </Trending>
       </div>
+      </>
+      )}
     </PageContainer>
   );
 }
