@@ -5,7 +5,7 @@ import { PageContainer } from '../components/PageContainer';
 import { SidebarComponent } from '../components/sidebar';
 import './styles.css';;
 import { ThemeContext } from "../components/ThemeContext/ThemeContext";
-import { Spinner, Topfilmes } from './styles';
+import {  Topfilmes } from './styles';
 import { getTopRatedMovies, getGenres} from '../services/api';
 import { Genre, Movie } from '../types/types';
 
@@ -97,13 +97,7 @@ export  default function TopfilmesClient() {
 
   return (
     <PageContainer padding="0px" darkMode={darkMode}>
-      {loading && (
-        <div className="modal-overlay">
-          <Spinner />
-        </div>
-      )}
-      {!loading && (
-        <>
+     
           <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>
             <SidebarComponent />
           </div>
@@ -111,6 +105,13 @@ export  default function TopfilmesClient() {
             <Topfilmes darkMode={darkMode}>
               <section className="cadastro-1-movies">
                 <h1 style={{ marginLeft: "1%" }}>TOP FILMES</h1>
+                {loading && (
+              <div className="modal-overlay">
+                <h3>Carregando...</h3>
+              </div>
+            )}
+            {!loading && (
+            <>
                 {movies.length > 0 ? (
                   <ul className='lista'>
                     {movies.map((movie,index) => (
@@ -131,12 +132,13 @@ export  default function TopfilmesClient() {
                   </ul>
                 ) : (
                   <p>Filmes não encontrados</p>
-                )}
+                )}  
+                </>
+              )}
               </section>
             </Topfilmes>
           </div>
-        </>
-      )}
+      
     </PageContainer>
   );
 }

@@ -4,7 +4,7 @@ import { PageContainer } from '../components/PageContainer';
 import { SidebarComponent } from '../components/sidebar';
 import './styles.css';
 import { ThemeContext } from "../components/ThemeContext/ThemeContext";
-import { Spinner, Trending } from './styles';
+import {  Trending } from './styles';
 import { getTrendingMovies, getGenres, getTopRatedMovies } from '../services/api';
 import { Genre, Movie } from '../types/types';
 
@@ -87,13 +87,8 @@ export default function TrendingClient() {
 
   return (
     <PageContainer padding="0px" darkMode={darkMode}>
-      {loading && (
-              <div className="modal-overlay">
-                <Spinner />
-              </div>
-            )}
-            {!loading && (
-        <>
+    
+         
       <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>
         <SidebarComponent />
       </div>
@@ -101,6 +96,13 @@ export default function TrendingClient() {
         <Trending darkMode={darkMode}>
           <section className="cadastro-1-movies">
             <h1 style={{ marginLeft: "1%" }}>Trending Filmes </h1>
+            {loading && (
+              <div className="modal-overlay">
+                <h3>Carregando...</h3>
+              </div>
+            )}
+            {!loading && (
+            <>
             <h5> {totalMovies} Filmes </h5>
             {showMovies ? (
               <ul className='lista'>
@@ -123,11 +125,11 @@ export default function TrendingClient() {
             ) : (
               <p>{message}</p>
             )}
+              </>
+             )}
           </section>
         </Trending>
       </div>
-      </>
-      )}
     </PageContainer>
   );
 }

@@ -5,11 +5,10 @@ import { PageContainer } from '../components/PageContainer';
 import { SidebarComponent } from '../components/sidebar';
 import './styles.css';;
 import { ThemeContext } from "../components/ThemeContext/ThemeContext";
-
 import { getTopRatedMovies, getGenres } from '../services/api';
 import { Genre, Movie } from '../types/types';
 import { Generos } from './styles';
-import { Spinner } from '../topFilmes/styles';
+
 
 
 
@@ -113,13 +112,6 @@ export  default function GenerosClient() {
     
   return (
     <PageContainer padding="0px" darkMode={darkMode}>
-       {loading && (
-              <div className="modal-overlay">
-                <Spinner />
-              </div>
-            )}
-            {!loading && (
-        <>
       <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>
         <SidebarComponent />
       </div>
@@ -127,6 +119,13 @@ export  default function GenerosClient() {
         <Generos darkMode={darkMode}>
           <section className="cadastro-1-movies">
             <h1 style={{ marginLeft: "1%" }}>Gêneros</h1>
+            {loading && (
+              <div className="modal-overlay">
+                <h3>Carregando...</h3>
+              </div>
+            )}
+            {!loading && (
+            <>
             {genres.length > 0 ? (
               <ul className='lista-genero'>
                 {genres.map((genre) => (
@@ -140,12 +139,12 @@ export  default function GenerosClient() {
                 ))}
               </ul>
             ) : <p>Genêros não encontrados</p>}
-
+               </>
+              )}
           </section>
         </Generos>
       </div>
-      </>
-      )}
+     
     </PageContainer>
   );
 }
