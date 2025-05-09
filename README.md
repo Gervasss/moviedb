@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Documentação moviedb
+## Descrição 
 
-## Getting Started
+o miviedb é uma aplicação desenvolvida para busca e visualização de gêneros e filmes que estão melhores ranqueados por nota ou por apelo popular.Ela é contruída
+utilizando Typescript com react + Nextjs.
+## Paginação
+ A aplicação possui 4 páginas principais ,sendo elas,a página inicial ,a página de gêneros,página dos filmes melhores ranqueados (top filmes) e a página que contém os top filmes que estão em alta .
 
-First, run the development server:
+ ## Frontend 
+ O projeto é composto inteiramente desenvolvido no seu frontend com requisições a APIs externas .
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+ ## Estrutura do Frontend
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ **src/app**:Pasta onde contém praticamente toda a estrutura da aplicação,com as principais pastas do projeto.
+  ![Alt text](./Documentation/images/img-2.png)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+ **Services**:Esta pasta contém o arquivo api.ts onde são feitas a conexão com a API e suas requisições ,essas últimas feitas através dos endpoints.
+ ![Alt text](./Documentation/images/img-1.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ **Types**:Pasta onde contém as tipagens personalizadas da aplicação,ela possui declarações de tipos e interfaces.
+ ![Alt text](./Documentation/images/img-3.png)
 
-## Learn More
+ **Components**:Nessa pasta estao os componentes que são compartilhados por outras partes da aplicação.Temos o ThemeContext que é onde estão as copnfigurações 
+ para o uso do modo escuro nas páginas,temos também o sidebar que é usado para a navegação das páginas e ativação do modo escuro e por último temos o Pagecontainer que é a estilização padrão das páginas.
+![Alt text](./Documentation/images/img-4.png)
 
-To learn more about Next.js, take a look at the following resources:
+**generos**:A pasta contém a página de gêneros, cuja função é listar e mostrar os gêneros dos 250 filmes mais populares filtrados na aplicação, além de contabilizar a quantidade desses filmes presentes em cada gênero.
+![Alt text](./Documentation/images/img-5.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**topFilmes**:A pasta contém a página dos top 250 filmes com maiores notas ,cuja a função é listar e mostrar os 250 filmes com maiores notas e seus dados ,que vão de ano de lançamento a gêneros.
+![Alt text](./Documentation/images/img-6.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**trending**:É a pasta onde está contida a página que filtra quais dos filmes do topfilmes  estão nos trending ,além de lista-los ,motra-los e contabiliziar quantos são.
+![Alt text](./Documentation/images/img.png)
 
-## Deploy on Vercel
+## GPT
+Abaixo deixarei em anexo as imagens com os prompts e as funções fornecidas pelo chatGPT que forma utilizadas nessa aplicação(todas em ordem ).
+![Alt text](./Documentation/images/pergunta-genero-id.png)
+![Alt text](./Documentation/images/metodo-genero-por-id.png)
+![Alt text](./Documentation/images/pergunta-tirar-duplicada.png)
+![Alt text](./Documentation/images/metodo-retirar-duplicada.png)
+![Alt text](./Documentation/images/pergunta-calcular-media.png)
+![Alt text](./Documentation/images/metodo-para-calcular-a-media.png)
+![Alt text](./Documentation/images/pergunta-relembrando.png)
+![Alt text](./Documentation/images/relembrando-metodos.png)
+![Alt text](./Documentation/images/apresentação.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
