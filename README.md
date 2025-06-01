@@ -1,8 +1,6 @@
 # Documentação moviedb
 ## Descrição 
-o miviedb é uma aplicação desenvolvida para busca e visualização de gêneros e filmes que estão melhores ranqueados por nota ou por apelo popular.Ela é contruída
-utilizando Typescript com react + Nextjs.
-S
+MovieDB é uma aplicação desenvolvida para facilitar a busca e a visualização de filmes e gêneros mais bem ranqueados, seja por nota ou por popularidade. Construída com TypeScript, a aplicação utiliza React em conjunto com o framework Next.js, oferecendo uma experiência moderna, rápida e intuitiva ao usuário.
 ## Paginação
  A aplicação possui 4 páginas principais ,sendo elas,a página inicial ,a página de gêneros,página dos filmes melhores ranqueados (top filmes) e a página que contém os top filmes que estão em alta .
 
