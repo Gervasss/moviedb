@@ -5,7 +5,7 @@ MovieDB é uma aplicação desenvolvida para facilitar a busca e a visualizaçã
  A A aplicação conta com quatro páginas principais: a página inicial, a página de gêneros, a página dos filmes mais bem ranqueados (Top Filmes) e a página que exibe os filmes em alta no momento (Trending).
 
  ## Frontend 
- O projeto é composto inteiramente desenvolvido no seu frontend com requisições a APIs externas .
+ O projeto é composto exclusivamente por um frontend, desenvolvido integralmente com chamadas a APIs externas para a obtenção e exibição dos dados.
 
  ## Estrutura do Frontend
 
