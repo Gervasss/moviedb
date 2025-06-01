@@ -12,7 +12,7 @@ MovieDB é uma aplicação desenvolvida para facilitar a busca e a visualizaçã
  **src/app**:Pasta onde contém praticamente toda a estrutura da aplicação,com as principais pastas do projeto.
   ![Alt text](./Documentation/images/img-2.png)
 
- **Services**:Esta pasta contém o arquivo api.ts onde são feitas a conexão com a API e suas requisições ,essas últimas feitas através dos endpoints.
+ **Services**:Esta pasta contém o arquivo api.ts, responsável pela configuração da conexão com a API e pela definição das requisições, que são realizadas por meio dos endpoints disponibilizados.
  ![Alt text](./Documentation/images/img-1.png)
 
  **Types**:Pasta onde contém as tipagens personalizadas da aplicação,ela possui declarações de tipos e interfaces.
