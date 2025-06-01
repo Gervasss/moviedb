@@ -2,7 +2,7 @@
 ## Descrição 
 MovieDB é uma aplicação desenvolvida para facilitar a busca e a visualização de filmes e gêneros mais bem ranqueados, seja por nota ou por popularidade. Construída com TypeScript, a aplicação utiliza React em conjunto com o framework Next.js, oferecendo uma experiência moderna, rápida e intuitiva ao usuário.
 ## Paginação
- A aplicação possui 4 páginas principais ,sendo elas,a página inicial ,a página de gêneros,página dos filmes melhores ranqueados (top filmes) e a página que contém os top filmes que estão em alta .
+ A A aplicação conta com quatro páginas principais: a página inicial, a página de gêneros, a página dos filmes mais bem ranqueados (Top Filmes) e a página que exibe os filmes em alta no momento (Trending).
 
  ## Frontend 
  O projeto é composto inteiramente desenvolvido no seu frontend com requisições a APIs externas .
