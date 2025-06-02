@@ -31,7 +31,7 @@ MovieDB é uma aplicação desenvolvida para facilitar a busca e a visualizaçã
 ![Alt text](./Documentation/images/img.png)
 
 ## GPT
-Abaixo deixarei em anexo as imagens com os prompts e as funções fornecidas pelo chatGPT que forma utilizadas nessa aplicação(todas em ordem ).
+Abaixo deixarei em anexo as imagens com os prompts e as funções fornecidas pelo chatGPT que foram utilizadas nessa aplicação(todas em ordem ).
 ![Alt text](./Documentation/images/pergunta-genero-id.png)
 ![Alt text](./Documentation/images/metodo-genero-por-id.png)
 ![Alt text](./Documentation/images/pergunta-tirar-duplicada.png)

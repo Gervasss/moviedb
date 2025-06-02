@@ -4,9 +4,7 @@
     @media  (max-width: 1920px) and (max-height: 1080px) {
     
     
-     .poster{
-      margin-left:-0.8%;
-     }
+    
      
      .lista{
       padding: 100px;
@@ -53,9 +51,7 @@
      
     @media  (max-width: 1680px) and (max-height: 1050px) {
     
-      .poster{
-        margin-left:-0.6%;
-       }
+    
        
   
        .lista{
@@ -105,9 +101,7 @@
      
     @media  (max-width: 1600px) and (max-height: 1024px) {
 
-      .poster{
-        margin-left:-0.6%;
-       }
+      
        
        .card{
         height: 60%;
@@ -160,10 +154,7 @@
         padding: 60px;
      }
      
-       .poster{
-        margin-left:-0.8%;
-       }
-       
+      
        .card{
         height: 70%;
        }
@@ -207,10 +198,7 @@
      
     @media  (max-width: 1440px) and (max-height: 1080px) {
     
-      .poster{
-        margin-left:-0.6%;
-       }
-       
+    
        .lista{
         padding: 120px;
      }
@@ -263,10 +251,7 @@
       .lista{
         padding:100px;
      }
-       .poster{
-        margin-left:-0.9%;
-       }
-       
+      
        .card{
         height: 80%;
        }
@@ -310,9 +295,7 @@
     
     @media  (max-width: 1360px) and (max-height: 768px) {
     
-      .poster{
-        margin-left:-0.8%;
-       }
+     
        
        .card{
         height: 80%;

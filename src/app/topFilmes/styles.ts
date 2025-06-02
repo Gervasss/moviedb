@@ -46,14 +46,18 @@ export const Topfilmes = styled.div<TopfilmesProps>`
      .card {
       border: 2px solid #000;
       margin-top:-5%;
+      height: 90%;
+      min-width: 200px;   
+      width: 80%;    
       margin: 10px;
       display: flex;
+      padding:8px;
       background-color:${({ darkMode }) => (darkMode ? '#2c2c2c' : '#fff')};
       border-radius:10px;
       box-shadow:${({ darkMode }) => (darkMode ? '10px 10px 1rem #2c2c2c' : '10px 10px 1rem #ccc')};
       flex-direction: column;
-      justify-content: center;
-      margin-bottom: 3%;
+      justify-content: flex-start;
+      margin-bottom: 0%;
       transition: 0.3s;
       &:hover {
         transform: scale(1.06);
@@ -62,13 +66,14 @@ export const Topfilmes = styled.div<TopfilmesProps>`
          h3{
         margin-left:5px;
         margin-top:-1%;
+       
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       }
 
       p{
         margin-left:5px;     
        padding:-30%; 
-      }
+             }
 
       .nota{
       
@@ -77,19 +82,21 @@ export const Topfilmes = styled.div<TopfilmesProps>`
       }
 
        .poster{
-      width:100%;
-      height:40%;
-      border: 2px solid #000;
-     box-shadow:${({ darkMode }) => (darkMode ? '10px 10px 1rem #2c2c2c' : '10px 10px 1rem #ccc')};
-     border-top-left-radius: 10px;  
-     border-top-right-radius: 10px;
+     width: 100%;
+      border-top-left-radius: 10px; 
+      border-top-right-radius: 10px;
+       border-bottom-left-radius: 10px; 
+      border-bottom-right-radius: 10px;
+      height: 220px;             
+      object-fit: contein;   
+      object-position: 50% 10%;  
     }
       
     }
      .lista {
       margin-left:1%;
       display: grid;
-      grid-template-columns: repeat(5, 1fr); 
+      grid-template-columns: repeat(4, 1fr); 
       gap: 1px; 
       min-height: 70%; 
       height: 100%; 

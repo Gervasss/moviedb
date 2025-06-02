@@ -12,7 +12,9 @@ const api = axios.create({
 // Top Rated Movies
 export const getTopRatedMovies = async (page: number): Promise<Movie[]> => {
   const response: AxiosResponse<{ results: Movie[] }> = await api.get(`/movie/top_rated`, {
-    params: { page }
+    params: { page,
+       language: 'pt-BR',
+     }
   });
   return response.data.results;
 };
