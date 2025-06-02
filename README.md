@@ -18,8 +18,7 @@ MovieDB é uma aplicação desenvolvida para facilitar a busca e a visualizaçã
  **Types**:Pasta onde contém as tipagens personalizadas da aplicação,ela possui declarações de tipos e interfaces.
  ![Alt text](./Documentation/images/img-3.png)
 
- **Components**:Nessa pasta estao os componentes que são compartilhados por outras partes da aplicação.Temos o ThemeContext que é onde estão as copnfigurações 
- para o uso do modo escuro nas páginas,temos também o sidebar que é usado para a navegação das páginas e ativação do modo escuro e por último temos o Pagecontainer que é a estilização padrão das páginas.
+ **Components**:Nesta pasta estão localizados os componentes compartilhados entre diferentes partes da aplicação. Entre eles, o ThemeContext, responsável pelas configurações do modo escuro; o Sidebar, utilizado para navegação entre as páginas e também para ativar o modo escuro; e o PageContainer, que define a estilização padrão das páginas.
 ![Alt text](./Documentation/images/img-4.png)
 
 **generos**:A pasta contém a página de gêneros, cuja função é listar e mostrar os gêneros dos 250 filmes mais populares filtrados na aplicação, além de contabilizar a quantidade desses filmes presentes em cada gênero.
