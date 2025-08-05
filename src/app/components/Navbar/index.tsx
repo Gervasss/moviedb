@@ -6,10 +6,7 @@ import { ThemeContext } from "../ThemeContext/ThemeContext";
 import { Navbar } from './styles';
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 import { IoClose, IoMenu } from 'react-icons/io5';
-import { GiRaiseZombie } from 'react-icons/gi';
-import { ShowCard } from '@/app/AdminHome/Showcard';
-import { MdLocalMovies, MdSpaceDashboard } from 'react-icons/md';
-import { IoIosTrendingUp } from 'react-icons/io';
+
 
 
 
@@ -27,7 +24,7 @@ export function NavbarComponent() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-   const navigateAndClose = (path) => {
+   const navigateAndClose = (path:string) => {
     router.push(path);
     setIsMenuOpen(false); // Fecha o menu após a navegação
   };
