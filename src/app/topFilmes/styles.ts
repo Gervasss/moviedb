@@ -46,9 +46,6 @@ export const Topfilmes = styled.div<TopfilmesProps>`
      .card {
       border: 2px solid #000;
       margin-top:-5%;
-      height: 90%;
-      min-width: 200px;   
-      width: 80%;    
       margin: 10px;
       display: flex;
       padding:7px;
