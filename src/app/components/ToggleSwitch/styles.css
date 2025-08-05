@@ -1,0 +1,80 @@
+.toggle-switch-container {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.toggle-switch-checkbox {
+  display: none;
+}
+
+.toggle-switch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 70px; 
+  height: 25px; 
+  background-color: #e9e9e9;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-switch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease;
+}
+
+.toggle-switch-handle {
+  display: block;
+  width: 26px; 
+  height: 26px; 
+  background: white;
+  position: absolute;
+  top: -1%;
+  left: 2px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.toggle-switch-checkbox:checked + .toggle-switch-label {
+  background-color: red;
+}
+
+.toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-handle {
+  transform: translateX(41.8px);
+}
+
+.iconn {
+  font-size: 17px; 
+  color: gray; 
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-top: 4px;
+  margin-left: 5px;
+}
+
+
+.moon-icon {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.sun-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.toggle-switch-checkbox:checked + .toggle-switch-label .sun-icon {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.toggle-switch-checkbox:checked + .toggle-switch-label .moon-icon {
+  opacity: 1;
+  transform: scale(1);
+
+}

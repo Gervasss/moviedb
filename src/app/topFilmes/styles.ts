@@ -51,7 +51,7 @@ export const Topfilmes = styled.div<TopfilmesProps>`
       width: 80%;    
       margin: 10px;
       display: flex;
-      padding:8px;
+      padding:7px;
       background-color:${({ darkMode }) => (darkMode ? '#2c2c2c' : '#fff')};
       border-radius:10px;
       box-shadow:${({ darkMode }) => (darkMode ? '10px 10px 1rem #2c2c2c' : '10px 10px 1rem #ccc')};
@@ -88,8 +88,8 @@ export const Topfilmes = styled.div<TopfilmesProps>`
        border-bottom-left-radius: 10px; 
       border-bottom-right-radius: 10px;
       height: 220px;             
-      object-fit: contein;   
-      object-position: 50% 10%;  
+     
+      
     }
       
     }

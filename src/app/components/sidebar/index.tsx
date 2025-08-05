@@ -1,18 +1,14 @@
 "use client";
 import { useContext, } from 'react';
 import { useRouter } from 'next/navigation';
-
 import {  IoIosTrendingUp } from "react-icons/io";
 import Sidebutton from './SideButton';
 import { Sidebar } from './styles';
 import "./styles.css"
 import { MdLocalMovies, MdSpaceDashboard } from 'react-icons/md';
-
 import { ThemeContext } from "../ThemeContext/ThemeContext";
-import { GoSun } from 'react-icons/go';
 import { GiRaiseZombie } from 'react-icons/gi';
-import { IoCalendarNumberOutline } from 'react-icons/io5';
-import { FaRegMoon } from 'react-icons/fa';
+import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 
 
 
@@ -24,11 +20,8 @@ export function SidebarComponent() {
   if (!themeContext) {
     throw new Error("useContext must be used within a ThemeProvider");
   }
-  const { darkMode, setDarkMode } = themeContext;
+  const { darkMode} = themeContext;
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
 
 
   return (
@@ -45,9 +38,7 @@ export function SidebarComponent() {
         </div>
        </section>
 
-       <div className='switch' onClick={toggleDarkMode} style={{fontSize:"25px"}}>
-        {darkMode ? <FaRegMoon />:<GoSun />}
-      </div>
+       <ToggleSwitch/>
 
     </Sidebar>
   );
