@@ -25,12 +25,12 @@ margin-top: -26%;
 }
 
 .mobile-menu-list h1{
-  font-size: 40px;
+  font-size: 30px;
   
 }
 
 .dash-mobile{
-  margin-top: -60%;
+  margin-top: -170%;
 }
 
 .dash-mobile h1{
@@ -42,25 +42,27 @@ margin-top: -26%;
 }
 
 .menu-toggle{
-  margin-top: 2%;
+  margin-top: 15%;
   cursor: pointer;
+ 
 }
+ 
+
  .mobile-menu-list {
     display: flex;
     position: fixed; 
     top: 0;
     left: 0;
    cursor: pointer;
-    margin-top: 40%;
-    width: 100%;
+    margin-top: 26%;
+    width: 60%;
     height: 100vh; 
-    color: aliceblue;
-    background-color: rgba(0, 0, 0, 0.9);
+    margin-left: 40%;
     transform: translateX(100%); 
     transition: transform 0.3s ease-in-out;
     justify-content: center;
     align-items: center;
-    text-align: center;
+ 
     flex-direction: column;
     z-index: 999; 
   }
