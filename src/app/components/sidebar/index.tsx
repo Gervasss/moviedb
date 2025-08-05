@@ -25,10 +25,10 @@ export function SidebarComponent() {
 
 
   return (
-    <Sidebar darkMode={darkMode}>
+    <Sidebar darkMode={darkMode} >
    <div className="top">
    <h1>Movies db</h1>
-</div>
+   </div>
       <section className="admin-buttons">
         <div className="buttons">
          <Sidebutton  icon={<MdSpaceDashboard />} tittle="Dashboard" onClick={() => router.push('/')}  />

@@ -14,6 +14,7 @@ import { IoIosTrendingUp } from 'react-icons/io';
 import { ThemeContext } from "../components/ThemeContext/ThemeContext";
 import { GiRaiseZombie } from 'react-icons/gi';
 import { IoCalendarNumberOutline } from 'react-icons/io5';
+import { NavbarComponent } from '../components/Navbar';
 
 
 
@@ -37,8 +38,13 @@ export  function AdminHome() {
   return (
     <PageContainer className='admin' padding="0px"  darkMode={darkMode} >
      
-     <div style={{height:"90%",width:"94.8%",marginTop:"10px",marginLeft:"10px"}}>
-        <SidebarComponent  />
+        <div  style={{height:"90%",width:"94.8%",marginTop:"10px",marginLeft:"10px"}}>
+         <div className='desktop-only'>
+          <SidebarComponent  />
+         </div >      
+         </div>
+        <div className='mobile-only'>
+        <NavbarComponent />
         </div>
       <TopContainer  darkMode={darkMode}>
       <div className="right">

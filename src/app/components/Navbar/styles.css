@@ -1,0 +1,133 @@
+
+  
+    
+.Navbar {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  margin-top: -1%;
+  margin-left: -1.4%;
+  height: 10%;
+  width: 98%;
+  padding: 0 20px;
+
+  z-index: 999;
+}
+
+.toggleswitch{
+margin-right: -84%;
+margin-top: -15%;
+
+}
+
+.mobile-menu-list h1{
+  font-size: 40px;
+  
+}
+
+.dash-mobile{
+  margin-top: -60%;
+}
+
+.dash-mobile h1{
+   &:hover {
+      color: red;
+      transition: calc(0.8s);
+      transform: scale(1.2);
+    }
+}
+
+.menu-toggle{
+  margin-top: 2%;
+  cursor: pointer;
+}
+ .mobile-menu-list {
+    display: flex;
+    position: fixed; 
+    top: 0;
+    left: 0;
+   cursor: pointer;
+    margin-top: 25%;
+    width: 100%;
+    height: 100vh; 
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: translateX(100%); 
+    transition: transform 0.3s ease-in-out;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    z-index: 999; 
+  }
+
+   .mobile-menu-list.menu-open {
+    transform: translateX(0);
+  }
+.toggleswitch .menu-toggle{
+  margin-left: 40%;
+}
+.navbarlogo {
+  width: 10%;
+  height: 60px;
+  cursor: pointer;
+}
+
+
+.Navbar img {
+  margin-left: 44px;
+  margin-right: 44px;
+  margin-top: 6px;
+}
+
+.Navbar .NavButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin-right:25% ;
+  
+
+}
+
+  .switch {
+    margin-top: 1%;
+    margin-right: -40%;
+    color: #000;
+    cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+      color: #303b92;
+      transform: scale(1.2);
+    }
+  }
+ 
+  .navtitle{
+    margin-right: -60%;
+    margin-top: 46px;
+    font-size: 2rem;
+  }
+
+
+.Navbar .NavButtons a {
+  text-decoration: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 18px;
+  color: #000;
+  transition: 0.5s;
+  &:hover{
+    transform: scale(1.2);
+    color: #303b92;
+  font-weight: bold;
+  }
+
+
+    
+      }
+      
+
+      
+    
