@@ -91,7 +91,6 @@ export const Topfilmes = styled.div<TopfilmesProps>`
       
     }
      .lista {
-      margin-left:1%;
       display: grid;
     
       gap: 1px; 

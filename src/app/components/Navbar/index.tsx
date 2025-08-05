@@ -46,7 +46,7 @@ export function NavbarComponent() {
             <div className='dash-mobile'>
               <h1 onClick={() => navigateAndClose("/")}>  Dashboard</h1>
               <h1 onClick={() => navigateAndClose("/generos")}>Genêros</h1>
-              <h1 onClick={() => navigateAndClose("/topfilmes")}>Top filmes</h1>
+              <h1 onClick={() => navigateAndClose("/topFilmes")}>Top filmes</h1>
               <h1 onClick={() => navigateAndClose("/trending")}>Trending</h1>
               <div className='toggleswitch'>
                 <ToggleSwitch />

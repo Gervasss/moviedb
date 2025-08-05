@@ -425,6 +425,7 @@
 .card {
     height: 90%;
     width: 130px;  
+ 
       
   }
 
@@ -434,6 +435,7 @@
   .lista {
     padding: 10px;
     grid-template-columns: repeat(2, 1fr);
+    margin-left: 3%;
 
   }
 
