@@ -96,7 +96,7 @@ export const Topfilmes = styled.div<TopfilmesProps>`
      .lista {
       margin-left:1%;
       display: grid;
-      grid-template-columns: repeat(4, 1fr); 
+    
       gap: 1px; 
       min-height: 70%; 
       height: 100%; 

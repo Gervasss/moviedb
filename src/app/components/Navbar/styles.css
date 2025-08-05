@@ -18,19 +18,23 @@
   
 }
 
-.toggleswitch{
-margin-right: -84%;
-margin-top: -26%;
+.dash-mobile .toggleswitch{
+margin-right: -10%;
+margin-top: 280%;
 
 }
 
 .mobile-menu-list h1{
-  font-size: 30px;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 10px;
+ 
   
 }
 
 .dash-mobile{
-  margin-top: -170%;
+  margin-top:-90%;
+  
 }
 
 .dash-mobile h1{
@@ -42,7 +46,8 @@ margin-top: -26%;
 }
 
 .menu-toggle{
-  margin-top: 15%;
+  margin-top: 10%;
+  margin-right: -80%;
   cursor: pointer;
  
 }
@@ -55,9 +60,9 @@ margin-top: -26%;
     left: 0;
    cursor: pointer;
     margin-top: 26%;
-    width: 60%;
+    width: 50%;
     height: 100vh; 
-    margin-left: 40%;
+    margin-left: 50%;
     transform: translateX(100%); 
     transition: transform 0.3s ease-in-out;
     justify-content: center;

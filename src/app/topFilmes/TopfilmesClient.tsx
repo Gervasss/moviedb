@@ -8,6 +8,7 @@ import { ThemeContext } from "../components/ThemeContext/ThemeContext";
 import {  Topfilmes } from './styles';
 import { getTopRatedMovies, getGenres} from '../services/api';
 import { Genre, Movie } from '../types/types';
+import { NavbarComponent } from '../components/Navbar';
 
 
 
@@ -99,7 +100,12 @@ export  default function TopfilmesClient() {
     <PageContainer padding="0px" darkMode={darkMode}>
      
           <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>
-            <SidebarComponent />
+            <div className='desktop-only'>
+          <SidebarComponent  />
+         </div > 
+          <div className='mobile-only'>
+                 <NavbarComponent />
+                 </div>
           </div>
           <div className="content-1">
             <Topfilmes darkMode={darkMode}>

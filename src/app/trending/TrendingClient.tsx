@@ -7,6 +7,7 @@ import { ThemeContext } from "../components/ThemeContext/ThemeContext";
 import { Trending } from './styles';
 import { getTrendingMovies, getGenres, getTopRatedMovies } from '../services/api';
 import { Genre, Movie } from '../types/types';
+import { NavbarComponent } from '../components/Navbar';
 
 export default function TrendingClient() {
   const [genres, setGenres] = useState<Genre[]>([]);
@@ -100,7 +101,12 @@ export default function TrendingClient() {
   return (
     <PageContainer padding="0px" darkMode={darkMode}>
       <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>
-        <SidebarComponent />
+          <div className='desktop-only'>
+          <SidebarComponent  />
+         </div > 
+          <div className='mobile-only'>
+                          <NavbarComponent />
+                          </div>
       </div>
       <div className="content-1">
         <Trending darkMode={darkMode}>
@@ -112,7 +118,7 @@ export default function TrendingClient() {
                 Trending Movies
               </button>
               <button onClick={showTopRatedMovies} disabled={currentFilter === 'topRated'} style={{ marginLeft: '10px' }}>
-                Top Rated Trending Movies
+                Top Rated Trending 
               </button>
             </div>
 

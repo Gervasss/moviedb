@@ -95,7 +95,7 @@ export const Trending = styled.div<TrendingProps>`
      .lista {
       
       display: grid;
-      grid-template-columns: repeat(4, 1fr); 
+     
       gap: 1px; 
       min-height: 70%; 
       height: 100%; 
