@@ -481,4 +481,10 @@
     }
   }
 
+    .desktop-only {
+    height: 100%;
+
+
+  }
+
 }
