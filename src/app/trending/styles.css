@@ -401,7 +401,9 @@
 
 
 
-@media (max-width: 375px) {
+
+
+@media (max-width: 430px) {
   .mobile-only {
     display: flex;
     width: 0%;
@@ -461,12 +463,12 @@
   }
 
   .counter{
-    margin-left: -10%;
+    margin-left: 0%;
   }
 
   .filters {
     width: 180%;
-    margin-left: 95% !important;
+    margin-left: 104% !important;
   }
 
   .filters button {
@@ -484,10 +486,7 @@
     }
   }
 
-    .desktop-only {
-    height: 100%;
-
-
-  }
+ 
 
 }
+

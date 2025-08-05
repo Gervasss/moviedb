@@ -406,7 +406,7 @@
 }
 
 
-@media (max-width: 375px) {
+@media (max-width: 430px) {
   .mobile-only {
     display: flex;
     width: 0%;
@@ -435,7 +435,7 @@
   .lista {
     padding: 10px;
     grid-template-columns: repeat(1, 1fr);
-    margin-left: 30%;
+    margin-left: 40%;
 
   }
 
@@ -452,7 +452,7 @@
 
 
    .modal-overlay{
-    margin-left: -10%;
+    margin-left:-30%;
    }
 
   .content-1 .cadastro-1-movies {
@@ -461,7 +461,7 @@
     flex-direction: column;
     align-items: center;
     width: 120%;
-    margin-left: -11%;
+    margin-left: -4%;
     margin-top: 70% !important;
     max-height: 0;
     min-height: 35rem !important;
@@ -472,7 +472,7 @@
   }
 
   .content-1 .cadastro-1-movies h1{
-    margin-left: -10%;
+    margin-left: 1%;
   }
 
   .desktop-only {
@@ -481,3 +481,5 @@
 
 
 }
+
+

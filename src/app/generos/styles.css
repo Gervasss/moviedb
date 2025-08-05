@@ -437,3 +437,66 @@
 
 
 }
+
+
+
+
+@media (max-width: 430px) {
+  .mobile-only {
+    display: flex;
+    width: 0%;
+    margin-top: -200%;
+    bottom: 0;
+    left: 0;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+
+  .content-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 130% !important;
+    margin-bottom: 50px;
+    height: 20%;
+    margin-left: -11%;
+    width: 125%;
+  }
+
+.modal-overlay{
+    margin-left: -1%;
+   }
+
+
+  .content-1 .cadastro-1-movies {
+    margin-top: 30% ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #000;
+ 
+
+  }
+
+  .lista-genero {
+    padding: 0px;
+    grid-template-columns: repeat(2, 1fr);
+       margin-left: -3%;
+  }
+
+
+  .desktop-only {
+    display: none;
+  }
+
+
+
+}

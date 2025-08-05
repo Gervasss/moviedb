@@ -359,7 +359,8 @@
 
 
 
-@media (max-width: 375px) {
+
+@media (max-width: 430px) {
   .mobile-only {
     display: flex;
     width: 0%;
@@ -379,14 +380,14 @@
     flex-wrap: wrap;
     flex: 1 0 25%;
     width: 137%;
-    margin-top: 50% !important;
+    margin-top: 65% !important;
     margin-left: -4%;
 
 
   }
 
   .right {
-    margin-top: 40% !important;
+    margin-top: 60% !important;
     margin-right: 34%;
     width: 60%;
   }
