@@ -9,7 +9,7 @@
   }
 
   .card {
-    height: 60%;
+    height: 90%;
   }
 
   .content-1 {
@@ -68,7 +68,7 @@
   }
 
   .card {
-    height: 60%;
+    height: 90%;
   }
 
   .content-1 {
@@ -123,7 +123,7 @@
 
 
   .card {
-    height: 60%;
+    height: 90%;
   }
 
   .lista {
@@ -185,7 +185,7 @@
 
 
   .card {
-    height: 70%;
+    height: 90%;
   }
 
   .content-1 {
@@ -242,7 +242,7 @@
   }
 
   .card {
-    height: 70%;
+    height: 90%;
   }
 
   .content-1 {
@@ -406,7 +406,7 @@
 }
 
 
-@media (max-width: 440px) {
+@media (max-width: 375px) {
   .mobile-only {
     display: flex;
     width: 0%;
@@ -422,9 +422,9 @@
 
 
   
-.card {
+.card-top {
     height: 90%;
-    width: 130px;  
+    width: 200px;  
  
       
   }
@@ -434,8 +434,8 @@
 
   .lista {
     padding: 10px;
-    grid-template-columns: repeat(2, 1fr);
-    margin-left: 3%;
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 30%;
 
   }
 
@@ -451,7 +451,9 @@
   }
 
 
-
+   .modal-overlay{
+    margin-left: -10%;
+   }
 
   .content-1 .cadastro-1-movies {
     margin-top: 2% !important;
@@ -467,6 +469,10 @@
     border-radius: 10px;
     box-shadow: 0px 0px 10px #000;
 
+  }
+
+  .content-1 .cadastro-1-movies h1{
+    margin-left: -10%;
   }
 
   .desktop-only {

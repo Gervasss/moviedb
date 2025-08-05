@@ -55,13 +55,10 @@ export const Generos= styled.div<GenerosProps>`
       
     }
      .lista-genero {
-      margin-left:1%;
       display: grid;
      
       gap: 20px; 
       min-height: 70%; 
-      height: 100%; 
-       width: 90%;
        overflow:auto;
        scrollbar-color: transparent transparent;
     

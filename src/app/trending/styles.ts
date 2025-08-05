@@ -43,7 +43,7 @@ export const Trending = styled.div<TrendingProps>`
     }
 
 
- .card {
+ .card-trending {
       border: 2px solid #000;
       margin-top:-5%;
      

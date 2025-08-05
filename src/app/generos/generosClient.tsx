@@ -125,7 +125,7 @@ export  default function GenerosClient() {
       <div className="content-1">
         <Generos darkMode={darkMode}>
           <section className="cadastro-1-movies">
-            <h1 style={{ marginLeft: "1%" }}>Gêneros</h1>
+            <h1 >Gêneros</h1>
             {loading && (
               <div className="modal-overlay">
                 <h3>Carregando...</h3>
@@ -140,7 +140,7 @@ export  default function GenerosClient() {
                     <div>
                       <h3 className='genero'>{genre.name}</h3>
                       <p>Média : {genreAverages[genre.name]?.toFixed(2)} </p>
-                      <p>Total de Filmes: {genreMovies[genre.name]} </p>
+                      <p>Total: {genreMovies[genre.name]} </p>
                     </div>
                   </div>
                 ))}

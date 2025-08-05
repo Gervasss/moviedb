@@ -110,7 +110,7 @@ export  default function TopfilmesClient() {
           <div className="content-1">
             <Topfilmes darkMode={darkMode}>
               <section className="cadastro-1-movies">
-                <h1 style={{ marginLeft: "1%" }}>TOP FILMES</h1>
+                <h1 >TOP FILMES</h1>
                 {loading && (
               <div className="modal-overlay">
                 <h3>Carregando...</h3>
@@ -121,7 +121,7 @@ export  default function TopfilmesClient() {
                 {movies.length > 0 ? (
                   <ul className='lista'>
                     {movies.map((movie,index) => (
-                      <div key={`${movie.id}-${index}`} className='card'>
+                      <div key={`${movie.id}-${index}`} className='card-top'>
                         <div>
                           <img
                             className='poster'

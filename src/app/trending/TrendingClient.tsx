@@ -111,7 +111,7 @@ export default function TrendingClient() {
       <div className="content-1">
         <Trending darkMode={darkMode}>
           <section className="cadastro-1-movies">
-            <h1 style={{ marginLeft: "1%" }}>Trending Filmes</h1>
+            <h1 >Trending Filmes</h1>
             {/* Botões para alternar as listas */}
             <div className='filters' style={{ marginBottom: '15px' }}>
               <button onClick={showTrendingMovies} disabled={currentFilter === 'trending'}>
@@ -130,7 +130,7 @@ export default function TrendingClient() {
 
             {!loading && (
               <>
-                <h5>
+                <h5 className='counter'>
                   {(currentFilter === 'trending'
                     ? TrendingMovies.length
                     : TrendingTopRatedMovies.length
@@ -140,7 +140,7 @@ export default function TrendingClient() {
                 {showMovies ? (
                   <ul className='lista'>
                     {(currentFilter === 'trending' ? TrendingMovies : TrendingTopRatedMovies).map((movie) => (
-                      <div key={movie.id} className='card'>
+                      <div key={movie.id} className='card-trending'>
                         <div>
                           <img
                             className='poster'

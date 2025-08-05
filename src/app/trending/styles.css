@@ -10,7 +10,7 @@
   }
 
   .card {
-    height: 60%;
+    height: 90%;
   }
 
   .content-1 {
@@ -89,7 +89,7 @@
   }
 
   .card {
-    height: 60%;
+    height: 90%;
   }
 
   .content-1 {
@@ -172,7 +172,7 @@
 
 
   .card {
-    height: 70%;
+    height: 90%;
   }
 
   .content-1 {
@@ -253,7 +253,7 @@
   }
 
   .card {
-    height: 70%;
+    height: 90%;
   }
 
   .content-1 {
@@ -401,7 +401,7 @@
 
 
 
-@media (max-width: 440px) {
+@media (max-width: 375px) {
   .mobile-only {
     display: flex;
     width: 0%;
@@ -417,15 +417,15 @@
 
 
 
-  .card {
+  .card-trending {
     height: 90%;
-    width: 120px;  
+    width: 200px;  
       
   }
 
   .lista {
     padding: 6px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     margin-left: 9%;
 
   }
@@ -460,10 +460,13 @@
 
   }
 
+  .counter{
+    margin-left: -10%;
+  }
 
   .filters {
     width: 180%;
-    margin-left: 110% !important;
+    margin-left: 95% !important;
   }
 
   .filters button {

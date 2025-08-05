@@ -43,7 +43,7 @@ export const Topfilmes = styled.div<TopfilmesProps>`
     }
 
 
-     .card {
+     .card-top {
       border: 2px solid #000;
       margin-top:-5%;
       margin: 10px;

@@ -359,7 +359,7 @@
 
 
 
-@media (max-width: 440px) {
+@media (max-width: 375px) {
   .mobile-only {
     display: flex;
     width: 0%;
@@ -386,7 +386,7 @@
   }
 
   .right {
-    margin-top: 45% !important;
+    margin-top: 40% !important;
     margin-right: 34%;
     width: 60%;
   }
