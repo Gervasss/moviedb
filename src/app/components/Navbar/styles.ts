@@ -6,6 +6,9 @@ type NavbarProps = {
 
 export const Navbar = styled.div<NavbarProps>`
 
+.Navbar{
+ background-color: ${({ darkMode }) => (darkMode ? '#333' : '#fff')}; 
+}
 
 `;
 
