@@ -52,7 +52,7 @@
 /* ========== TELAS GRANDES (≥1440px) ========== */
 @media (min-width: 1440px) {
   .lista-trending {
-    padding: 100px;
+    padding: 10px;
     grid-template-columns: repeat(5, 1fr);
   }
 
