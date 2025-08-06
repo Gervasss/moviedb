@@ -140,7 +140,7 @@
   .lista-trending {
     padding: 5px;
     grid-template-columns: repeat(2, 1fr);
-    margin-left: 6%;
+    margin-left: 1%;
   }
 
   .content-1 {
