@@ -139,12 +139,12 @@
 @media (max-width: 467px) {
   .lista-trending {
     padding: 5px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     margin-left: 1%;
   }
 
   .content-1 {
-    margin-top: -44px;
+    margin-top: -44vh;
   }
 
   .content-1 .cadastro-1-movies {
@@ -152,32 +152,10 @@
     margin-left: 1%;
     min-height: 30rem;
   }
-
+    
+  
   .filters {
     width: 160%;
-    margin-left: 135% ;
-  }
-}
-/* ========== CELULARES PEQUENOS (<400px) ========== */
-@media (max-width: 399px) {
-  .lista-trending {
-    grid-template-columns: repeat(1, 1fr);
-    margin-left: 0%;
-  }
-
-
-   .filters {
-    width: 180%;
-    margin-left: 155% ;
-  }
-  .content-1 {
-    margin-top: -48px;
-  }
-
-  .content-1 .cadastro-1-movies {
-    padding: 10px;
-    width: 90%;
-    height: 37rem;
-    min-height: 20rem;
+    margin-left: 138% ;
   }
 }

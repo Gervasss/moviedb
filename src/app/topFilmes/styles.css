@@ -115,36 +115,19 @@
 /* ========== CELULARES PEQUENOS (<468px) ========== */
 @media (max-width: 467px) {
   .lista {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .content-1 {
-    margin-top: -44px;
-  }
-
-  .content-1 .cadastro-1-movies {
-    padding: 10px;
-    width: 90%;
-    height: 37rem;
-    min-height: 20rem;
-  }
-}
-
-/* ========== CELULARES PEQUENOS (<400px) ========== */
-@media (max-width: 399px) {
-  .lista {
     grid-template-columns: repeat(1, 1fr);
     margin-left: 10%;
   }
 
   .content-1 {
-    margin-top: -48px;
+    margin-top: -54vh;
+    padding: 0 10px;
   }
 
   .content-1 .cadastro-1-movies {
     padding: 10px;
-    width: 90%;
-    height: 37rem;
+    width: 100%;
+    height: 40rem;
     min-height: 20rem;
   }
 }
