@@ -52,7 +52,7 @@
 /* ========== TELAS GRANDES (≥1440px) ========== */
 @media (min-width: 1440px) {
   .lista-trending {
-    padding: 10px;
+    padding: 100px;
     grid-template-columns: repeat(5, 1fr);
   }
 
@@ -143,7 +143,9 @@
     margin-left: 6%;
   }
 
- 
+  .content-1 {
+    margin-top: -44px;
+  }
 
   .content-1 .cadastro-1-movies {
     width: 90%;
@@ -154,5 +156,28 @@
   .filters {
     width: 160%;
     margin-left: 135% ;
+  }
+}
+/* ========== CELULARES PEQUENOS (<400px) ========== */
+@media (max-width: 399px) {
+  .lista-trending {
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 0%;
+  }
+
+
+   .filters {
+    width: 180%;
+    margin-left: 155% ;
+  }
+  .content-1 {
+    margin-top: -48px;
+  }
+
+  .content-1 .cadastro-1-movies {
+    padding: 10px;
+    width: 90%;
+    height: 37rem;
+    min-height: 20rem;
   }
 }
