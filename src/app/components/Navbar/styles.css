@@ -1,6 +1,3 @@
-
-  
-    
 .Navbar {
   position: fixed;
   display: flex;
@@ -15,67 +12,68 @@
   top: 0;
   left: 0;
   z-index: 1000;
-  
-}
-
-.dash-mobile .toggleswitch{
-margin-right: -10%;
-margin-top: 200%;
 
 }
 
-.mobile-menu-list h1{
+.dash-mobile .toggleswitch {
+  margin-right: -10%;
+  margin-top: 250px;
+
+}
+
+.mobile-menu-list h1 {
   font-size: 18px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   padding: 10px;
- 
-  
+
+
 }
 
-.dash-mobile{
-  margin-top:-90%;
-  
+.dash-mobile {
+  margin-top: -290px;
+
 }
 
-.dash-mobile h1{
-   &:hover {
-      color: red;
-      transition: calc(0.8s);
-      transform: scale(1.2);
-    }
+.dash-mobile h1 {
+  &:hover {
+    color: red;
+    transition: calc(0.8s);
+    transform: scale(1.2);
+  }
 }
 
-.menu-toggle{
+.menu-toggle {
   margin-top: 10%;
   margin-right: -80%;
   cursor: pointer;
- 
+
 }
- 
 
- .mobile-menu-list {
-    display: flex;
-    position: fixed; 
-    top: 0;
-    left: 0;
-   cursor: pointer;
-    margin-top: 18%;
-    width: 50%;
-    height: 100vh; 
-    margin-left: 50%;
-    transform: translateX(100%); 
-    transition: transform 0.3s ease-in-out;
-    justify-content: center;
-    align-items: center;
- 
-    flex-direction: column;
-    z-index: 999; 
-  }
 
-   .mobile-menu-list.menu-open {
-    transform: translateX(0);
-  }
-.toggleswitch .menu-toggle{
+.mobile-menu-list {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  margin-top: 18%;
+  width: 50%;
+  height: 100vh;
+  margin-left: 50%;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+  z-index: 999;
+}
+
+.mobile-menu-list.menu-open {
+  transform: translateX(0);
+}
+
+.toggleswitch .menu-toggle {
   margin-left: 40%;
 }
 
@@ -84,28 +82,29 @@ margin-top: 200%;
   justify-content: space-between;
   align-items: center;
   width: 50%;
-  margin-right:25% ;
-  
+  margin-right: 25%;
+
 
 }
 
-  .switch {
-    margin-top: 1%;
-    margin-right: -40%;
-    color: #000;
-    cursor: pointer;
-    transition: 0.5s;
-    &:hover {
-      color: #303b92;
-      transform: scale(1.2);
-    }
+.switch {
+  margin-top: 1%;
+  margin-right: -40%;
+  color: #000;
+  cursor: pointer;
+  transition: 0.5s;
+
+  &:hover {
+    color: #303b92;
+    transform: scale(1.2);
   }
- 
-  .navtitle{
-    margin-right: -60%;
-    margin-top: 40px;
-    font-size: 2rem;
-  }
+}
+
+.navtitle {
+  margin-right: -60%;
+  margin-top: 40px;
+  font-size: 2rem;
+}
 
 
 .Navbar .NavButtons a {
@@ -115,59 +114,84 @@ margin-top: 200%;
   font-size: 18px;
   color: #000;
   transition: 0.5s;
-  &:hover{
+
+  &:hover {
     transform: scale(1.2);
     color: #303b92;
-  font-weight: bold;
+    font-weight: bold;
   }
 
 
-    
-      }
- /* ========== CELULARES (<768px) ========== */
+
+}
+
+/* ========== CELULARES (<768px) ========== */
 @media (max-width: 767px) {
   .mobile-menu-list {
     display: flex;
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
-   cursor: pointer;
+    cursor: pointer;
     margin-top: 17%;
-    width: 50%;
-    height: 100vh; 
-    margin-left: 50%;
-    transform: translateX(100%); 
+    width: 40%;
+    height: 100vh;
+    margin-left: 60%;
+    transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     justify-content: center;
     align-items: center;
- 
+
     flex-direction: column;
-    z-index: 999; 
+    z-index: 999;
   }
 
+  .dash-mobile .toggleswitch {
+    margin-right: -10%;
+    margin-top: 220px;
+
   }
+
+  .menu-toggle {
+  margin-top: 5%;
+  margin-right: -300px;
+  cursor: pointer;
+
+}
+}
 
 /* ========== CELULARES PEQUENOS (<480px) ========== */
 @media (max-width: 479px) {
 
- .mobile-menu-list {
+  .mobile-menu-list {
     display: flex;
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
-   cursor: pointer;
+    cursor: pointer;
     margin-top: 27%;
     width: 50%;
-    height: 100vh; 
+    height: 100vh;
     margin-left: 50%;
-    transform: translateX(100%); 
+    transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     justify-content: center;
     align-items: center;
- 
+
     flex-direction: column;
-    z-index: 999; 
+    z-index: 999;
   }
+
+   .dash-mobile .toggleswitch {
+    margin-right: -10%;
+    margin-top: 220px;
+
   }
-      
-    
+
+  .menu-toggle {
+  margin-top: 5%;
+  margin-right: -190px;
+  cursor: pointer;
+
+}
+}

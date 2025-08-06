@@ -95,20 +95,21 @@
     left: 0;
     justify-content: space-around;
     align-items: center;
-    background-color: #f8f8f8;
+    background-color: #fff;
     padding: 10px 0;
     z-index: 1000;
+    margin-top: 600px;
   }
 
   .admin .dash {
     font-size: 8px;
     width: 137%;
-    transform: translateY(2vh);
+    transform: translateY(-82vh);
     margin-right: 4px;
   }
 
   .right {
-   transform: translateY(3vh);
+   transform: translateY(-82vh);
     margin-right: 140px;
     width: 60%;
   }

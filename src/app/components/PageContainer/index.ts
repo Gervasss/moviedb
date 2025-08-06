@@ -18,5 +18,6 @@ export const PageContainer = styled.div<PageContainerProps>`
   color: ${({ darkMode }) => (darkMode ? 'white' : 'black')};  
   transition: background-color 0.3s, color 0.3s;  /* Transição suave */
 
+
  
 `;
