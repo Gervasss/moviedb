@@ -118,7 +118,7 @@ export default function TrendingClient() {
                 Trending Movies
               </button>
               <button onClick={showTopRatedMovies} disabled={currentFilter === 'topRated'} style={{ marginLeft: '10px' }}>
-                Top Rated Trending 
+                Top  Trending 
               </button>
             </div>
 
@@ -138,7 +138,7 @@ export default function TrendingClient() {
                 </h5>
 
                 {showMovies ? (
-                  <ul className='lista'>
+                  <ul className='lista-trending'>
                     {(currentFilter === 'trending' ? TrendingMovies : TrendingTopRatedMovies).map((movie) => (
                       <div key={movie.id} className='card-trending'>
                         <div>

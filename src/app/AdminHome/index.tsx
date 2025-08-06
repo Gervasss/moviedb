@@ -47,13 +47,8 @@ export function AdminHome() {
         <NavbarComponent />
       </div>
       <TopContainer darkMode={darkMode}>
-        <div className="right">
-          <div className="search">
-            <input type="text" placeholder="Pesquise aqui.." />
-            <AiOutlineSearch />
-          </div>
-        </div>
       </TopContainer>
+      
       <div className='dash' >
         <ShowCard title="Genêros" icon={<GiRaiseZombie onClick={() => router.push('/generos')} style={{ cursor: "pointer" }} />} />
         <ShowCard title="Top Filmes" icon={<MdLocalMovies onClick={() => router.push('/topFilmes')} style={{ cursor: "pointer" }} />} />

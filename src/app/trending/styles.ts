@@ -92,15 +92,10 @@ export const Trending = styled.div<TrendingProps>`
     }
       
     }
-     .lista {
-      
+     .lista-trending {
       display: grid;
-     
-      gap: 1px; 
-      min-height: 70%; 
-      height: 100%; 
-      overflow-y: auto; 
-       width: 95%;
+      gap: 1px;
+      overflow-y: auto;
        scrollbar-color: transparent transparent;
     
      

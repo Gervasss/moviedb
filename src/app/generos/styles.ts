@@ -22,7 +22,7 @@ export const Generos= styled.div<GenerosProps>`
     }
 
 
-     .card {
+     .card-genero {
       border: 2px solid #000;
       height: 100%;
       margin: 10px;
@@ -56,9 +56,7 @@ export const Generos= styled.div<GenerosProps>`
     }
      .lista-genero {
       display: grid;
-     
       gap: 20px; 
-      min-height: 70%; 
        overflow:auto;
        scrollbar-color: transparent transparent;
     

@@ -16,10 +16,7 @@
   margin-left: 300px;
 }
 
-.right {
-  margin-top: -1050px;
-  margin-right: 520px;
-}
+
 
 .top-image {
   width: 90%;
@@ -33,10 +30,7 @@
     margin-left: 500px;
   }
 
-  .right {
-    margin-top: -1400px;
-    margin-right: 800px;
-  }
+
 }
 
 
@@ -47,10 +41,7 @@
     margin-left: 250px;
   }
 
-  .right {
-    margin-top: -1250px;
-    margin-right: 350px;
-  }
+ 
 }
 
 
@@ -75,11 +66,7 @@
     margin-left: -13px;
   }
 
-  .right {
-    margin-top: -1100px ;
-    margin-right: 120px;
-    width: 60%;
-  }
+ 
 
   .desktop-only {
     display: none;
@@ -108,12 +95,7 @@
     margin-right: 4px;
   }
 
-  .right {
-   transform: translateY(-82vh);
-    margin-right: 140px;
-    width: 60%;
-  }
-
+ 
   .desktop-only {
     display: none;
   }

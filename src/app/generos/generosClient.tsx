@@ -136,7 +136,7 @@ export  default function GenerosClient() {
             {genres.length > 0 ? (
               <ul className='lista-genero'>
                 {genres.map((genre) => (
-                  <div key={genre.id} className='card'>
+                  <div key={genre.id} className='card-genero'>
                     <div>
                       <h3 className='genero'>{genre.name}</h3>
                       <p>Média : {genreAverages[genre.name]?.toFixed(2)} </p>

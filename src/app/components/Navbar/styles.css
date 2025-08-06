@@ -160,8 +160,8 @@
 }
 }
 
-/* ========== CELULARES PEQUENOS (<480px) ========== */
-@media (max-width: 479px) {
+/* ========== CELULARES MEDIOS (2) (<468px) ========== */
+@media (max-width: 467px) {
 
   .mobile-menu-list {
     display: flex;
@@ -190,8 +190,79 @@
 
   .menu-toggle {
   margin-top: 5%;
-  margin-right: -190px;
+  margin-right: -175px;
   cursor: pointer;
 
+}
+
+/* ========== CELULARES MEDIOS (2) (<430px) ========== */
+@media (max-width: 429px) {
+
+  .mobile-menu-list {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    margin-top: 27%;
+    width: 50%;
+    height: 100vh;
+    margin-left: 50%;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+    z-index: 999;
+  }
+
+   .dash-mobile .toggleswitch {
+    margin-right: -10%;
+    margin-top: 220px;
+
+  }
+
+  .menu-toggle {
+  margin-top: 5%;
+  margin-right: -175px;
+  cursor: pointer;
+
+}
+}
+/* ========== CELULARES PEQUENOS (<400px) ========== */
+@media (max-width: 399px) {
+
+  .mobile-menu-list {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    margin-top: 27%;
+    width: 50%;
+    height: 100vh;
+    margin-left: 50%;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+    z-index: 999;
+  }
+
+   .dash-mobile .toggleswitch {
+    margin-right: -10%;
+    margin-top: 215px;
+
+  }
+
+  .menu-toggle {
+  margin-top: 5%;
+  margin-right: -160px;
+  cursor: pointer;
+
+}
 }
 }
