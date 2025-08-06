@@ -124,7 +124,50 @@ margin-top: 200%;
 
     
       }
-      
+ /* ========== CELULARES (<768px) ========== */
+@media (max-width: 767px) {
+  .mobile-menu-list {
+    display: flex;
+    position: fixed; 
+    top: 0;
+    left: 0;
+   cursor: pointer;
+    margin-top: 17%;
+    width: 50%;
+    height: 100vh; 
+    margin-left: 50%;
+    transform: translateX(100%); 
+    transition: transform 0.3s ease-in-out;
+    justify-content: center;
+    align-items: center;
+ 
+    flex-direction: column;
+    z-index: 999; 
+  }
 
+  }
+
+/* ========== CELULARES PEQUENOS (<480px) ========== */
+@media (max-width: 479px) {
+
+ .mobile-menu-list {
+    display: flex;
+    position: fixed; 
+    top: 0;
+    left: 0;
+   cursor: pointer;
+    margin-top: 27%;
+    width: 50%;
+    height: 100vh; 
+    margin-left: 50%;
+    transform: translateX(100%); 
+    transition: transform 0.3s ease-in-out;
+    justify-content: center;
+    align-items: center;
+ 
+    flex-direction: column;
+    z-index: 999; 
+  }
+  }
       
     

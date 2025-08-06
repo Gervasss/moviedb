@@ -12,13 +12,13 @@
   display: flex;
   flex-wrap: wrap;
   flex: 1 0 25%;
-  margin-top: -40%;
-  margin-left: 24%;
+  margin-top: -500px;
+  margin-left: 300px;
 }
 
 .right {
-  margin-top: -80%;
-  margin-right: 38%;
+  margin-top: -1050px;
+  margin-right: 520px;
 }
 
 .top-image {
@@ -26,16 +26,16 @@
 }
 
 
-/* ========== DESKTOPS GRANDES (≥1920px) ========== */
-@media (min-width: 1920px) {
+/* ========== DESKTOPS GRANDES (≥1440px) ========== */
+@media (min-width: 1440px) {
   .admin .dash {
-    margin-top: -35%;
-    margin-left: 26%;
+    margin-top: -680px;
+    margin-left: 500px;
   }
 
   .right {
-    margin-top: -75%;
-    margin-right: 43%;
+    margin-top: -1400px;
+    margin-right: 800px;
   }
 }
 
@@ -43,13 +43,13 @@
 /* ========== TABLETS (<1024px) ========== */
 @media (max-width: 1023px) {
   .admin .dash {
-    margin-top: -55%;
-    margin-left: 20%;
+    margin-top: -600px;
+    margin-left: 250px;
   }
 
   .right {
-    margin-top: -115%;
-    margin-right: 38%;
+    margin-top: -1250px;
+    margin-right: 350px;
   }
 }
 
@@ -71,17 +71,50 @@
   .admin .dash {
     font-size: 8px;
     width: 137%;
-    margin-top: -65% ;
-    margin-left: -4%;
+    margin-top: -500px ;
+    margin-left: -13px;
   }
 
   .right {
-    margin-top: -140% ;
-    margin-left: 44%;
+    margin-top: -1100px ;
+    margin-left: 400px;
     width: 60%;
   }
 
   .desktop-only {
     display: none;
   }
+}
+
+/* ========== CELULARES PEQUENOS (<480px) ========== */
+@media (max-width: 479px) {
+  .mobile-only {
+    display: flex;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .admin .dash {
+    font-size: 8px;
+    width: 137%;
+    transform: translateY(2vh);
+    margin-right: 4px;
+  }
+
+  .right {
+   transform: translateY(3vh);
+    margin-right: 140px;
+    width: 60%;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
 }
