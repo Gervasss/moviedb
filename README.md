@@ -30,16 +30,6 @@ MovieDB é uma aplicação desenvolvida para facilitar a busca e a visualizaçã
 **trending**:É a pasta onde está contida a página que filtra quais dos filmes do topfilmes  estão nos trending ,além de listar ,motrar  e contabiliziar quantos são.
 ![Alt text](./Documentation/images/img.png)
 
-## GPT
-Abaixo deixarei em anexo as imagens com os prompts e as funções fornecidas pelo chatGPT que foram utilizadas nessa aplicação(todas em ordem ).
-![Alt text](./Documentation/images/pergunta-genero-id.png)
-![Alt text](./Documentation/images/metodo-genero-por-id.png)
-![Alt text](./Documentation/images/pergunta-tirar-duplicada.png)
-![Alt text](./Documentation/images/metodo-retirar-duplicada.png)
-![Alt text](./Documentation/images/pergunta-calcular-media.png)
-![Alt text](./Documentation/images/metodo-para-calcular-a-media.png)
-![Alt text](./Documentation/images/pergunta-relembrando.png)
-![Alt text](./Documentation/images/relembrando-metodos.png)
-![Alt text](./Documentation/images/apresentação.png)
+
 
 
