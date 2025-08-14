@@ -42,7 +42,7 @@
 }
 
 .toggle-switch-checkbox:checked + .toggle-switch-label {
-  background-color: red;
+  background-color: #696969;
 }
 
 .toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-handle {

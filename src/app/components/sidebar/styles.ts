@@ -71,13 +71,13 @@ export const Sidebar = styled.div<SidebarProps>`
 
   .admin-buttons .buttons .sideButton {
     width: 100%;
-    height: 20%;
+    height: 14%;
     margin-right:14%;
     display: flex;
     font-size: 1rem;
     justify-content: space-between;
     align-items: center;
-    border-radius: 5%;
+    border-radius: 0%;
     cursor: pointer;
     padding: 0 1rem;
     border: none;
@@ -86,7 +86,7 @@ export const Sidebar = styled.div<SidebarProps>`
     color: ${({ darkMode }) => (darkMode ? 'white' : 'black')};  /* Cor do texto dos botões */
     &:hover {
       background-color: ${({ darkMode }) => (darkMode ? '#4F4F4F' : '#e6e6e6')};  /* Hover dos botões */
-      transform: scale(1.02);
+      transform: scale(1.0);
     }
     
   }
