@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    /* Módulos e Alvo */
+    "target": "es2020",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Tipagem e JSX */
+   "jsx": "react-jsx",
+
+    "allowJs": true,
+    "lib": ["es2020", "dom", "dom.iterable"],
+    
+    /* Configurações Rigorosas */
+    "strict": true,
+    "skipLibCheck": true,
+    
+    /* Ambiente de Teste */
+    "moduleResolution": "node",
+    "isolatedModules": true
+  },
+  "include": [
+    "src/**/*.ts", 
+    "src/**/*.tsx", 
+    "__tests__/**/*.ts", 
+    "__tests__/**/*.tsx" // Inclui todos os arquivos de teste
+  ]
+}

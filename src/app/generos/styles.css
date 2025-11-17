@@ -117,13 +117,13 @@
   }
 
   .content-1 {
-    margin-top: -45vh;
+    margin-top: -40vh;
   }
 
   .content-1 .cadastro-1-movies {
     padding: 10px;
     width: 95%;
-    height: 36rem;
+    height: 30rem;
     min-height: 30rem;
   }
 }

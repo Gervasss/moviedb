@@ -3,22 +3,23 @@
 import { useContext, useEffect, useState } from 'react';
 import { PageContainer } from '../components/PageContainer';
 import { SidebarComponent } from '../components/sidebar';
-import './styles.css';;
+import '../trending/styles.css'; 
 import { ThemeContext } from "../components/ThemeContext/ThemeContext";
-import {  Topfilmes } from './styles';
-import { getTopRatedMovies, getGenres} from '../services/api';
+import { Trending } from '../trending/styles'; 
+import { getTopRatedMovies, getGenres } from '../services/api';
 import { Genre, Movie } from '../types/types';
 import { NavbarComponent } from '../components/Navbar';
 
 
+const FAVORITE_STORAGE_KEY = 'favoriteMovieIds';
 
 
-
-export  default function TopfilmesClient() {
+export default function TopfilmesClient() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [genres, setGenres] = useState<Genre[]>([]);
   const [loading, setLoading] = useState(false);
- 
+  const [favoriteMovieIds, setFavoriteMovieIds] = useState<number[]>([]);
+
 
 
 
@@ -29,6 +30,23 @@ export  default function TopfilmesClient() {
     throw new Error("useContext must be used within a ThemeProvider");
   }
   const { darkMode } = themeContext;
+
+
+   useEffect(() => {
+      try {
+        // Tenta carregar os IDs favoritos do localStorage
+        const storedFavorites = localStorage.getItem(FAVORITE_STORAGE_KEY);
+        if (storedFavorites) {
+          const favorites: number[] = JSON.parse(storedFavorites);
+          // Garante que é um array de números
+          if (Array.isArray(favorites)) {
+            setFavoriteMovieIds(favorites);
+          }
+        }
+      } catch (error) {
+        console.error("Could not load favorites from localStorage", error);
+      }
+    }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -60,9 +78,30 @@ export  default function TopfilmesClient() {
     fetchData();
   }, []);
 
+  const toggleFavorite = (movieId: number) => {
+    // Use o formato de função para garantir que você está usando o estado mais recente
+    setFavoriteMovieIds(prevFavorites => {
+      let newFavorites: number[];
 
+      if (prevFavorites.includes(movieId)) {
+        // Se já está, remove
+        newFavorites = prevFavorites.filter(id => id !== movieId);
+      } else {
+        // Se não está, adiciona
+        newFavorites = [...prevFavorites, movieId];
+      }
 
-  const formatDate = (date:string) => {
+      try {
+        localStorage.setItem(FAVORITE_STORAGE_KEY, JSON.stringify(newFavorites));
+      } catch (error) {
+        console.error("Could not save favorites to localStorage", error);
+      }
+
+      return newFavorites;
+    });
+  };
+
+  const formatDate = (date: string) => {
     const year = new Date(date).getFullYear();
     return `${year}`;
   };
@@ -71,18 +110,18 @@ export  default function TopfilmesClient() {
     const sortedMovies = [...movies].sort((a, b) => {
       const yearA = new Date(a.release_date).getFullYear();
       const yearB = new Date(b.release_date).getFullYear();
-      return yearB- yearA; 
+      return yearB - yearA;
     });
-  
-    setMovies(sortedMovies); 
+
+    setMovies(sortedMovies);
   };
 
 
   useEffect(() => {
     if (movies.length > 0) {
-      sortMoviesByYear(); 
+      sortMoviesByYear();
     }
-  },[movies.length]); 
+  }, [movies.length]);
 
   // Função para obter o nome dos gêneros a partir dos IDs
   const getGenreNames = (genreIds: number[]): string => {
@@ -93,35 +132,39 @@ export  default function TopfilmesClient() {
     return genreNames.join(', ');
   };
 
-//no .map foi usando a combinação de movie.id com o index do filme ,pois estava dando conflito e indicando q existiam filmes que em algum momento 
-//possuiam o mesmo id ,entao dessa forma mesmo que tenha filmes com mesmo id a combinação com o index será única
+   const isFavorite = (movieId: number): boolean => {
+    return favoriteMovieIds.includes(movieId);
+  };
+
+  //no .map foi usando a combinação de movie.id com o index do filme ,pois estava dando conflito e indicando q existiam filmes que em algum momento 
+  //possuiam o mesmo id ,entao dessa forma mesmo que tenha filmes com mesmo id a combinação com o index será única
 
   return (
     <PageContainer padding="0px" darkMode={darkMode}>
-     
-          <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>
-            <div className='desktop-only'>
-          <SidebarComponent  />
-         </div > 
-          <div className='mobile-only'>
-                 <NavbarComponent />
-                 </div>
-          </div>
-          <div className="content-1">
-            <Topfilmes darkMode={darkMode}>
-              <section className="cadastro-1-movies">
-                <h1 >TOP FILMES</h1>
-                {loading && (
+
+      <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>
+        <div className='desktop-only'>
+          <SidebarComponent />
+        </div >
+        <div className='mobile-only'>
+          <NavbarComponent />
+        </div>
+      </div>
+      <div className="content-1">
+        <Trending darkMode={darkMode}>
+          <section className="cadastro-1-movies">
+            <h1 >TOP FILMES</h1>
+            {loading && (
               <div className="modal-overlay">
                 <h3>Carregando...</h3>
               </div>
             )}
             {!loading && (
-            <>
+              <>
                 {movies.length > 0 ? (
-                  <ul className='lista'>
-                    {movies.map((movie,index) => (
-                      <div key={`${movie.id}-${index}`} className='card-top'>
+                  <ul className='lista-trending'>
+                    {movies.map((movie, index) => (
+                      <div key={`${movie.id}-${index}`} className={`card-trending ${isFavorite(movie.id) ? 'favorited' : ''}`}>
                         <div>
                           <img
                             className='poster'
@@ -132,19 +175,26 @@ export  default function TopfilmesClient() {
                           <p className='nota'>Nota: {movie.vote_average?.toFixed(2)}</p>
                           <p className='genero'>Gêneros: {getGenreNames(movie.genre_ids)}</p>
                           <p className='lancamento'>Lançamento: {formatDate(movie.release_date)}</p>
+                          <br></br>
+                          <button
+                            className='button-favorito'
+                            onClick={() => toggleFavorite(movie.id)}
+                          >
+                            {isFavorite(movie.id) ? 'Remover ' : 'Favoritar ⭐'}
+                          </button>
                         </div>
                       </div>
                     ))}
                   </ul>
                 ) : (
                   <p>Filmes não encontrados</p>
-                )}  
-                </>
-              )}
-              </section>
-            </Topfilmes>
-          </div>
-      
+                )}
+              </>
+            )}
+          </section>
+        </Trending>
+      </div>
+
     </PageContainer>
   );
 }

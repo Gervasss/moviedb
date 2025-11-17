@@ -9,6 +9,8 @@ import { MdLocalMovies, MdSpaceDashboard } from 'react-icons/md';
 import { ThemeContext } from "../ThemeContext/ThemeContext";
 import { GiRaiseZombie } from 'react-icons/gi';
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
+import { FaRegStar } from 'react-icons/fa';
+import React from 'react';
 
 
 
@@ -35,6 +37,7 @@ export function SidebarComponent() {
           <Sidebutton icon={<GiRaiseZombie />} tittle="Genêros" onClick={() => router.push('/generos')} />
           <Sidebutton icon={<MdLocalMovies />} tittle="Top filmes" onClick={() => router.push('/topFilmes')} />
           <Sidebutton icon={<IoIosTrendingUp/>}  tittle="Trending" onClick={() => router.push('/trending')} />
+           <Sidebutton icon={<FaRegStar/>}  tittle="Favoritos" onClick={() => router.push('/favoritos')} />
         </div>
        </section>
 

@@ -46,12 +46,9 @@ export const Trending = styled.div<TrendingProps>`
  .card-trending {
       border: 2px solid #000;
       margin-top:-5%;
-     
-      
-        
       margin: 10px;
       display: flex;
-      padding:8px;
+      padding:7px;
       background-color:${({ darkMode }) => (darkMode ? '#2c2c2c' : '#fff')};
       border-radius:10px;
       box-shadow:${({ darkMode }) => (darkMode ? '10px 10px 1rem #2c2c2c' : '10px 10px 1rem #ccc')};
@@ -100,5 +97,10 @@ export const Trending = styled.div<TrendingProps>`
     
      
 }
+
+.card-trending.favorited {
+    border-color: red;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  }
    
       `;

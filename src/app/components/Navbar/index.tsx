@@ -48,6 +48,7 @@ export function NavbarComponent() {
               <h1 onClick={() => navigateAndClose("/generos")}>Genêros</h1>
               <h1 onClick={() => navigateAndClose("/topFilmes")}>Top filmes</h1>
               <h1 onClick={() => navigateAndClose("/trending")}>Trending</h1>
+               <h1 onClick={() => navigateAndClose("/favoritos")}>Favoritos</h1>
               <div className='toggleswitch'>
                 <ToggleSwitch />
               </div>

@@ -8,6 +8,11 @@ import { Trending } from './styles';
 import { getTrendingMovies, getGenres, getTopRatedMovies } from '../services/api';
 import { Genre, Movie } from '../types/types';
 import { NavbarComponent } from '../components/Navbar';
+import { formatDate } from './FormatDate';
+import React from "react";
+
+
+const FAVORITE_STORAGE_KEY = 'favoriteMovieIds';
 
 export default function TrendingClient() {
   const [genres, setGenres] = useState<Genre[]>([]);
@@ -17,6 +22,7 @@ export default function TrendingClient() {
   const [message, setMessage] = useState<string>('');
   const [showMovies, setShowMovies] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [favoriteMovieIds, setFavoriteMovieIds] = useState<number[]>([]);
 
   // Estado que controla qual lista está sendo mostrada
   const [currentFilter, setCurrentFilter] = useState<'trending' | 'topRated'>('trending');
@@ -26,6 +32,23 @@ export default function TrendingClient() {
     throw new Error("useContext must be used within a ThemeProvider");
   }
   const { darkMode } = themeContext;
+
+
+  useEffect(() => {
+    try {
+      // Tenta carregar os IDs favoritos do localStorage
+      const storedFavorites = localStorage.getItem(FAVORITE_STORAGE_KEY);
+      if (storedFavorites) {
+        const favorites: number[] = JSON.parse(storedFavorites);
+        // Garante que é um array de números
+        if (Array.isArray(favorites)) {
+          setFavoriteMovieIds(favorites);
+        }
+      }
+    } catch (error) {
+      console.error("Could not load favorites from localStorage", error);
+    }
+  }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -55,14 +78,14 @@ export default function TrendingClient() {
 
       //trending movies geral
       setTrendingMovies(uniqueTrending);
-    
+
 
       // Filmes que estão em ambas as listas (topRated e trending)
       const intersection = uniqueTrending.filter(movie =>
         topRatedMovies.some(topMovie => topMovie.id === movie.id)
       );
 
-  
+
       setTrendingTopRatedMovies(intersection);
 
       if (intersection.length > 0) {
@@ -76,10 +99,31 @@ export default function TrendingClient() {
     fetchData();
   }, []);
 
-  const formatDate = (date: string): string => {
-    const year = new Date(date).getFullYear();
-    return `${year}`;
+
+  const toggleFavorite = (movieId: number) => {
+    // Use o formato de função para garantir que você está usando o estado mais recente
+    setFavoriteMovieIds(prevFavorites => {
+      let newFavorites: number[];
+
+      if (prevFavorites.includes(movieId)) {
+        // Se já está, remove
+        newFavorites = prevFavorites.filter(id => id !== movieId);
+      } else {
+        // Se não está, adiciona
+        newFavorites = [...prevFavorites, movieId];
+      }
+
+      try {
+        localStorage.setItem(FAVORITE_STORAGE_KEY, JSON.stringify(newFavorites));
+      } catch (error) {
+        console.error("Could not save favorites to localStorage", error);
+      }
+
+      return newFavorites;
+    });
   };
+
+   
 
   const getGenreNames = (genreIds: number[]): string => {
     const genreNames = genreIds.map((id) => {
@@ -98,15 +142,19 @@ export default function TrendingClient() {
     setCurrentFilter('topRated');
   };
 
+  const isFavorite = (movieId: number): boolean => {
+    return favoriteMovieIds.includes(movieId);
+  };
+
   return (
     <PageContainer padding="0px" darkMode={darkMode}>
       <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>
-          <div className='desktop-only'>
-          <SidebarComponent  />
-         </div > 
-          <div className='mobile-only'>
-                          <NavbarComponent />
-                          </div>
+        <div className='desktop-only'>
+          <SidebarComponent />
+        </div >
+        <div className='mobile-only'>
+          <NavbarComponent />
+        </div>
       </div>
       <div className="content-1">
         <Trending darkMode={darkMode}>
@@ -118,7 +166,7 @@ export default function TrendingClient() {
                 Trending Movies
               </button>
               <button onClick={showTopRatedMovies} disabled={currentFilter === 'topRated'} style={{ marginLeft: '10px' }}>
-                Top  Trending 
+                Top  Trending
               </button>
             </div>
 
@@ -140,7 +188,7 @@ export default function TrendingClient() {
                 {showMovies ? (
                   <ul className='lista-trending'>
                     {(currentFilter === 'trending' ? TrendingMovies : TrendingTopRatedMovies).map((movie) => (
-                      <div key={movie.id} className='card-trending'>
+                      <div key={movie.id} className={`card-trending ${isFavorite(movie.id) ? 'favorited' : ''}`}>
                         <div>
                           <img
                             className='poster'
@@ -151,6 +199,13 @@ export default function TrendingClient() {
                           <p className='nota'>Nota: {movie.vote_average?.toFixed(2)}</p>
                           <p className='genero'>Gêneros: {getGenreNames(movie.genre_ids)}</p>
                           <p className='lancamento'>Lançamento: {formatDate(movie.release_date)}</p>
+                          <br></br>
+                          <button
+                            className='button-favorito'
+                            onClick={() => toggleFavorite(movie.id)}
+                          >
+                            {isFavorite(movie.id) ? 'Remover ' : 'Favoritar ⭐'}
+                          </button>
                         </div>
                       </div>
                     ))}

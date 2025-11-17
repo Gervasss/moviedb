@@ -15,6 +15,7 @@ import { ThemeContext } from "../components/ThemeContext/ThemeContext";
 import { GiRaiseZombie } from 'react-icons/gi';
 import { IoCalendarNumberOutline } from 'react-icons/io5';
 import { NavbarComponent } from '../components/Navbar';
+import { FaRegStar } from 'react-icons/fa';
 
 
 
@@ -48,11 +49,12 @@ export function AdminHome() {
       </div>
       <TopContainer darkMode={darkMode}>
       </TopContainer>
-      
+
       <div className='dash' >
         <ShowCard title="Genêros" icon={<GiRaiseZombie onClick={() => router.push('/generos')} style={{ cursor: "pointer" }} />} />
         <ShowCard title="Top Filmes" icon={<MdLocalMovies onClick={() => router.push('/topFilmes')} style={{ cursor: "pointer" }} />} />
         <ShowCard title="Trending" icon={<IoIosTrendingUp onClick={() => router.push('/trending')} style={{ cursor: "pointer" }} />} />
+        <ShowCard title="Favoritos" icon={<FaRegStar onClick={() => router.push('/favoritos')} style={{ cursor: "pointer" }} />} />
       </div>
 
     </PageContainer>
