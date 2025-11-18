@@ -117,7 +117,7 @@
   }
 
   .content-1 {
-    margin-top: -40vh;
+    margin-top: -40vh !important;
   }
 
   .content-1 .cadastro-1-movies {

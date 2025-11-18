@@ -40,6 +40,129 @@
 .counter {
   margin-top: -1px;
 }
+/* ================================================================= */
+/* ========== TELAS MUITO GRANDES (≥1920px) ========== */
+/* ================================================================= */
+@media (min-width: 1920px) {
+  /* Visibilidade */
+  .desktop-only {
+    height: 100%;
+    display: block;
+  }
+  .mobile-only {
+    display: none;
+  }
+
+ 
+  .content-1 {
+    margin-top: -26%;
+    margin-left: 10%;
+    
+  }
+  .content-1 .cadastro-1-movies {
+    width: 80%;
+    margin-top: -330px;
+    height: 50rem; 
+    min-height: 40rem;
+  }
+
+
+  .lista-trending {
+    grid-template-columns: repeat(5, 1fr);
+    margin-top: -17px;
+    
+    max-height: calc(100% - 100px);
+    overflow-y: auto;
+  }
+
+ 
+  .button-favorito {
+    margin-left: 60px !important;
+  }
+  .filters {
+    width: 180%;
+    margin-left: 144% !important;
+  }
+}
+
+
+/* ================================================================= */
+/* ========== TABLETS (<1024px) ========== */
+/* ================================================================= */
+@media (max-width: 1023px) {
+  .lista-trending {
+    padding: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 4%;
+    max-height: 35rem; 
+    overflow-y: auto;
+  }
+
+  .content-1 {
+    margin-top: -40%;
+    margin-left: 5%;
+  }
+
+  .filters button {
+    margin-left: 20px;
+  }
+
+  .button-favorito {
+    margin-left: 50px;
+  }
+
+  .content-1 .cadastro-1-movies {
+    width: 90%;
+    height: 40rem; 
+    min-height: 40rem;
+  }
+
+  .filters {
+    width: 160%;
+    margin-left: 120%;
+  }
+}
+/* ================================================================= */
+/* ========== CELULARES GRANDES (<768px) ========== */
+/* ================================================================= */
+@media (max-width: 767px)  {
+  .mobile-only {
+    display: flex;
+  }
+  .desktop-only {
+    display: none;
+  }
+
+  .lista-trending {
+    padding: 10px;
+    grid-template-columns: repeat(2, 1fr); 
+    margin-left: 1%;
+    max-height: 30rem; 
+    overflow-y: auto;
+  }
+
+  .content-1 {
+    margin-top: -67%;
+    margin-left: 0%;
+  }
+
+  .button-favorito {
+    margin-left: 80px;
+  }
+
+  .content-1 .cadastro-1-movies {
+    width: 80%;
+    margin-top: -40%;
+    height: 37rem; 
+    min-height: 30rem;
+  }
+
+  .filters button {
+    width: 20%;
+    margin-left: -80px;
+  }
+}
+
 
 /* ================================================================= */
 /* ========== CELULARES PEQUENOS (<468px) ========== */
@@ -48,7 +171,7 @@
   .lista-trending {
     padding: 5px;
     grid-template-columns: repeat(1, 1fr);
-    margin-left: 1%;
+    margin-left: -2%;
     max-height: 25rem; 
     overflow-y: auto;
   }
@@ -71,84 +194,6 @@
   .filters {
     width: 190%;
     margin-left: 166%;
-  }
-}
-
-/* ================================================================= */
-/* ========== CELULARES GRANDES (<768px) ========== */
-/* ================================================================= */
-@media (max-width: 767px) {
-  .mobile-only {
-    display: flex;
-  }
-  .desktop-only {
-    display: none;
-  }
-
-  .lista-trending {
-    padding: 10px;
-    grid-template-columns: repeat(2, 1fr); 
-    margin-left: 1%;
-    max-height: 30rem; 
-    overflow-y: auto;
-  }
-
-  .content-1 {
-    margin-top: -37%;
-    margin-left: 0%;
-  }
-
-  .button-favorito {
-    margin-left: 30px;
-  }
-
-  .content-1 .cadastro-1-movies {
-    width: 80%;
-    margin-top: -40%;
-    height: 37rem; 
-    min-height: 30rem;
-  }
-
-  .filters button {
-    width: 20%;
-    margin-left: -80px;
-  }
-}
-
-/* ================================================================= */
-/* ========== TABLETS (<1024px) ========== */
-/* ================================================================= */
-@media (max-width: 1023px) {
-  .lista-trending {
-    padding: 40px;
-    grid-template-columns: repeat(3, 1fr);
-    margin-left: 4%;
-    max-height: 35rem; 
-    overflow-y: auto;
-  }
-
-  .content-1 {
-    margin-top: -45%;
-    margin-left: 5%;
-  }
-
-  .filters button {
-    margin-left: 20px;
-  }
-
-  .button-favorito {
-    margin-left: 40px;
-  }
-
-  .content-1 .cadastro-1-movies {
-    width: 90%;
-    height: 40rem; 
-    min-height: 40rem;
-  }
-
-  .filters {
-    width: 160%;
-    margin-left: 120%;
   }
 }
 
@@ -198,47 +243,3 @@
 }
 
 
-/* ================================================================= */
-/* ========== TELAS MUITO GRANDES (≥1920px) ========== */
-/* ================================================================= */
-@media (min-width: 1920px) {
-  /* Visibilidade */
-  .desktop-only {
-    height: 100%;
-    display: block;
-  }
-  .mobile-only {
-    display: none;
-  }
-
- 
-  .content-1 {
-    margin-top: -26%;
-    margin-left: 10%;
-    
-  }
-  .content-1 .cadastro-1-movies {
-    width: 80%;
-    margin-top: -330px;
-    height: 50rem; 
-    min-height: 40rem;
-  }
-
-
-  .lista-trending {
-    grid-template-columns: repeat(5, 1fr);
-    margin-top: -17px;
-    
-    max-height: calc(100% - 100px);
-    overflow-y: auto;
-  }
-
- 
-  .button-favorito {
-    margin-left: 60px !important;
-  }
-  .filters {
-    width: 180%;
-    margin-left: 144% !important;
-  }
-}
