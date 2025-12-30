@@ -1,3 +1,6 @@
+
+
+```markdown
 # MovieDB 🎬
 
 O **MovieDB** é uma plataforma moderna para exploração cinematográfica, projetada para facilitar a busca, visualização e organização de filmes. A aplicação foca em fornecer dados precisos sobre os títulos mais bem ranqueados e permite que o usuário gerencie sua própria lista de interesses.
@@ -16,6 +19,7 @@ O **MovieDB** é uma plataforma moderna para exploração cinematográfica, proj
 ### 🌓 Interface e UX
 * **Modo Escuro (Dark Mode):** Alternância dinâmica de tema integrada à interface.
 * **Navegação Lateral:** Sidebar intuitiva para transição rápida entre os módulos.
+* **Responsividade Total:** Interface adaptável projetada para oferecer uma experiência fluida em **smartphones de diversos tamanhos, tablets e desktops**.
 
 ---
 
@@ -25,7 +29,7 @@ A stack foi escolhida para garantir uma aplicação rápida, estilizada e com ti
 
 * **[Next.js](https://nextjs.org/):** Framework React para renderização otimizada e roteamento.
 * **[TypeScript](https://www.typescriptlang.org/):** Tipagem estática para maior segurança no consumo de dados.
-* **[Styled Components](https://styled-components.com/):** Estilização baseada em componentes (CSS-in-JS) para estilos dinâmicos.
+* **[Styled Components](https://styled-components.com/):** Estilização baseada em componentes (CSS-in-JS) para estilos dinâmicos e media queries.
 * **[CSS Modules](https://github.com/css-modules/css-modules):** Estruturação de estilos tradicionais de forma escopada.
 * **API Integration:** Consumo de APIs externas para alimentação dinâmica de dados cinematográficos.
 
@@ -45,3 +49,42 @@ src/app/
 ├── trending/        # Filtros e métricas de filmes em alta
 └── types/           # Declarações de tipos e interfaces TypeScript
 
+```
+
+---
+
+## 📦 Como rodar o projeto
+
+1. **Clonagem:**
+```bash
+git clone [url)
+cd moviedb
+
+```
+
+
+2. **Instalação:**
+```bash
+npm install
+
+```
+
+
+3. **Execução:**
+```bash
+npm run dev
+
+```
+
+
+
+---
+
+## ✒️ Desenvolvedor
+
+* **Gervasss** - [GitHub Profile](https://www.google.com/search?q=https://github.com/Gervasss)
+
+```
+
+
+```
