@@ -1,35 +1,47 @@
-# Documentação moviedb
-## Descrição 
-MovieDB é uma aplicação desenvolvida para facilitar a busca e a visualização de filmes e gêneros mais bem ranqueados, seja por nota ou por popularidade. Construída com TypeScript, a aplicação utiliza React em conjunto com o framework Next.js, oferecendo uma experiência moderna, rápida e intuitiva ao usuário.
-## Paginação
- A aplicação conta com quatro páginas principais: a página inicial, a página de gêneros, a página dos filmes mais bem ranqueados (Top Filmes) e a página que exibe os filmes em alta no momento (Trending).
+# MovieDB 🎬
 
- ## Frontend 
- O projeto é composto exclusivamente por um frontend, desenvolvido integralmente com chamadas a APIs externas para a obtenção e exibição dos dados.
+O **MovieDB** é uma plataforma moderna para exploração cinematográfica, projetada para facilitar a busca, visualização e organização de filmes. A aplicação foca em fornecer dados precisos sobre os títulos mais bem ranqueados e permite que o usuário gerencie sua própria lista de interesses.
 
- ## Estrutura do Frontend
+## 🚀 Funcionalidades
 
- **src/app**:Pasta onde contém praticamente toda a estrutura da aplicação,com as principais pastas do projeto.
-  ![Alt text](./Documentation/images/img-2.png)
+### 📺 Navegação e Descoberta
+* **Página Inicial (Dashboard):** Visão geral e ponto de entrada da aplicação.
+* **Gêneros:** Listagem inteligente dos gêneros presentes nos 250 filmes mais populares, incluindo a contagem exata de filmes por categoria.
+* **Top Filmes:** Catálogo detalhado dos 250 filmes com as maiores notas da crítica, exibindo dados como ano de lançamento e gêneros.
+* **Trending:** Seção dedicada aos filmes que estão em alta no momento, com métricas de popularidade.
 
- **Services**:Esta pasta contém o arquivo api.ts, responsável pela configuração da conexão com a API e pela definição das requisições, que são realizadas por meio dos endpoints disponibilizados.
- ![Alt text](./Documentation/images/img-1.png)
+### 💖 Personalização
+* **Favoritos:** Aba dedicada onde o usuário pode gerenciar sua lista pessoal de filmes preferidos, permitindo salvar títulos para acesso rápido posterior.
 
- **Types**:Pasta onde contém as tipagens personalizadas da aplicação,ela possui declarações de tipos e interfaces.
- ![Alt text](./Documentation/images/img-3.png)
+### 🌓 Interface e UX
+* **Modo Escuro (Dark Mode):** Alternância dinâmica de tema integrada à interface.
+* **Navegação Lateral:** Sidebar intuitiva para transição rápida entre os módulos.
 
- **Components**:Esta pasta contém os componentes compartilhados entre diferentes partes da aplicação. Entre eles estão o ThemeContext, que gerencia as configurações do modo escuro; o Sidebar, utilizado para a navegação entre páginas e também para a ativação do modo escuro; e o PageContainer, responsável por definir a estilização padrão das páginas.
-![Alt text](./Documentation/images/img-4.png)
+---
 
-**generos**:A pasta contém a página de gêneros, cuja função é listar e mostrar os gêneros dos 250 filmes mais populares filtrados na aplicação, além de contabilizar a quantidade desses filmes presentes em cada gênero.
-![Alt text](./Documentation/images/img-5.png)
+## 🛠 Tecnologias Utilizadas
 
-**topFilmes**:A pasta contém a página dos top 250 filmes com maiores notas ,cuja a função é listar e mostrar os 250 filmes com maiores notas e seus dados ,que vão de ano de lançamento a gêneros.
-![Alt text](./Documentation/images/img-6.png)
+A stack foi escolhida para garantir uma aplicação rápida, estilizada e com tipagem segura:
 
-**trending**:É a pasta onde está contida a página que filtra quais dos filmes do topfilmes  estão nos trending ,além de listar ,motrar  e contabiliziar quantos são.
-![Alt text](./Documentation/images/img.png)
+* **[Next.js](https://nextjs.org/):** Framework React para renderização otimizada e roteamento.
+* **[TypeScript](https://www.typescriptlang.org/):** Tipagem estática para maior segurança no consumo de dados.
+* **[Styled Components](https://styled-components.com/):** Estilização baseada em componentes (CSS-in-JS) para estilos dinâmicos.
+* **[CSS Modules](https://github.com/css-modules/css-modules):** Estruturação de estilos tradicionais de forma escopada.
+* **API Integration:** Consumo de APIs externas para alimentação dinâmica de dados cinematográficos.
 
+---
 
+## 📂 Estrutura do Projeto
 
+A arquitetura do frontend segue os padrões modernos do Next.js (App Router):
+
+```text
+src/app/
+├── components/      # Componentes (ThemeContext, Sidebar, PageContainer)
+├── favoritos/       # Gerenciamento de filmes marcados pelo usuário
+├── generos/         # Lógica e visualização da listagem por gêneros
+├── services/        # Configuração (api.ts) e chamadas aos endpoints
+├── topFilmes/       # Módulo de exibição dos filmes melhor avaliados
+├── trending/        # Filtros e métricas de filmes em alta
+└── types/           # Declarações de tipos e interfaces TypeScript
 
