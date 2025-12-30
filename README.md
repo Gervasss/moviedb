@@ -1,6 +1,5 @@
 
 
-```markdown
 # MovieDB 🎬
 
 O **MovieDB** é uma plataforma moderna para exploração cinematográfica, projetada para facilitar a busca, visualização e organização de filmes. A aplicação foca em fornecer dados precisos sobre os títulos mais bem ranqueados e permite que o usuário gerencie sua própria lista de interesses.
@@ -48,7 +47,6 @@ src/app/
 ├── topFilmes/       # Módulo de exibição dos filmes melhor avaliados
 ├── trending/        # Filtros e métricas de filmes em alta
 └── types/           # Declarações de tipos e interfaces TypeScript
-
 ```
 
 ---
