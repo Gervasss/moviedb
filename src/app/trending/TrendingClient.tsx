@@ -76,11 +76,10 @@ export default function TrendingClient() {
         (value, index, self) => index === self.findIndex((t) => t.id === value.id)
       );
 
-      //trending movies geral
+     
       setTrendingMovies(uniqueTrending);
 
 
-      // Filmes que estão em ambas as listas (topRated e trending)
       const intersection = uniqueTrending.filter(movie =>
         topRatedMovies.some(topMovie => topMovie.id === movie.id)
       );
@@ -101,15 +100,12 @@ export default function TrendingClient() {
 
 
   const toggleFavorite = (movieId: number) => {
-    // Use o formato de função para garantir que você está usando o estado mais recente
     setFavoriteMovieIds(prevFavorites => {
       let newFavorites: number[];
 
       if (prevFavorites.includes(movieId)) {
-        // Se já está, remove
         newFavorites = prevFavorites.filter(id => id !== movieId);
       } else {
-        // Se não está, adiciona
         newFavorites = [...prevFavorites, movieId];
       }
 
@@ -133,7 +129,7 @@ export default function TrendingClient() {
     return genreNames.join(', ');
   };
 
-  // Funções para trocar o filtro exibido
+
   const showTrendingMovies = () => {
     setCurrentFilter('trending');
   };

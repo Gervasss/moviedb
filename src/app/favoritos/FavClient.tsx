@@ -56,11 +56,9 @@ export default function FavoritesClient() {
             const genresList = await getGenres();
             setGenres(genresList);
             const moviePromises = favoriteMovieIds.map(id => getMovieById(id));
-
             const results = await Promise.all(moviePromises);
 
-          
-
+    
             setFavoriteMovies(results.filter((movie): movie is Movie => !!movie));
             setLoading(false);
         };

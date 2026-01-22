@@ -79,15 +79,12 @@ export default function TopfilmesClient() {
   }, []);
 
   const toggleFavorite = (movieId: number) => {
-    // Use o formato de função para garantir que você está usando o estado mais recente
+
     setFavoriteMovieIds(prevFavorites => {
       let newFavorites: number[];
-
       if (prevFavorites.includes(movieId)) {
-        // Se já está, remove
         newFavorites = prevFavorites.filter(id => id !== movieId);
       } else {
-        // Se não está, adiciona
         newFavorites = [...prevFavorites, movieId];
       }
 
