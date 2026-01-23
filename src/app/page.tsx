@@ -8,5 +8,5 @@ import { AdminHome } from './AdminHome/AdminHomeSection';
 export default function Home() {
   const router = useRouter();
 
-  return <AdminHome />;
+  return <AdminHome/>
 }

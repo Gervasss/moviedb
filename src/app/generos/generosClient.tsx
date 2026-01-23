@@ -1,40 +1,33 @@
 "use client";
 
-import { useContext, useEffect, useState } from 'react';
-import { PageContainer } from '../components/PageContainer';
-import { SidebarComponent } from '../components/sidebar';
-import './styles.css';;
+import { useContext, useEffect, useMemo, useState } from "react";
+import { PageContainer } from "../components/PageContainer";
+import { SidebarComponent } from "../components/sidebar";
+import "./styles.css";
 import { ThemeContext } from "../components/ThemeContext/ThemeContext";
-import { getTopRatedMovies, getGenres } from '../services/api';
-import { Genre, Movie } from '../types/types';
-import { Generos } from './styles';
-import { NavbarComponent } from '../components/Navbar';
+import { getTopRatedMovies, getGenres } from "../services/api";
+import { Genre, Movie } from "../types/types";
+import { NavbarComponent } from "../components/Navbar";
+import { AiOutlineSearch } from "react-icons/ai";
 
-
-
-
-
-export  default function GenerosClient() {
+export default function GenerosClient() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [genres, setGenres] = useState<Genre[]>([]);
   const [genreAverages, setGenreAverages] = useState<{ [key: string]: number }>({});
   const [genreMovies, setGenreMovies] = useState<{ [key: string]: number }>({});
   const [loading, setLoading] = useState(false);
-
-
+  const [query, setQuery] = useState("");
 
   const themeContext = useContext(ThemeContext);
-
-  if (!themeContext) {
-    throw new Error("useContext must be used within a ThemeProvider");
-  }
+  if (!themeContext) throw new Error("useContext must be used within a ThemeProvider");
   const { darkMode } = themeContext;
 
   useEffect(() => {
     setLoading(true);
+
     const fetchData = async () => {
-      const storedMovies = localStorage.getItem('topRatedMovies');
-      
+      const storedMovies = localStorage.getItem("topRatedMovies");
+
       if (storedMovies) {
         setMovies(JSON.parse(storedMovies));
       } else {
@@ -44,114 +37,136 @@ export  default function GenerosClient() {
             const result = await getTopRatedMovies(page);
             allMovies = [...allMovies, ...result];
           } catch (error) {
-            console.error('Erro ao buscar top rated movies na página', page, error);
+            console.error("Erro ao buscar top rated movies na página", page, error);
             break;
           }
         }
         allMovies = allMovies.slice(0, 250);
         setMovies(allMovies);
-        localStorage.setItem('topRatedMovies', JSON.stringify(allMovies));
+        localStorage.setItem("topRatedMovies", JSON.stringify(allMovies));
       }
 
-      const storedGenres = localStorage.getItem('Genres');
+      const storedGenres = localStorage.getItem("Genres");
       if (storedGenres) {
         setGenres(JSON.parse(storedGenres));
-      } else{
+      } else {
         const genresList = await getGenres();
         setGenres(genresList);
-        localStorage.setItem('Genres', JSON.stringify(genresList));
+        localStorage.setItem("Genres", JSON.stringify(genresList));
       }
     };
-    setTimeout(() => {
-      setLoading(false);
-    }, 300);
-    fetchData();
+
+    fetchData().finally(() => {
+      setTimeout(() => setLoading(false), 300);
+    });
   }, []);
 
+  useEffect(() => {
+    if (genres.length === 0) return;
 
-    
-    const calculateGenreAverages = () :void=> {
-        const averages: { [key: string]: number } = {};
-        genres.forEach((genre) => {
-          const relatedMovies = movies.filter((movie) => movie.genre_ids.includes(genre.id));
-          if (relatedMovies.length > 0) {
-            const totalRating = relatedMovies.reduce((acc, movie) => acc + movie.vote_average, 0);
-            averages[genre.name] = totalRating / relatedMovies.length;
-          } else {
-            averages[genre.name] = 0; 
-          }
-        });
-    
-         setGenreAverages(averages);
-      };
+    const averages: { [key: string]: number } = {};
+    const counts: { [key: string]: number } = {};
 
-    
-      
-      const calculateGenreMovies= () :void=> {
-        const genreMovies: { [key: string]: number } = {};
-        genres.forEach((genre) => {
-          const relatedMovies = movies.filter((movie) => movie.genre_ids.includes(genre.id));
-          if (relatedMovies.length > 0) {
-            const totalMovies = relatedMovies.length;
-            genreMovies[genre.name] = totalMovies ;
-          } else {
-            genreMovies[genre.name] = 0; 
-          }
-        });
-    
-         setGenreMovies(genreMovies);
-      };
+    genres.forEach((genre) => {
+      const related = movies.filter((m) => m.genre_ids.includes(genre.id));
+      counts[genre.name] = related.length;
 
-      useEffect(() => {
-        if(genres.length > 0) {
-            calculateGenreAverages();
-            calculateGenreMovies();
-        }
-        
-      },[movies,genres]);
-      
-    
+      if (related.length > 0) {
+        const total = related.reduce((acc, m) => acc + m.vote_average, 0);
+        averages[genre.name] = total / related.length;
+      } else {
+        averages[genre.name] = 0;
+      }
+    });
+
+    setGenreAverages(averages);
+    setGenreMovies(counts);
+  }, [movies, genres]);
+
+  const filteredGenres = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return genres;
+    return genres.filter((g) => g.name.toLowerCase().includes(q));
+  }, [genres, query]);
+
   return (
     <PageContainer padding="0px" darkMode={darkMode}>
-      <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>
-         <div className='desktop-only'>
-          <SidebarComponent  />
-          
-         </div >
-            <div className='mobile-only'>
-       <NavbarComponent />
-      </div>
-      </div>
-      <div className="content-1">
-        <Generos darkMode={darkMode}>
-          <section className="cadastro-1-movies">
-            <h1 >Gêneros</h1>
-            {loading && (
-              <div className="modal-overlay">
-                <h3>Carregando...</h3>
+      <div className={`genresShell ${darkMode ? "dark" : "light"}`}>
+        <div className="shell">
+          <aside className="sidebar">
+            <div className="desktop-only">
+              <SidebarComponent />
+            </div>
+          </aside>
+          <main className="main">
+            <div className="mobile-only">
+              <NavbarComponent />
+            </div>
+            <header className="pageHeader">
+              <div className="pageHeaderLeft">
+                <h1 className="pageTitle">Gêneros</h1>
+                <p className="pageSubtitle">Métricas e panorama por categoria</p>
               </div>
-            )}
-            {!loading && (
-            <>
-            {genres.length > 0 ? (
-              <ul className='lista-genero'>
-                {genres.map((genre) => (
-                  <div key={genre.id} className='card-genero'>
-                    <div>
-                      <h3 className='genero'>{genre.name}</h3>
-                      <p>Média : {genreAverages[genre.name]?.toFixed(2)} </p>
-                      <p>Total: {genreMovies[genre.name]} </p>
-                    </div>
+
+              <div className="pageSearch">
+                <AiOutlineSearch className="pageSearchIcon" />
+                <input
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Buscar gênero…"
+                  aria-label="Buscar gênero"
+                  className="pageSearchInput"
+                />
+              </div>
+            </header>
+            <section className="scrollArea">
+              {loading ? (
+                <div className="loadingWrap">
+                  <div className="loaderCard">
+                    <div className="loaderDot" />
+                    <h3>Carregando...</h3>
                   </div>
-                ))}
-              </ul>
-            ) : <p>Genêros não encontrados</p>}
-               </>
+                </div>
+              ) : filteredGenres.length > 0 ? (
+                <ul className="lista-genero">
+                  {filteredGenres.map((genre) => (
+                    <li key={genre.id} className="card-genero">
+                      <div className="card-header">
+                        <span className="badge">Gênero</span>
+                        <h3 className="genero">{genre.name}</h3>
+                      </div>
+
+                      <div className="metrics">
+                        <div className="metric">
+                          <span className="metric-label">Média</span>
+                          <span className="metric-value">
+                            {(genreAverages[genre.name] ?? 0).toFixed(2)}
+                          </span>
+                        </div>
+
+                        <div className="metric">
+                          <span className="metric-label">Total</span>
+                          <span className="metric-value">{genreMovies[genre.name] ?? 0}</span>
+                        </div>
+                      </div>
+
+                      <div className="card-footer">
+                        <span className="hint">Ver detalhes</span>
+                        <span className="arrow">→</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div className="emptyState">
+                  <p>Gêneros não encontrados</p>
+                  <span>Tente buscar por outro nome.</span>
+                </div>
               )}
-          </section>
-        </Generos>
+            </section>
+          </main>
+        </div>
       </div>
-     
     </PageContainer>
   );
 }

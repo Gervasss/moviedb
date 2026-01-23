@@ -6,7 +6,7 @@ type SidebarProps = {
 
 export const Sidebar = styled.div<SidebarProps>`
   width: 80%;
-  height: 96%;
+  height: 90%;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@ export const Sidebar = styled.div<SidebarProps>`
   
   
  
-  background-color: ${({ darkMode }) => (darkMode ? 'rgba(30, 30, 30, 0.9)' : 'rgba(255, 255, 255, 0.7)')}; 
+  background-color: ${({ darkMode }) => (darkMode ? '#00000' : 'rgba(255, 255, 255, 0.7)')}; 
   color: ${({ darkMode }) => (darkMode ? 'white' : 'black')};
   border: 1px solid ${({ darkMode }) => (darkMode ? '#444' : '#eee')};
   box-shadow: ${({ darkMode }) => (darkMode ? '0 8px 32px 0 rgba(0, 0, 0, 0.8)' : '0 8px 32px 0 rgba(31, 38, 135, 0.1)')};

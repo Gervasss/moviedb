@@ -21,60 +21,6 @@ export const TopContainer = styled.div<TopContainerProps>`
 
   
 
-  .right {
-    display: flex;
-    align-items: center;
-
-    .search {
-      width: 20rem;
-      height: 3rem;
-      background-color: #fff;
-      display: flex;
-      align-items: center;
-      border: 1px solid #ccc;
-      position: relative;
-
-      input {
-      color:${({ darkMode }) => (darkMode ? '#fff' : '#333')};
-      background-color: ${({ darkMode }) => (darkMode ? '#333' : '#fff')}; 
-      border: ${({ darkMode }) => (darkMode ? '#333' : '#fff')}; 
-        height: 100%;
-        width: 100%;
-        padding: 0 1rem;
-      }
-
-      svg {
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
-        font-size: 20px;
-        color: #ccc;
-        pointer-events: none;
-        font-size: 1.5rem;
-      }
-    }
-
-  
-
-      svg {
-        font-size: 1.5rem;
-        fill: #ccc;
-        transition: 0.4s;
-      }
-
-      .badge {
-        position: absolute;
-        top: -8px;
-        right: -8px;
-        background-color: red;
-        color: white;
-        font-size: 12px;
-        padding: 4px 8px;
-        border-radius: 50%;
-      }
-    }
-  }
 `;
 
 
@@ -93,23 +39,7 @@ export const CardContainer = styled.div<CardContainerProps>`
     transform: scale(1.02);
   
   }
-  .icon {
-    width: 30%;
-    height: 100%;
-    background-color:red;
-    font-size: 3rem;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-
-  
-
-  .desc {
-    padding: 0.5rem;
-  }
+ 
 `;
 
 export const Content = styled.div`

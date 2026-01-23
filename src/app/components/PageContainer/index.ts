@@ -8,13 +8,13 @@ type PageContainerProps = {
 
 export const PageContainer = styled.div<PageContainerProps>`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   padding: ${({ padding }) => padding || "1rem"};
   display: ${({ display }) => display || "block"};
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: ${({ darkMode }) => (darkMode ? '#363636' : '#f5f7f9')}; 
+  background-color: ${({ darkMode }) => (darkMode ? '#000000' : '#f5f7f9')}; 
   color: ${({ darkMode }) => (darkMode ? 'white' : 'black')};  
   transition: background-color 0.3s, color 0.3s;  /* Transição suave */
 

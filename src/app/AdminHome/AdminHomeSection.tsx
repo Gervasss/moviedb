@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./AdminHome.module.css";
 
@@ -56,81 +56,139 @@ function DashCard({
 export function AdminHome() {
   const router = useRouter();
   const themeContext = useContext(ThemeContext);
-
-  if (!themeContext) {
-    throw new Error("useContext must be used within a ThemeProvider");
-  }
-
+  if (!themeContext) throw new Error("useContext must be used within a ThemeProvider");
   const { darkMode } = themeContext;
+
+  const [query, setQuery] = useState("");
+
+  const cards = useMemo(
+    () => [
+      {
+        key: "generos",
+        title: "Gêneros",
+        subtitle: "Categorias e médias",
+        icon: <GiRaiseZombie className={styles.bigIcon} />,
+        onClick: () => router.push("/generos"),
+        variant: "primary" as const,
+      },
+      {
+        key: "topfilmes",
+        title: "Top Filmes",
+        subtitle: "Ranking e destaques",
+        icon: <MdLocalMovies className={styles.bigIcon} />,
+        onClick: () => router.push("/topFilmes"),
+        variant: "success" as const,
+      },
+      {
+        key: "trending",
+        title: "Trending",
+        subtitle: "O que está bombando",
+        icon: <IoIosTrendingUp className={styles.bigIcon} />,
+        onClick: () => router.push("/trending"),
+        variant: "info" as const,
+      },
+      {
+        key: "favoritos",
+        title: "Favoritos",
+        subtitle: "Sua lista salva",
+        icon: <FaRegStar className={styles.bigIcon} />,
+        onClick: () => router.push("/favoritos"),
+        variant: "warning" as const,
+      },
+    ],
+    [router]
+  );
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return cards;
+    return cards.filter(
+      (c) =>
+        c.title.toLowerCase().includes(q) ||
+        c.subtitle.toLowerCase().includes(q)
+    );
+  }, [cards, query]);
 
   return (
     <PageContainer className="admin" padding="0px" darkMode={darkMode}>
-      <div className={styles.shell} data-theme={darkMode ? "dark" : "light"}>
-        <aside className={styles.sidebar}>
-          <SidebarComponent />
-        </aside>
-        <div className={styles.mobileNav}>
-          <NavbarComponent />
-        </div>
-        <main className={styles.main}>
-          <header className={styles.header}>
-            <div className={styles.headerLeft}>
-              <h1 className={styles.h1}>Dashboard</h1>
-              <p className={styles.p}>Acesso rápido às principais seções</p>
+      <div className={styles.topShell} data-theme={darkMode ? "dark" : "light"}>
+        <div className={styles.shell}>
+          {/* Sidebar (desktop) */}
+          <aside className={styles.sidebar}>
+            <div className={styles.desktopOnly}>
+              <SidebarComponent />
             </div>
-            <div className={styles.search}>
-              <AiOutlineSearch className={styles.searchIcon} />
-              <input
-                className={styles.searchInput}
-                placeholder="Buscar no painel…"
-                aria-label="Buscar no painel"
-              />
-            </div>
-          </header>
-          <section className={styles.content}>
-            <div className={styles.grid}>
-              <DashCard
-                title="Gêneros"
-                subtitle="Categorias e filtros"
-                icon={<GiRaiseZombie className={styles.bigIcon} />}
-                onClick={() => router.push("/generos")}
-                variant="primary"
-              />
-              <DashCard
-                title="Top Filmes"
-                subtitle="Ranking e destaques"
-                icon={<MdLocalMovies className={styles.bigIcon} />}
-                onClick={() => router.push("/topFilmes")}
-                variant="success"
-              />
-              <DashCard
-                title="Trending"
-                subtitle="O que está bombando"
-                icon={<IoIosTrendingUp className={styles.bigIcon} />}
-                onClick={() => router.push("/trending")}
-                variant="info"
-              />
-              <DashCard
-                title="Favoritos"
-                subtitle="Sua lista salva"
-                icon={<FaRegStar className={styles.bigIcon} />}
-                onClick={() => router.push("/favoritos")}
-                variant="warning"
-              />
+          </aside>
+
+          {/* Main */}
+          <main className={styles.main}>
+            {/* Navbar mobile */}
+            <div className={styles.mobileOnly}>
+              <NavbarComponent />
             </div>
 
-            {/* Panel */}
-            <div className={styles.panel}>
-              <div className={styles.panelHeader}>
-                <span className={styles.panelTitle}>Visão geral</span>
-                <span className={styles.panelChip}>Hoje</span>
+            {/* Header */}
+            <header className={styles.pageHeader}>
+              <div className={styles.pageHeaderLeft}>
+                <h1 className={styles.pageTitle}>Dashboard</h1>
+                <p className={styles.pageSubtitle}>Acesso rápido às principais seções</p>
               </div>
-              <p className={styles.panelText}>
-                
-              </p>
-            </div>
-          </section>
-        </main>
+
+              <div className={styles.pageSearch}>
+                <AiOutlineSearch className={styles.pageSearchIcon} />
+                <input
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  className={styles.pageSearchInput}
+                  placeholder="Buscar no painel…"
+                  aria-label="Buscar no painel"
+                />
+              </div>
+            </header>
+
+            {/* Filters/Counter (mesma pegada do trending) */}
+            <section className={styles.filtersPanel} aria-label="Resumo do painel">
+              <div className={styles.counterWrap}>
+                <span className={styles.counterPill}>
+                  {filtered.length} seções
+                </span>
+                <span className={styles.counterHint}>Clique em um card para abrir</span>
+              </div>
+
+              <div className={styles.quickPills} aria-label="Atalhos rápidos">
+                <span className={styles.quickPill}>Glass UI</span>
+                <span className={styles.quickPill}>Tema {darkMode ? "Dark" : "Light"}</span>
+              </div>
+            </section>
+
+            {/* Scroll area (pra não vazar e manter sidebar full) */}
+            <section className={styles.scrollArea}>
+              <div className={styles.grid}>
+                {filtered.map((c) => (
+                  <DashCard
+                    key={c.key}
+                    title={c.title}
+                    subtitle={c.subtitle}
+                    icon={c.icon}
+                    onClick={c.onClick}
+                    variant={c.variant}
+                  />
+                ))}
+              </div>
+
+              <div className={styles.panel}>
+                <div className={styles.panelHeader}>
+                  <span className={styles.panelTitle}>Visão geral</span>
+                  <span className={styles.panelChip}>Hoje</span>
+                </div>
+
+                <p className={styles.panelText}>
+                  Use o campo de busca para filtrar seções do painel.
+                </p>
+              </div>
+            </section>
+          </main>
+        </div>
       </div>
     </PageContainer>
   );

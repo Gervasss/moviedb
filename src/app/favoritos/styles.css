@@ -1,0 +1,569 @@
+/* ========= FUNDO DA PÁGINA ========= */
+.fav-topShell {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.fav-topShell.dark {
+    background:
+        radial-gradient(900px 520px at 18% -10%, rgba(220, 38, 38, 0.26), transparent 60%),
+        radial-gradient(800px 480px at 85% 25%, rgba(153, 27, 27, 0.22), transparent 62%),
+        linear-gradient(135deg, rgb(10, 10, 12) 0%, rgb(13, 14, 18) 45%, rgb(7, 7, 9) 100%);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.fav-topShell.light {
+    background:
+        radial-gradient(900px 520px at 18% -10%, rgba(220, 38, 38, 0.14), transparent 60%),
+        radial-gradient(800px 480px at 85% 25%, rgba(153, 27, 27, 0.10), transparent 62%),
+        linear-gradient(135deg, rgb(246, 247, 251) 0%, rgb(250, 250, 252) 55%, rgb(244, 245, 248) 100%);
+    color: rgba(15, 23, 42, 0.92);
+}
+
+/* ========= SHELL (IGUAL AO GÊNEROS) ========= */
+.fav-shell {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+}
+
+/* ========= SIDEBAR ========= */
+.fav-sidebar {
+    padding: 14px 0 14px 14px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+}
+
+/* ========= MAIN ========= */
+.fav-main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 18px 22px 18px 10px;
+    overflow: hidden;
+}
+
+/* ========= NAV MOBILE ========= */
+.fav-mobileOnly {
+    display: none;
+}
+
+/* ========= HEADER ========= */
+.fav-pageHeader {
+    flex: 0 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    padding: 18px 18px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    backdrop-filter: blur(14px);
+}
+
+.fav-topShell.dark .fav-pageHeader {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.fav-topShell.light .fav-pageHeader {
+    background: rgba(255, 255, 255, 0.70);
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.10);
+}
+
+.fav-pageHeader::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background:
+        radial-gradient(700px 260px at 15% 0%, rgba(220, 38, 38, 0.26), transparent 60%),
+        radial-gradient(640px 240px at 85% 35%, rgba(153, 27, 27, 0.18), transparent 62%);
+    pointer-events: none;
+    opacity: 0.95;
+}
+
+.fav-pageHeaderLeft {
+    display: grid;
+    gap: 6px;
+    position: relative;
+    z-index: 1;
+}
+
+.fav-pageTitle {
+    margin: 0;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+}
+
+.fav-pageSubtitle {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.72;
+}
+
+/* ========= FAVACTION========= */
+
+.fav-favAction {
+    border-radius: 10px;
+    height: 30px;
+    background: rgba(220, 38, 38, 0.14);
+    border-color: rgba(220, 38, 38, 0.28);
+    box-shadow: 0 0 0 6px rgba(220, 38, 38, 0.10);
+    color: red;
+    cursor: pointer;
+}
+
+.fav-favAction:hover {
+     transform: translateY(-1px);
+
+}
+
+/* ========= SEARCH ========= */
+.fav-pageSearch {
+    position: relative;
+    width: min(420px, 48vw);
+    z-index: 1;
+}
+
+.fav-pageSearchIcon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    opacity: 0.75;
+}
+
+.fav-pageSearchInput {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px 0 40px;
+    border-radius: 12px;
+    outline: none;
+    backdrop-filter: blur(10px);
+}
+
+.fav-topShell.dark .fav-pageSearchInput {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(0, 0, 0, 0.30);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.fav-topShell.light .fav-pageSearchInput {
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: rgba(255, 255, 255, 0.82);
+    color: rgba(15, 23, 42, 0.92);
+}
+
+.fav-pageSearchInput::placeholder {
+    opacity: 0.65;
+}
+
+.fav-pageSearchInput:focus {
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.22);
+}
+
+/* ========= FILTERS (contador premium) ========= */
+.fav-filtersPanel {
+    flex: 0 0 auto;
+    margin-top: 12px;
+    border-radius: 18px;
+    padding: 12px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(14px);
+    position: relative;
+    overflow: hidden;
+}
+
+.fav-topShell.dark .fav-filtersPanel {
+    background: rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.30);
+}
+
+.fav-topShell.light .fav-filtersPanel {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 12px 26px rgba(15, 23, 42, 0.10);
+}
+
+.fav-filtersPanel::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background:
+        radial-gradient(600px 220px at 18% 0%, rgba(220, 38, 38, 0.20), transparent 60%),
+        radial-gradient(520px 220px at 85% 65%, rgba(153, 27, 27, 0.16), transparent 62%);
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.fav-counterWrap {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fav-counterPill {
+    border-radius: 999px;
+    padding: 10px 12px;
+    font-weight: 900;
+    font-size: 12px;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.fav-topShell.dark .fav-counterPill {
+    color: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(0, 0, 0, 0.28);
+}
+
+.fav-topShell.light .fav-counterPill {
+    color: rgba(15, 23, 42, 0.92);
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: rgba(255, 255, 255, 0.78);
+}
+
+/* ========= SCROLL AREA ========= */
+.fav-scrollArea {
+    margin-top: 14px;
+    border-radius: 18px;
+    padding: 14px;
+    height: 71%;
+
+    backdrop-filter: blur(14px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.fav-topShell.dark .fav-scrollArea {
+    background: rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.30);
+}
+
+.fav-topShell.light .fav-scrollArea {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 12px 26px rgba(15, 23, 42, 0.10);
+}
+
+.fav-scrollArea::-webkit-scrollbar {
+    width: 10px;
+}
+
+.fav-scrollArea::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(220, 38, 38, 0.28);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+/* ========= GRID DOS FILMES ========= */
+.fav-movieGrid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 14px;
+}
+
+/* ========= CARD DO FILME ========= */
+.fav-movieCard {
+    grid-column: span 3;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(14px);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+/* glass por tema */
+.fav-topShell.dark .fav-movieCard {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(0, 0, 0, 0.26);
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.40);
+}
+
+.fav-topShell.light .fav-movieCard {
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: rgba(255, 255, 255, 0.70);
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.12);
+}
+
+.fav-movieCard:hover {
+    transform: translateY(-6px);
+    border-color: rgba(220, 38, 38, 0.55);
+}
+
+.fav-topShell.dark .fav-movieCard:hover {
+    box-shadow: 0 22px 46px rgba(0, 0, 0, 0.52);
+}
+
+.fav-topShell.light .fav-movieCard:hover {
+    box-shadow: 0 22px 46px rgba(15, 23, 42, 0.16);
+}
+
+/* ========= POSTER ========= */
+.fav-posterWrap {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+
+.fav-poster {
+    width: 100%;
+    height: 100%;
+    object-position: 50% 10%;
+    background: rgba(0, 0, 0, 0.22);
+}
+
+.fav-posterShade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, 0.00),
+            rgba(0, 0, 0, 0.45) 72%,
+            rgba(0, 0, 0, 0.68));
+    pointer-events: none;
+}
+
+.fav-posterFallback {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    opacity: 0.8;
+}
+
+/* ========= BODY ========= */
+.fav-movieBody {
+    padding: 14px 14px 12px 14px;
+    display: grid;
+    gap: 10px;
+}
+
+.fav-movieTitle {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.fav-pillRow {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.fav-pill {
+    font-size: 12px;
+    border-radius: 999px;
+    padding: 6px 10px;
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.fav-topShell.dark .fav-pill {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.fav-topShell.light .fav-pill {
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(15, 23, 42, 0.04);
+}
+
+.fav-movieMeta {
+    margin: 0;
+    font-size: 12px;
+    opacity: 0.78;
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.fav-metaLabel {
+    font-weight: 800;
+    opacity: 0.95;
+}
+
+.fav-movieFooter {
+    margin-top: 4px;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fav-topShell.dark .fav-movieFooter {
+    border-top: 1px dashed rgba(255, 255, 255, 0.18);
+}
+
+.fav-topShell.light .fav-movieFooter {
+    border-top: 1px dashed rgba(15, 23, 42, 0.14);
+}
+
+.fav-removeBtn {
+    border: 0;
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 8px 10px;
+    font-weight: 800;
+    font-size: 12px;
+    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.fav-topShell.dark .fav-removeBtn {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.fav-topShell.light .fav-removeBtn {
+    background: rgba(15, 23, 42, 0.04);
+    color: rgba(15, 23, 42, 0.92);
+    border: 1px solid rgba(15, 23, 42, 0.10);
+}
+
+.fav-removeBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+}
+
+.fav-removeBtn.on {
+    background: rgba(220, 38, 38, 0.20);
+    border-color: rgba(220, 38, 38, 0.35);
+}
+
+.fav-arrow {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* ========= LOADING / EMPTY ========= */
+.fav-loadingWrap {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.fav-loaderCard {
+    display: grid;
+    gap: 10px;
+    place-items: center;
+    padding: 18px 16px;
+    border-radius: 16px;
+    backdrop-filter: blur(14px);
+}
+
+.fav-topShell.dark .fav-loaderCard {
+    background: rgba(0, 0, 0, 0.40);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.fav-topShell.light .fav-loaderCard {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(15, 23, 42, 0.10);
+}
+
+.fav-loaderDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(220, 38, 38, 0.9);
+    box-shadow: 0 0 0 6px rgba(220, 38, 38, 0.18);
+}
+
+.fav-emptyState {
+    padding: 18px;
+    border-radius: 16px;
+    backdrop-filter: blur(14px);
+}
+
+.fav-topShell.dark .fav-emptyState {
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(0, 0, 0, 0.22);
+}
+
+.fav-topShell.light .fav-emptyState {
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(255, 255, 255, 0.70);
+}
+
+.fav-emptyState p {
+    margin: 0;
+    font-weight: 900;
+}
+
+.fav-emptyState span {
+    display: block;
+    margin-top: 6px;
+    opacity: 0.72;
+    font-size: 13px;
+}
+
+/* ========= RESPONSIVO ========= */
+.fav-desktopOnly {
+    height: 100%;
+}
+
+@media (max-width: 1023px) {
+    .fav-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .fav-sidebar {
+        display: none;
+    }
+
+    .fav-mobileOnly {
+        display: flex;
+        width: 100%;
+    }
+
+    .fav-pageHeader {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .fav-pageSearch {
+        width: 100%;
+    }
+
+    .fav-movieCard {
+        grid-column: span 6;
+    }
+}
+
+@media (max-width: 640px) {
+    .fav-movieCard {
+        grid-column: span 12;
+    }
+}

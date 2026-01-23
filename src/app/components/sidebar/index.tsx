@@ -38,8 +38,8 @@ export function SidebarComponent() {
       <section className="admin-buttons">
         <div className="buttons">
           <Sidebutton icon={<MdSpaceDashboard />} tittle="Dashboard" onClick={() => router.push('/')} />
-          <Sidebutton icon={<GiRaiseZombie />} tittle="Genêros" onClick={() => router.push('/generos')} />
           <Sidebutton icon={<MdLocalMovies />} tittle="Top filmes" onClick={() => router.push('/topFilmes')} />
+          <Sidebutton icon={<GiRaiseZombie />} tittle="Genêros" onClick={() => router.push('/generos')} />
           <Sidebutton icon={<IoIosTrendingUp />} tittle="Trending" onClick={() => router.push('/trending')} />
           <Sidebutton icon={<FaRegStar />} tittle="Favoritos" onClick={() => router.push('/favoritos')} />
         </div>
