@@ -75,7 +75,7 @@ export const Sidebar = styled.div<SidebarProps>`
   }
 
   .switch {
-  margin-left:-100px;
+  margin-left:-30px;
     cursor: pointer;
     filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
    

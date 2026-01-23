@@ -243,7 +243,7 @@
 
 .poster {
     height: 400px;
-    width: 380px;
+    width: 0px;
    
     object-position: 50% 10%;
 }
