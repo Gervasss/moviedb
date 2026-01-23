@@ -261,8 +261,7 @@
 
 /* ========= SCROLL AREA ========= */
 .scrollArea {
-  flex: 1 1 auto;
-  min-height: 0;
+  height: 71%;
   margin-top: 14px;
   border-radius: 18px;
   padding: 14px;

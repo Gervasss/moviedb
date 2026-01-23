@@ -113,21 +113,15 @@ export function AdminHome() {
     <PageContainer className="admin" padding="0px" darkMode={darkMode}>
       <div className={styles.topShell} data-theme={darkMode ? "dark" : "light"}>
         <div className={styles.shell}>
-          {/* Sidebar (desktop) */}
           <aside className={styles.sidebar}>
             <div className={styles.desktopOnly}>
               <SidebarComponent />
             </div>
           </aside>
-
-          {/* Main */}
           <main className={styles.main}>
-            {/* Navbar mobile */}
             <div className={styles.mobileOnly}>
               <NavbarComponent />
             </div>
-
-            {/* Header */}
             <header className={styles.pageHeader}>
               <div className={styles.pageHeaderLeft}>
                 <h1 className={styles.pageTitle}>Dashboard</h1>
@@ -145,8 +139,6 @@ export function AdminHome() {
                 />
               </div>
             </header>
-
-            {/* Filters/Counter (mesma pegada do trending) */}
             <section className={styles.filtersPanel} aria-label="Resumo do painel">
               <div className={styles.counterWrap}>
                 <span className={styles.counterPill}>
@@ -160,8 +152,6 @@ export function AdminHome() {
                 <span className={styles.quickPill}>Tema {darkMode ? "Dark" : "Light"}</span>
               </div>
             </section>
-
-            {/* Scroll area (pra não vazar e manter sidebar full) */}
             <section className={styles.scrollArea}>
               <div className={styles.grid}>
                 {filtered.map((c) => (
