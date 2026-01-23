@@ -27,7 +27,6 @@ export const Sidebar = styled.div<SidebarProps>`
   .admin-buttons .buttons .sideButton {
     width: 100%;
     height: 14%;
-    margin-bottom: 50px; 
     display: flex;
     font-size: 1rem;
     justify-content: space-between;

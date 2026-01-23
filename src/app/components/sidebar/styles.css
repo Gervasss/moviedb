@@ -1,0 +1,55 @@
+
+
+@media (min-width: 1360px) and (max-width: 1439px) {
+  .sidebar{
+    height: 95%;
+  }
+
+ .sideButton {
+    margin-bottom: 24px;
+ }
+
+}
+
+/* notebooks HD+ */
+@media (min-width: 1440px) and (max-width: 1535px) {
+  .sidebar{
+    height: 90%;
+  }
+
+   .sideButton {
+    margin-bottom: 50px;
+ }
+}
+
+/* notebooks e monitores médios */
+@media (min-width: 1536px) and (max-width: 1599px) {
+  .sidebar{
+    height: 100%;
+  }
+}
+
+/* 1600x900 exato */
+@media (min-width: 1600px) and (max-width: 1680px) {
+  .sidebar{
+    height: 95%;
+  }
+
+    .sideButton {
+    margin-bottom: 40px;
+ }
+
+}
+
+
+@media (min-width: 1920px)  {
+  .sidebar{
+    height: 90%;
+  }
+
+    .sideButton {
+    margin-bottom: 50px;
+ }
+
+}
+

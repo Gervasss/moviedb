@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { IoIosTrendingUp } from "react-icons/io";
 import Sidebutton from './SideButton';
 import { Sidebar } from './styles';
+import "./styles.css";
 import { MdLocalMovies, MdSpaceDashboard } from 'react-icons/md';
 import { ThemeContext } from "../ThemeContext/ThemeContext";
 import { GiRaiseZombie } from 'react-icons/gi';
@@ -26,7 +27,7 @@ export function SidebarComponent() {
 
 
   return (
-    <Sidebar darkMode={darkMode} >
+    <Sidebar darkMode={darkMode}  className='sidebar'>
       <div className="top">
         <img
           className='movie-logo'
