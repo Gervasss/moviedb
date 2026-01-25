@@ -2,11 +2,11 @@
 
 @media (min-width: 1360px) and (max-width: 1439px) {
   .sidebar{
-    height: 95%;
+    height: 100%;
   }
 
  .sideButton {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
  }
 
 }
@@ -44,7 +44,7 @@
 
 @media (min-width: 1920px)  {
   .sidebar{
-    height: 90%;
+    height: 96%;
   }
 
     .sideButton {

@@ -235,17 +235,18 @@
 }
 
 /* ========= POSTER ========= */
-.posterWrap {
-    position: relative;
-    height: 400px;
-    overflow: hidden;
+.poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 10%;
+  display: block;
 }
 
-.poster {
-    height: 400px;
-    width: 380px;
-   
-    object-position: 50% 10%;
+/* Garanta que o wrap não fique “travado” em dimensões fixas */
+.posterWrap {
+  position: relative;
+  width: 100%;
 }
 
 .posterShade {
