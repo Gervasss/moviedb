@@ -388,6 +388,10 @@
   font-size: 13px;
 }
 
+.desktop-only{
+   height: 100%;
+}
+
 
 @media (max-width: 640px) {
 
