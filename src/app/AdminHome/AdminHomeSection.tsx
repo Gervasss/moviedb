@@ -110,8 +110,7 @@ export function AdminHome() {
   }, [cards, query]);
 
   return (
-    <PageContainer className="admin" padding="0px" darkMode={darkMode}>
-      <div className={styles.topShell} data-theme={darkMode ? "dark" : "light"}>
+      <div className={styles.topShell} >
         <div className={styles.shell}>
           <aside className={styles.sidebar}>
             <div className={styles.desktopOnly}>
@@ -146,11 +145,6 @@ export function AdminHome() {
                 </span>
                 <span className={styles.counterHint}>Clique em um card para abrir</span>
               </div>
-
-              <div className={styles.quickPills} aria-label="Atalhos rápidos">
-                <span className={styles.quickPill}>Glass UI</span>
-                <span className={styles.quickPill}>Tema {darkMode ? "Dark" : "Light"}</span>
-              </div>
             </section>
             <section className={styles.scrollArea}>
               <div className={styles.grid}>
@@ -180,6 +174,5 @@ export function AdminHome() {
           </main>
         </div>
       </div>
-    </PageContainer>
   );
 }

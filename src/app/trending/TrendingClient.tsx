@@ -1,10 +1,10 @@
-"use client";
+"use client"; 
 
-import React, { useContext, useEffect, useMemo, useState } from "react";
-import { PageContainer } from "../components/PageContainer";
+import React, { useEffect, useMemo, useState } from "react";
+import Link from "next/link"; 
 import { SidebarComponent } from "../components/sidebar";
 import "./styles.css";
-import { ThemeContext } from "../components/ThemeContext/ThemeContext";
+
 import { getTrendingMovies, getGenres, getTopRatedMovies } from "../services/api";
 import { Genre, Movie } from "../types/types";
 import { NavbarComponent } from "../components/Navbar";
@@ -26,9 +26,7 @@ export default function TrendingClient() {
   const [currentFilter, setCurrentFilter] = useState<"trending" | "topRated">("trending");
   const [query, setQuery] = useState("");
 
-  const themeContext = useContext(ThemeContext);
-  if (!themeContext) throw new Error("useContext must be used within a ThemeProvider");
-  const { darkMode } = themeContext;
+
 
   // favoritos
   useEffect(() => {
@@ -48,7 +46,6 @@ export default function TrendingClient() {
     setLoading(true);
 
     const fetchData = async () => {
-      // Top rated
       let topRated: Movie[] = [];
       for (let page = 1; page <= 13; page++) {
         const result = await getTopRatedMovies(page);
@@ -57,7 +54,6 @@ export default function TrendingClient() {
       topRated = topRated.slice(0, 250);
       setTopMovies(topRated);
 
-      // Genres (cache)
       const storedGenres = localStorage.getItem("Genres");
       if (storedGenres) {
         setGenres(JSON.parse(storedGenres));
@@ -67,7 +63,6 @@ export default function TrendingClient() {
         localStorage.setItem("Genres", JSON.stringify(list));
       }
 
-      // Trending
       let tr: Movie[] = [];
       for (let page = 1; page <= 20; page++) {
         const result = await getTrendingMovies(page);
@@ -126,8 +121,8 @@ export default function TrendingClient() {
   }, [activeList, query]);
 
   return (
-    <PageContainer padding="0px" darkMode={darkMode}>
-      <div className={`trd-topShell ${darkMode ? "dark" : "light"}`}>
+
+      <div className="trd-topShell">
         <div className="trd-shell">
           <aside className="trd-sidebar">
             <div className="trd-desktopOnly">
@@ -161,7 +156,6 @@ export default function TrendingClient() {
                   type="button"
                   className={`trd-tab ${currentFilter === "trending" ? "active" : ""}`}
                   onClick={() => setCurrentFilter("trending")}
-                  aria-pressed={currentFilter === "trending"}
                 >
                   Trending
                 </button>
@@ -170,7 +164,6 @@ export default function TrendingClient() {
                   type="button"
                   className={`trd-tab ${currentFilter === "topRated" ? "active" : ""}`}
                   onClick={() => setCurrentFilter("topRated")}
-                  aria-pressed={currentFilter === "topRated"}
                 >
                   Top Trending
                 </button>
@@ -197,41 +190,41 @@ export default function TrendingClient() {
 
                       return (
                         <li key={`${movie.id}-${index}`} className={`trd-movieCard ${fav ? "favorited" : ""}`}>
-                          <div className="trd-posterWrap">
-                            {poster ? (
-                              <img className="trd-poster" src={poster} alt={movie.title} loading="lazy" />
-                            ) : (
-                              <div className="trd-posterFallback">Sem poster</div>
-                            )}
-
-                            <button
-                              type="button"
-                              className={`trd-favBtn ${fav ? "on" : ""}`}
-                              onClick={() => toggleFavorite(movie.id)}
-                              aria-label={fav ? "Remover dos favoritos" : "Adicionar aos favoritos"}
-                              title={fav ? "Remover dos favoritos" : "Adicionar aos favoritos"}
-                            >
-                              {fav ? <FaStar /> : <FaRegStar />}
-                            </button>
-
-                            <div className="trd-posterShade" />
-                          </div>
+                            <div className="trd-posterWrap">
+                              {poster ? (
+                                <img className="trd-poster" src={poster} alt={movie.title} loading="lazy" />
+                              ) : (
+                                <div className="trd-posterFallback">Sem poster</div>
+                              )}
+                              <div className="trd-posterShade" />
+                            </div>
+                          <button
+                            type="button"
+                            className={`trd-favBtn ${fav ? "on" : ""}`}
+                            onClick={() => toggleFavorite(movie.id)}
+                            aria-label={fav ? "Remover dos favoritos" : "Adicionar aos favoritos"}
+                            title={fav ? "Remover dos favoritos" : "Adicionar aos favoritos"}
+                          >
+                            {fav ? <FaStar /> : <FaRegStar />}
+                          </button>
 
                           <div className="trd-movieBody">
-                            <div className="trd-movieTop">
-                              <h3 className="trd-movieTitle" title={movie.title}>
-                                {movie.title}
-                              </h3>
+                            <Link href={`/movie/${movie.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                              <div className="trd-movieTop">
+                                <h3 className="trd-movieTitle" title={movie.title}>
+                                  {movie.title}
+                                </h3>
 
-                              <div className="trd-pillRow">
-                                <span className="trd-pill">
-                                  Nota <b>{movie.vote_average?.toFixed(2) ?? "0.00"}</b>
-                                </span>
-                                <span className="trd-pill">
-                                  Ano <b>{formatDate(movie.release_date)}</b>
-                                </span>
+                                <div className="trd-pillRow">
+                                  <span className="trd-pill">
+                                    Nota <b>{movie.vote_average?.toFixed(2) ?? "0.00"}</b>
+                                  </span>
+                                  <span className="trd-pill">
+                                    Ano <b>{formatDate(movie.release_date)}</b>
+                                  </span>
+                                </div>
                               </div>
-                            </div>
+                            </Link>
 
                             <p className="trd-movieMeta">
                               <span className="trd-metaLabel">Gêneros:</span> {getGenreNames(movie.genre_ids) || "—"}
@@ -245,8 +238,10 @@ export default function TrendingClient() {
                               >
                                 {fav ? "Remover" : "Favoritar"} {fav ? "★" : "☆"}
                               </button>
-
-                              <span className="trd-arrow">→</span>
+                              
+                              <Link href={`/movie/${movie.id}`} style={{textDecoration:"none"}}>
+                                <span className="trd-arrow">Detalhes</span>
+                              </Link>
                             </div>
                           </div>
                         </li>
@@ -269,6 +264,5 @@ export default function TrendingClient() {
           </main>
         </div>
       </div>
-    </PageContainer>
   );
 }

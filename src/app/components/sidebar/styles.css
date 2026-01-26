@@ -6,7 +6,7 @@
   }
 
  .sideButton {
-    margin-bottom: 20px;
+    margin-bottom: 27px;
  }
 
 }
@@ -44,11 +44,13 @@
 
 @media (min-width: 1920px)  {
   .sidebar{
-    height: 96%;
+    height: 91%;
+    width: 90%;
   }
 
     .sideButton {
-    margin-bottom: 50px;
+      margin-left: -10px;
+     margin-bottom: 50px;
  }
 
 }

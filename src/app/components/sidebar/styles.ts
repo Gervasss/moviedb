@@ -70,7 +70,7 @@ export const Sidebar = styled.div<SidebarProps>`
     margin-top: 6%;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid ${({ darkMode }) => (darkMode ? '#444' : '#e6e6e6')};
+
   }
 
   .switch {

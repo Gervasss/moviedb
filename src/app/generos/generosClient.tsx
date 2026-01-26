@@ -1,10 +1,8 @@
 "use client";
 
-import { useContext, useEffect, useMemo, useState } from "react";
-import { PageContainer } from "../components/PageContainer";
+import {  useEffect, useMemo, useState } from "react";
 import { SidebarComponent } from "../components/sidebar";
 import "./styles.css";
-import { ThemeContext } from "../components/ThemeContext/ThemeContext";
 import { getTopRatedMovies, getGenres } from "../services/api";
 import { Genre, Movie } from "../types/types";
 import { NavbarComponent } from "../components/Navbar";
@@ -18,9 +16,6 @@ export default function GenerosClient() {
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
 
-  const themeContext = useContext(ThemeContext);
-  if (!themeContext) throw new Error("useContext must be used within a ThemeProvider");
-  const { darkMode } = themeContext;
 
   useEffect(() => {
     setLoading(true);
@@ -90,8 +85,8 @@ export default function GenerosClient() {
   }, [genres, query]);
 
   return (
-    <PageContainer padding="0px" darkMode={darkMode}>
-      <div className={`genresShell ${darkMode ? "dark" : "light"}`}>
+ 
+      <div className="genresShell ">
         <div className="shell">
           <aside className="sidebar">
             <div className="desktop-only">
@@ -119,7 +114,7 @@ export default function GenerosClient() {
                 />
               </div>
             </header>
-            <section className="scrollArea">
+            <section className="g-scrollArea">
               {loading ? (
                 <div className="loadingWrap">
                   <div className="loaderCard">
@@ -167,6 +162,5 @@ export default function GenerosClient() {
           </main>
         </div>
       </div>
-    </PageContainer>
   );
 }

@@ -1,10 +1,8 @@
 "use client";
 
-import React, { useContext, useEffect, useMemo, useState } from "react";
-import { PageContainer } from "../components/PageContainer";
+import React, {  useEffect, useMemo, useState } from "react";
 import { SidebarComponent } from "../components/sidebar";
 import "./styles.css";
-import { ThemeContext } from "../components/ThemeContext/ThemeContext";
 import { getGenres, getMovieById } from "../services/api";
 import { Genre, Movie } from "../types/types";
 import { NavbarComponent } from "../components/Navbar";
@@ -21,9 +19,7 @@ export default function FavoritesClient() {
     const [favoriteMovieIds, setFavoriteMovieIds] = useState<number[]>([]);
     const [query, setQuery] = useState("");
 
-    const themeContext = useContext(ThemeContext);
-    if (!themeContext) throw new Error("useContext must be used within a ThemeProvider");
-    const { darkMode } = themeContext;
+
 
     // Carrega IDs favoritos
     useEffect(() => {
@@ -113,8 +109,8 @@ export default function FavoritesClient() {
     }, [favoriteMovies, query]);
 
     return (
-        <PageContainer padding="0px" darkMode={darkMode}>
-            <div className={`fav-topShell ${darkMode ? "dark" : "light"}`}>
+    
+            <div className="fav-topShell">
                 <div className="fav-shell">
                     <aside className="fav-sidebar">
                         <div className="fav-desktopOnly">
@@ -238,6 +234,5 @@ export default function FavoritesClient() {
                     </main>
                 </div>
             </div>
-        </PageContainer>
     );
 }

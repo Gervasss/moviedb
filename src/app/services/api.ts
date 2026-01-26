@@ -58,4 +58,16 @@ export const getTrendingMovies = async (page:number): Promise<Movie[]> => {
   return response.data.results;
 };
 
+
+
+export const getMovieDetails = async (id: string): Promise<Movie> => {
+  const response: AxiosResponse<Movie> = await api.get(`/movie/${id}`, {
+    params: {
+      language: 'pt-BR',
+      append_to_response: 'videos,credits', 
+    }
+  });
+  return response.data;
+};
+
 export default api;

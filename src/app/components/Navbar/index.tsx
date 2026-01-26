@@ -68,7 +68,7 @@ export function NavbarComponent() {
   );
 
   return (
-    <Navbar darkMode={darkMode}>
+    <Navbar >
       <nav className="mnavBar" aria-label="Navegação">
         <button
           type="button"
@@ -106,7 +106,6 @@ export function NavbarComponent() {
             </button>
           </div>
           <div className="mnavPills" aria-label="Atalhos">
-            <span className="mnavPill">{darkMode ? "Dark" : "Light"}</span>
             <span className="mnavPill">{filtered.length} opções</span>
           </div>
 
@@ -134,9 +133,7 @@ export function NavbarComponent() {
                 <span>Tente outro termo.</span>
               </div>
             )}
-            <div className="mnavToggle">
-              <ToggleSwitch />
-            </div>
+         
 
           </div>
         </aside>

@@ -1,0 +1,250 @@
+/* ========= FUNDO E ESTRUTURA ========= */
+.movie-topShell {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.movie-topShell  {
+  background: 
+    radial-gradient(900px 520px at 18% -10%, rgba(220, 38, 38, 0.26), transparent 60%),
+    radial-gradient(800px 480px at 85% 25%, rgba(153, 27, 27, 0.22), transparent 62%),
+    linear-gradient(135deg, rgb(10, 10, 12) 0%, rgb(13, 14, 18) 45%, rgb(7, 7, 9) 100%);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+
+
+
+.movie-shell {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+}
+
+/* ========= MAIN (SEM SCROLL PRÓPRIO) ========= */
+.movie-main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 22px 18px 10px;
+  overflow: hidden; 
+}
+
+/* ========= CONTAINER GLASS (SCROLL ATIVADO AQUI) ========= */
+.movie-glassCard {
+  height: 86.5%;
+  border-radius: 18px;
+  padding: 30px;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.26);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.40);
+
+  overflow-y: auto; 
+  overflow-x: hidden;
+}
+
+/* WEBKit Scrollbar no Card (Idêntico ao Trending) */
+.movie-glassCard::-webkit-scrollbar {
+  width: 10px;
+}
+
+.movie-glassCard::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(220, 38, 38, 0.28);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* ========= TEXTOS E GRID ========= */
+.movie-title {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+.movie-pills {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.movie-pill {
+  font-size: 13px;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 8px 14px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.movie-contentGrid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+}
+
+.movie-poster {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.movie-sectionTitle {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.movie-sectionTitle::before {
+  content: "";
+  width: 4px;
+  height: 20px;
+  background: #dc2626;
+  border-radius: 999px;
+}
+
+.movie-overview {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 35px;
+  text-align: justify;
+  white-space: pre-line;
+}
+
+/* ========= ELENCO (5 por linha) ========= */
+.movie-castList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.movie-actorCard {
+  flex: 0 1 calc(20% - 13px);
+  min-width: 130px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.movie-actorImageWrap {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 10px;
+  border: 2px solid rgba(220, 38, 38, 0.3);
+}
+
+.movie-actorThumb { width: 100%; height: 100%; object-fit: cover; }
+.movie-actorName { display: block; font-size: 12px; font-weight: 800; }
+.movie-actorChar { display: block; font-size: 10px; color: #94a3b8; }
+
+/* ========= CARD ESPECIAL TRAILER ========= */
+.movie-trailerSection {
+  margin-top: 50px;
+  padding: 30px 0 0 0; 
+  background: transparent; 
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.movie-trailerContainer {
+  position: relative;
+  width: 100%; 
+  aspect-ratio: 16 / 9; 
+  margin: 20px 0 0 0;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 3px solid rgba(220, 38, 38, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
+}
+
+.movie-trailerContainer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.movie-icon-red { color: #dc2626; font-size: 24px; }
+
+@media (max-width: 1023px) {
+  .movie-shell {
+    grid-template-columns: 1fr; 
+  }
+
+
+  .trd-sidebar {
+    display: none;
+  }
+
+
+  .trd-mobileOnly {
+    display: flex !important;
+    margin-bottom: 10px;
+  }
+
+  .movie-main {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .movie-contentGrid {
+    grid-template-columns: 1fr; 
+    justify-items: center;
+  }
+
+  .trd-mobileOnly{
+    margin-left: 40px;
+  }
+
+  .movie-poster {
+    max-width: 280px; 
+  }
+
+  .movie-title {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .movie-pills {
+    justify-content: center;
+  }
+
+  .movie-actorCard {
+    flex: 0 1 100%; 
+  }
+
+  .movie-trailerSection {
+    padding: 20px 0;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1366px) {
+
+ 
+    .movie-glassCard{
+        height: 85%;
+    }
+ 
+
+
+}

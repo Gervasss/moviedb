@@ -45,10 +45,7 @@ export function SidebarComponent() {
           <Sidebutton icon={<FaRegStar />} tittle="Favoritos" onClick={() => router.push('/favoritos')} />
         </div>
       </section>
-      <div className='switch'>
-        <ToggleSwitch />
-      </div>
-
+    
 
     </Sidebar>
   );
