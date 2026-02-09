@@ -1,14 +1,17 @@
+
 .mnavBar {
   position: sticky;
   top: 10px;
   z-index: 60;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Mantém logo na esquerda e botões na direita */
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
 
-
-
-/* brand */
 .mnavBrand {
   position: relative;
   z-index: 1;
@@ -38,27 +41,21 @@
   box-shadow: 0 0 0 6px rgba(220, 38, 38, 0.18);
 }
 
-.mnavBrandText {
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  font-size: 14px;
-}
 
-/* right */
+
+/* Agrupamento da Direita (Toggle + Menu) */
 .mnavRight {
   position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px; /* Espaçamento entre os elementos da direita */
 }
 
 .mnavToggle {
   display: flex;
   align-items: center;
-  margin-left: 110px;
-  margin-top:-10px;
-  filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
+  filter: drop-shadow(0 0 5px rgba(220, 38, 38, 0.5));
 }
 
 .mnavMenuBtn {
@@ -66,7 +63,6 @@
   height: 44px;
   border-radius: 14px;
   display: grid;
-  margin-left: 295px;
   place-items: center;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -81,7 +77,7 @@
   background: rgba(220, 38, 38, 0.16);
 }
 
-/* overlay */
+/* --- Overlay e Drawer (Menu Aberto) --- */
 .mnavOverlay {
   position: fixed;
   inset: 0;
@@ -98,7 +94,6 @@
   pointer-events: auto;
 }
 
-/* drawer */
 .mnavDrawer {
   position: fixed;
   left: 50%;
@@ -111,11 +106,9 @@
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(0, 0, 0, 0.40);
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
-
   transition: transform 200ms ease, opacity 200ms ease;
 }
 
@@ -136,7 +129,7 @@
   transform: translateX(-50%) translateY(0);
 }
 
-/* header do drawer */
+/* Header do Drawer */
 .mnavDrawerHeader {
   position: relative;
   z-index: 1;
@@ -144,7 +137,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
 }
 
 .mnavDrawerTitleTop {
@@ -154,8 +146,6 @@
   font-size: 14px;
   color: #fff;
 }
-
-
 
 .mnavDrawerTitleSub {
   display: block;
@@ -184,20 +174,11 @@
   background: rgba(220, 38, 38, 0.16);
 }
 
-/* search no drawer */
+/* Pesquisa e Listagem */
 .mnavSearch {
   position: relative;
   z-index: 1;
   padding: 0 14px 12px 14px;
-}
-
-.mnavSearchIcon {
-  position: absolute;
-  top: 50%;
-  left: 26px;
-  transform: translateY(-50%);
-  opacity: 0.75;
-  font-size: 18px;
 }
 
 .mnavSearchInput {
@@ -212,15 +193,6 @@
   backdrop-filter: blur(10px);
 }
 
-.mnavSearchInput::placeholder {
-  opacity: 0.65;
-}
-
-.mnavSearchInput:focus {
-  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.22);
-}
-
-/* pills */
 .mnavPills {
   position: relative;
   z-index: 1;
@@ -240,7 +212,6 @@
   color: #fff;
 }
 
-/* list com scroll */
 .mnavList {
   position: relative;
   z-index: 1;
@@ -249,92 +220,27 @@
   max-height: 100%;
 }
 
-.mnavList::-webkit-scrollbar {
-  width: 10px;
-}
-
-.mnavList::-webkit-scrollbar-thumb {
-  border-radius: 999px;
-  background: rgba(220, 38, 38, 0.28);
-  border: 2px solid transparent;
-  background-clip: padding-box;
-}
-
 .mnavItem {
   width: 100%;
   display: flex;
   align-items: center;
   gap: 12px;
-  justify-content: space-between;
-
   border-radius: 16px;
-  padding: 12px 12px;
+  padding: 12px;
   margin: 8px 0;
-
   cursor: pointer;
-  text-align: left;
-
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(0, 0, 0, 0.22);
   color: rgba(255, 255, 255, 0.92);
-
-  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
+  transition: all 160ms ease;
 }
 
 .mnavItem:hover {
   transform: translateY(-1px);
   border-color: rgba(220, 38, 38, 0.42);
-  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.32);
   background: rgba(220, 38, 38, 0.10);
 }
 
-.mnavItemIcon {
-  width: 38px;
-  height: 38px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  font-size: 18px;
-
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
-  flex: 0 0 auto;
-}
-
-.mnavItemText {
-  flex: 1 1 auto;
-  font-weight: 900;
-  font-size: 13px;
-  letter-spacing: -0.01em;
-}
-
-.mnavItemArrow {
-  opacity: 0.85;
-  font-size: 18px;
-}
-
-/* empty */
-.mnavEmpty {
-  border-radius: 16px;
-  padding: 14px;
-  margin: 8px 0 0 0;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  background: rgba(0, 0, 0, 0.22);
-}
-
-.mnavEmpty p {
-  margin: 0;
-  font-weight: 900;
-}
-
-.mnavEmpty span {
-  display: block;
-  margin-top: 6px;
-  opacity: 0.72;
-  font-size: 12px;
-}
-
-/* footer */
 .mnavFooter {
   position: relative;
   z-index: 1;
@@ -348,20 +254,63 @@
   background: rgba(255, 255, 255, 0.06);
 }
 
-.mnavFooterTitle {
-  margin: 0;
-  font-weight: 900;
-  font-size: 12px;
+/* --- BREAKPOINTS ESPECÍFICOS --- */
+
+/* 1. Celulares Compactos (Ex: iPhone SE / Telas < 360px) */
+@media (max-width: 360px) {
+  .mnavBrandText {
+    display: none; 
+  }
+  .mnavBar {
+    padding: 10 540%;
+  }
+  .mnavDrawer {
+    width: 95vw;
+    top: 60px;
+  }
 }
 
-.mnavFooterText {
-  margin: 6px 0 0 0;
-  opacity: 0.74;
-  font-size: 12px;
-  line-height: 1.45;
+@media (min-width: 375px) and (max-width: 389px) {
+  .mnavBar {
+    padding: 10 530%;
+  }
+  .mnavBrandText {
+    font-size: 15px;
+  }
+  .mnavMenuBtn {
+    width: 48px;
+    height: 48px;
+  }
 }
 
-/* opcional: só mostrar no mobile */
+/* 2. Celulares Modernos Grandes (Ex: Pro Max, S24 Ultra / Telas entre 390px e 400px) */
+@media (min-width: 390px) and (max-width: 400px) {
+  .mnavBar {
+    padding: 10 560%;
+  }
+  .mnavBrandText {
+    font-size: 15px;
+  }
+  .mnavMenuBtn {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 600px) {
+  .mnavBar {
+    padding: 10 600%;
+  }
+  .mnavBrandText {
+    font-size: 15px;
+  }
+  .mnavMenuBtn {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Ocultar em Desktop */
 @media (min-width: 1024px) {
   .mnavBar {
     display: none;
