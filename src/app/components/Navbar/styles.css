@@ -43,6 +43,8 @@
 
 
 
+
+
 /* Agrupamento da Direita (Toggle + Menu) */
 .mnavRight {
   position: relative;
@@ -262,7 +264,7 @@
     display: none; 
   }
   .mnavBar {
-    padding: 10 540%;
+    padding: 10 540% !important;
   }
   .mnavDrawer {
     width: 95vw;
@@ -272,7 +274,7 @@
 
 @media (min-width: 375px) and (max-width: 389px) {
   .mnavBar {
-    padding: 10 530%;
+    padding: 10 530% !important;
   }
   .mnavBrandText {
     font-size: 15px;
@@ -286,7 +288,7 @@
 /* 2. Celulares Modernos Grandes (Ex: Pro Max, S24 Ultra / Telas entre 390px e 400px) */
 @media (min-width: 390px) and (max-width: 400px) {
   .mnavBar {
-    padding: 10 560%;
+    padding: 10 560% !important;
   }
   .mnavBrandText {
     font-size: 15px;
@@ -299,7 +301,7 @@
 
 @media (min-width: 401px) and (max-width: 600px) {
   .mnavBar {
-    padding: 10 600%;
+    padding: 10 600% !important;
   }
   .mnavBrandText {
     font-size: 15px;
