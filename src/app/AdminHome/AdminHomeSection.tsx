@@ -118,9 +118,7 @@ export function AdminHome() {
             </div>
           </aside>
           <main className={styles.main}>
-            <div className={styles.mobileOnly}>
-              <NavbarComponent />
-            </div>
+            
             <header className={styles.pageHeader}>
               <div className={styles.pageHeaderLeft}>
                 <h1 className={styles.pageTitle}>Dashboard</h1>
