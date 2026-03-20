@@ -6,7 +6,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Mantém logo na esquerda e botões na direita */
+  justify-content: space-between; 
   padding: 0 16px;
   box-sizing: border-box;
 }
