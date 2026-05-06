@@ -16,7 +16,6 @@ O **MovieDB** é uma plataforma moderna para exploração cinematográfica, proj
 * **Favoritos:** Aba dedicada onde o usuário pode gerenciar sua lista pessoal de filmes preferidos, permitindo salvar títulos para acesso rápido posterior.
 
 ### 🌓 Interface e UX
-* **Modo Escuro (Dark Mode):** Alternância dinâmica de tema integrada à interface.
 * **Navegação Lateral:** Sidebar intuitiva para transição rápida entre os módulos.
 * **Responsividade Total:** Interface adaptável projetada para oferecer uma experiência fluida em **smartphones de diversos tamanhos, tablets e desktops**.
 
