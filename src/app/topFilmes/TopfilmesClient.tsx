@@ -15,7 +15,7 @@ const FAVORITE_STORAGE_KEY = "favoriteMovieIds";
 export default function TopfilmesClient() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [genres, setGenres] = useState<Genre[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [favoriteMovieIds, setFavoriteMovieIds] = useState<number[]>([]);
   const [query, setQuery] = useState("");
 
@@ -39,8 +39,10 @@ export default function TopfilmesClient() {
 
     const fetchData = async () => {
       const storedMovies = localStorage.getItem("topRatedMovies");
-      if (storedMovies) {
-        setMovies(JSON.parse(storedMovies));
+      const cachedMovies = storedMovies ? JSON.parse(storedMovies) : null;
+
+      if (Array.isArray(cachedMovies) && cachedMovies.length > 0) {
+        setMovies(cachedMovies);
       } else {
         let allMovies: Movie[] = [];
         for (let page = 1; page <= 13; page++) {
@@ -58,8 +60,10 @@ export default function TopfilmesClient() {
       }
 
       const storedGenres = localStorage.getItem("Genres");
-      if (storedGenres) {
-        setGenres(JSON.parse(storedGenres));
+      const cachedGenres = storedGenres ? JSON.parse(storedGenres) : null;
+
+      if (Array.isArray(cachedGenres) && cachedGenres.length > 0) {
+        setGenres(cachedGenres);
       } else {
         const genresList = await getGenres();
         setGenres(genresList);
@@ -128,9 +132,6 @@ export default function TopfilmesClient() {
             </div>
           </aside>
           <main className="main">
-            <div className="mobile-only">
-              <NavbarComponent />
-            </div>
             <header className="pageHeader">
               <div className="pageHeaderLeft">
                 <h1 className="pageTitle">Top Filmes</h1>

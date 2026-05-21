@@ -5,7 +5,6 @@ import { SidebarComponent } from "../components/sidebar";
 import "./styles.css";
 import { getTopRatedMovies, getGenres } from "../services/api";
 import { Genre, Movie } from "../types/types";
-import { NavbarComponent } from "../components/Navbar";
 import { AiOutlineSearch } from "react-icons/ai";
 
 export default function GenerosClient() {
@@ -13,7 +12,7 @@ export default function GenerosClient() {
   const [genres, setGenres] = useState<Genre[]>([]);
   const [genreAverages, setGenreAverages] = useState<{ [key: string]: number }>({});
   const [genreMovies, setGenreMovies] = useState<{ [key: string]: number }>({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
 
 
@@ -22,9 +21,10 @@ export default function GenerosClient() {
 
     const fetchData = async () => {
       const storedMovies = localStorage.getItem("topRatedMovies");
+      const cachedMovies = storedMovies ? JSON.parse(storedMovies) : null;
 
-      if (storedMovies) {
-        setMovies(JSON.parse(storedMovies));
+      if (Array.isArray(cachedMovies) && cachedMovies.length > 0) {
+        setMovies(cachedMovies);
       } else {
         let allMovies: Movie[] = [];
         for (let page = 1; page <= 13; page++) {
@@ -42,8 +42,10 @@ export default function GenerosClient() {
       }
 
       const storedGenres = localStorage.getItem("Genres");
-      if (storedGenres) {
-        setGenres(JSON.parse(storedGenres));
+      const cachedGenres = storedGenres ? JSON.parse(storedGenres) : null;
+
+      if (Array.isArray(cachedGenres) && cachedGenres.length > 0) {
+        setGenres(cachedGenres);
       } else {
         const genresList = await getGenres();
         setGenres(genresList);
@@ -94,9 +96,6 @@ export default function GenerosClient() {
             </div>
           </aside>
           <main className="main">
-            <div className="mobile-only">
-              <NavbarComponent />
-            </div>
             <header className="pageHeader">
               <div className="pageHeaderLeft">
                 <h1 className="pageTitle">Gêneros</h1>

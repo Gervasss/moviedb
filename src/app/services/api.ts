@@ -2,11 +2,25 @@
 import axios, { AxiosResponse } from 'axios';
 import { Genre, Movie } from '../types/types';
 
+const tmdbCredential = process.env.NEXT_PUBLIC_TMDB_API_KEY?.trim();
+const isReadAccessToken = tmdbCredential?.startsWith('eyJ');
+
 const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3/',
-  headers: {
-    'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
+  headers: isReadAccessToken
+    ? { Authorization: `Bearer ${tmdbCredential}` }
+    : undefined,
+});
+
+api.interceptors.request.use((config) => {
+  if (tmdbCredential && !isReadAccessToken) {
+    config.params = {
+      ...config.params,
+      api_key: tmdbCredential,
+    };
   }
+
+  return config;
 });
 
 // Top Rated Movies
@@ -44,7 +58,11 @@ export const getMovieById = async (movieId: number): Promise<Movie | null> => {
 
 // Genres
 export const getGenres = async (): Promise<Genre[]> => {
-  const response: AxiosResponse<{ genres: Genre[] }> = await api.get('/genre/movie/list');
+  const response: AxiosResponse<{ genres: Genre[] }> = await api.get('/genre/movie/list', {
+    params: {
+      language: 'pt-BR',
+    },
+  });
   return response.data.genres;
 };
 

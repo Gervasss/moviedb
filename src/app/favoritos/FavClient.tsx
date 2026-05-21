@@ -49,8 +49,10 @@ export default function FavoritesClient() {
         const fetchFavoritesData = async () => {
             // gêneros (pode cachear se quiser, como fez no trending)
             const storedGenres = localStorage.getItem("Genres");
-            if (storedGenres) {
-                setGenres(JSON.parse(storedGenres));
+            const cachedGenres = storedGenres ? JSON.parse(storedGenres) : null;
+
+            if (Array.isArray(cachedGenres) && cachedGenres.length > 0) {
+                setGenres(cachedGenres);
             } else {
                 const genresList = await getGenres();
                 setGenres(genresList);

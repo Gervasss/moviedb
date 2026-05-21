@@ -17,9 +17,9 @@ export default function Sidebutton({ tittle,icon, onClick }: SidebuttonProps) {
 
   return (
     <button type="button" className="sideButton" onClick={onClick}>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-      <div className="icon-Sidebar">{icon}</div>
-       <div className='title-Sidebar'> {tittle}</div> 
+      <div className="sideButtonContent">
+        <div className="icon-Sidebar">{icon}</div>
+        <div className="title-Sidebar">{tittle}</div>
       </div>
 
       <IoChevronForwardSharp />

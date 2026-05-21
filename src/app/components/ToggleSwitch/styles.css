@@ -1,8 +1,8 @@
+/* ===== CINEMA PREMIUM — TOGGLE SWITCH ===== */
 
 .toggle-switch-container {
-  display: inline-block;
-  margin-top: 20px;
-  margin-left: 20px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .toggle-switch-checkbox {
@@ -10,58 +10,63 @@
 }
 
 .toggle-switch-label {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  width: 70px; 
-  height: 25px; 
-  background-color: #e9e9e9;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 999px;
+  width: 56px;
+  height: 28px;
+  background: var(--bg-card);
   position: relative;
-  transition: background-color 0.3s ease;
+  transition: background 250ms ease, border-color 250ms ease;
+  padding: 0 4px;
 }
 
 .toggle-switch-inner {
   display: block;
   width: 200%;
   margin-left: -100%;
-  transition: margin 0.3s ease;
+  transition: margin 250ms ease;
 }
 
 .toggle-switch-handle {
   display: block;
-  width: 26px; 
-  height: 26px; 
-  background: white;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.35);
   position: absolute;
-  top: -1%;
-  left: 2px;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
   border-radius: 50%;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  transition: left 250ms ease, background 250ms ease;
 }
 
 .toggle-switch-checkbox:checked + .toggle-switch-label {
-  background-color: #696969;
+  background: var(--accent-dim);
+  border-color: rgba(226, 160, 51, 0.28);
 }
 
 .toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-handle {
-  transform: translateX(41.8px);
+  left: calc(100% - 24px);
+  background: var(--accent);
 }
 
 .iconn {
-  font-size: 17px; 
-  color: gray; 
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  margin-top: 4px;
-  margin-left: 5px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  transition: opacity 250ms ease, transform 250ms ease;
+  position: absolute;
+  right: 6px;
 }
-
 
 .moon-icon {
   opacity: 0;
-  transform: scale(0);
+  transform: scale(0.6);
+  color: var(--accent);
 }
 
 .sun-icon {
@@ -71,11 +76,10 @@
 
 .toggle-switch-checkbox:checked + .toggle-switch-label .sun-icon {
   opacity: 0;
-  transform: scale(0);
+  transform: scale(0.6);
 }
 
 .toggle-switch-checkbox:checked + .toggle-switch-label .moon-icon {
   opacity: 1;
   transform: scale(1);
-
 }

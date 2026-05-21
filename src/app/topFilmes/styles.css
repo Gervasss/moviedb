@@ -1,211 +1,169 @@
-/* ========= FUNDO DA PÁGINA ========= */
-.topShell {
-    min-height: 100vh;
-    width: 100%;
-}
+/* ===== CINEMA PREMIUM — TOP FILMES ===== */
 
 .topShell {
-    background:
-        radial-gradient(900px 520px at 18% -10%, rgba(220, 38, 38, 0.26), transparent 60%),
-        radial-gradient(800px 480px at 85% 25%, rgba(153, 27, 27, 0.22), transparent 62%),
-        linear-gradient(135deg, rgb(10, 10, 12) 0%, rgb(13, 14, 18) 45%, rgb(7, 7, 9) 100%);
-    color: rgba(255, 255, 255, 0.92);
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg-base);
+  color: var(--text-primary);
 }
 
-
-
-/* ========= SHELL (IGUAL AO GÊNEROS) ========= */
 .shell {
-    min-height: 100vh;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 0;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
 }
 
-/* ========= SIDEBAR ========= */
 .sidebar {
-    padding: 14px 0 14px 14px;
-    height: 90% ;
-    position: sticky;
-    top: 0;
-    overflow: hidden;
+  box-sizing: border-box;
+  padding: 16px 0 16px 16px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
 }
 
-/* ========= MAIN ========= */
 .main {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding: 18px 22px 18px 10px;
-    overflow: hidden;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 16px 16px 16px 10px;
+  overflow: hidden;
 }
 
-/* ========= NAV MOBILE ========= */
 .mobile-only {
-    display: none;
+  display: none;
 }
 
 /* ========= HEADER ========= */
 .pageHeader {
-    flex: 0 0 auto;
-    position: relative;
-    overflow: hidden;
-    border-radius: 18px;
-    padding: 18px 18px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 16px;
-    backdrop-filter: blur(14px);
-}
-
-.topShell .pageHeader {
-    background: rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-}
-
-
-.pageHeader::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    background:
-        radial-gradient(700px 260px at 15% 0%, rgba(220, 38, 38, 0.26), transparent 60%),
-        radial-gradient(640px 240px at 85% 35%, rgba(153, 27, 27, 0.18), transparent 62%);
-    pointer-events: none;
-    opacity: 0.95;
+  flex: 0 0 auto;
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .pageHeaderLeft {
-    display: grid;
-    gap: 6px;
-    position: relative;
-    z-index: 1;
+  display: grid;
+  gap: 4px;
 }
 
 .pageTitle {
-    margin: 0;
-    font-size: 22px;
-    letter-spacing: -0.02em;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .pageSubtitle {
-    margin: 0;
-    font-size: 13px;
-    opacity: 0.72;
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 400;
 }
 
-/* ========= SEARCH ========= */
 .pageSearch {
-    position: relative;
-    width: min(420px, 48vw);
-    z-index: 1;
+  position: relative;
+  width: min(400px, 46vw);
 }
 
 .pageSearchIcon {
-    position: absolute;
-    top: 50%;
-    left: 12px;
-    transform: translateY(-50%);
-    font-size: 18px;
-    opacity: 0.75;
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--text-muted);
+  pointer-events: none;
 }
 
 .pageSearchInput {
-    width: 100%;
-    height: 42px;
-    padding: 0 12px 0 40px;
-    border-radius: 12px;
-    outline: none;
-    backdrop-filter: blur(10px);
+  width: 100%;
+  height: 40px;
+  padding: 0 14px 0 38px;
+  border-radius: var(--radius-md);
+  outline: none;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 13px;
+  transition: border-color var(--transition);
 }
-
-.topShell .pageSearchInput {
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(0, 0, 0, 0.30);
-    color: rgba(255, 255, 255, 0.92);
-}
-
-
 
 .pageSearchInput::placeholder {
-    opacity: 0.65;
+  color: var(--text-muted);
 }
 
 .pageSearchInput:focus {
-    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.22);
+  border-color: var(--accent-border);
+  box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
 /* ========= SCROLL AREA ========= */
 .scrollArea {
-    height: 79%;
-    margin-top: 14px;
-    border-radius: 18px;
-    padding: 14px;
-    backdrop-filter: blur(14px);
-    overflow-y: auto;
-    overflow-x: hidden;
+  flex: 1;
+  min-height: 0;
+  margin-top: 10px;
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.topShell .scrollArea {
-    background: rgba(0, 0, 0, 0.22);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.30);
-}
-
-
-.scrollArea::-webkit-scrollbar {
-    width: 10px;
-}
-
+.scrollArea::-webkit-scrollbar { width: 6px; }
+.scrollArea::-webkit-scrollbar-track { background: transparent; }
 .scrollArea::-webkit-scrollbar-thumb {
-    border-radius: 999px;
-    background: rgba(220, 38, 38, 0.28);
-    border: 2px solid transparent;
-    background-clip: padding-box;
+  border-radius: 999px;
+  background: rgba(226, 160, 51, 0.28);
 }
 
-/* ========= GRID DOS FILMES ========= */
+/* ========= GRID ========= */
 .movieGrid {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
 }
 
-/* ========= CARD DO FILME ========= */
+/* ========= CARD ========= */
 .movieCard {
-    grid-column: span 3;
-    border-radius: 18px;
-    overflow: hidden;
-    position: relative;
-    backdrop-filter: blur(14px);
-    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  grid-column: span 3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
 }
-
-/* glass por tema */
-.topShell .movieCard {
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(0, 0, 0, 0.26);
-    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.40);
-}
-
 
 .movieCard:hover {
-    transform: translateY(-6px);
-    border-color: rgba(220, 38, 38, 0.55);
+  transform: translateY(-5px);
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
 }
-
-.topShell .movieCard:hover {
-    box-shadow: 0 22px 46px rgba(0, 0, 0, 0.52);
-}
-
 
 /* ========= POSTER ========= */
+.posterWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+}
+
 .poster {
   width: 100%;
   height: 100%;
@@ -214,310 +172,237 @@
   display: block;
 }
 
-/* Garanta que o wrap não fique “travado” em dimensões fixas */
-.posterWrap {
-  position: relative;
-  width: 100%;
-}
-
 .posterShade {
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.45) 72%, rgba(0, 0, 0, 0.68));
-    pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.65));
+  pointer-events: none;
 }
 
 .posterFallback {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-items: center;
-    font-weight: 800;
-    opacity: 0.8;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: var(--text-secondary);
 }
 
-/* ========= FAVORITE BTN ========= */
+/* ========= FAV BTN ========= */
 .favBtn {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    z-index: 2;
-
-    width: 40px;
-    height: 40px;
-    border-radius: 999px;
-
-    display: grid;
-    place-items: center;
-
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    background: rgba(0, 0, 0, 0.35);
-    color: rgba(255, 255, 255, 0.95);
-    cursor: pointer;
-    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.55);
+  color: rgba(255, 255, 255, 0.80);
+  cursor: pointer;
+  transition: transform var(--transition), background var(--transition);
 }
 
 .favBtn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.35);
+  transform: scale(1.08);
+  background: rgba(0, 0, 0, 0.75);
 }
 
 .favBtn.on {
-    background: rgba(220, 38, 38, 0.55);
-    box-shadow: 0 0 0 6px rgba(220, 38, 38, 0.18);
+  background: rgba(226, 160, 51, 0.70);
+  border-color: rgba(226, 160, 51, 0.50);
+  color: #fff;
 }
 
 /* ========= BODY ========= */
 .movieBody {
-    padding: 14px 14px 12px 14px;
-    display: grid;
-    gap: 10px;
+  padding: 14px 14px 12px 14px;
+  display: grid;
+  gap: 8px;
 }
 
 .movieTitle {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: -0.01em;
-    line-height: 1.15;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .pillRow {
-    margin-top: 10px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+  margin-top: 6px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
 .pill {
-    font-size: 12px;
-    border-radius: 999px;
-    padding: 6px 10px;
-    display: inline-flex;
-    gap: 6px;
-    align-items: center;
+  font-size: 11px;
+  border-radius: 999px;
+  padding: 4px 9px;
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  background: var(--bg-base);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-weight: 500;
 }
-
-.topShell .pill {
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.06);
-}
-
-
 
 .movieMeta {
-    margin: 0;
-    font-size: 12px;
-    opacity: 0.78;
-    line-height: 1.45;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .metaLabel {
-    font-weight: 800;
-    opacity: 0.95;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .movieFooter {
-    margin-top: 4px;
-    padding-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  margin-top: 4px;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
 }
-
-.topShell .movieFooter {
-    border-top: 1px dashed rgba(255, 255, 255, 0.18);
-}
-
-
 
 .favAction {
-    border: 0;
-    cursor: pointer;
-    border-radius: 12px;
-    padding: 8px 10px;
-    font-weight: 800;
-    font-size: 12px;
-    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  font-weight: 600;
+  font-size: 11px;
+  background: var(--bg-base);
+  color: var(--text-secondary);
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
 }
-
-.topShell .favAction {
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-
 
 .favAction:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
 }
 
 .favAction.on {
-    background: rgba(220, 38, 38, 0.20);
-    border-color: rgba(220, 38, 38, 0.35);
+  background: var(--accent-dim);
+  border-color: var(--accent-border);
+  color: var(--accent);
 }
-
 
 .arrow {
   text-decoration: none;
-   border: none;
+  border: 1px solid var(--border);
   cursor: pointer;
-  border-radius: 12px;
-  padding: 8px 10px;
-  font-weight: 800;
-  font-size: 12px;
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-}
-
-.topShell .arrow{
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  font-weight: 600;
+  font-size: 11px;
+  background: var(--bg-base);
+  color: var(--text-secondary);
+  transition: border-color var(--transition), color var(--transition);
 }
 
 .arrow:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+  border-color: var(--border-hover);
+  color: var(--accent);
 }
 
 /* ========= LOADING / EMPTY ========= */
 .loadingWrap {
-    height: 100%;
-    display: grid;
-    place-items: center;
+  height: 100%;
+  display: grid;
+  place-items: center;
 }
 
 .loaderCard {
-    display: grid;
-    gap: 10px;
-    place-items: center;
-    padding: 18px 16px;
-    border-radius: 16px;
-    backdrop-filter: blur(14px);
+  display: grid;
+  gap: 10px;
+  place-items: center;
+  padding: 20px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
 }
-
-.topShell .loaderCard {
-    background: rgba(0, 0, 0, 0.40);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-
 
 .loaderDot {
-    width: 10px;
-    height: 10px;
-    border-radius: 999px;
-    background: rgba(220, 38, 38, 0.9);
-    box-shadow: 0 0 0 6px rgba(220, 38, 38, 0.18);
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px var(--accent-glow);
 }
 
 .emptyState {
-    padding: 18px;
-    border-radius: 16px;
-    backdrop-filter: blur(14px);
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
 }
-
-.topShell .emptyState {
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    background: rgba(0, 0, 0, 0.22);
-}
-
-
 
 .emptyState p {
-    margin: 0;
-    font-weight: 900;
+  margin: 0;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
 .emptyState span {
-    display: block;
-    margin-top: 6px;
-    opacity: 0.72;
-    font-size: 13px;
+  display: block;
+  margin-top: 6px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.desktop-only {
+  width: 100%;
+  height: 100%;
 }
 
 /* ========= RESPONSIVO ========= */
-.desktop-only {
-    width: 104.2%;
-    height: 107%;
-}
-
 @media (max-width: 640px) {
-   .movieCard {
-        grid-column: span 12 !important;
-        margin-bottom: 10px;
-    }
-
-    .mobile-only{
-        margin-left: 20px;
-    }
+  .movieCard { grid-column: span 12 !important; }
 }
 
 @media (max-width: 1023px) {
-    .shell {
-        grid-template-columns: 1fr;
-    }
+  .shell { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .mobile-only { display: none; }
 
-    .sidebar {
-        display: none;
-    }
-
-    .mobile-only {
-        display: flex;
-        width: 100%;
-    }
-
-    .pageHeader {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .pageSearch {
-        width: 100%;
-    }
-
-    .movieCard {
-        grid-column: span 6;
-    }
+  .main {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 14px 14px calc(var(--bottom-nav-h) + 16px) 14px;
+  }
+  .pageHeader { flex-direction: column; align-items: stretch; }
+  .pageSearch { width: 100%; }
+  .scrollArea {
+    height: auto !important;
+    overflow: visible !important;
+    max-height: none !important;
+  }
+  .movieCard { grid-column: span 6; }
 }
 
 @media (max-width: 1366px) {
-
-    
-    .scrollArea{
-        height: 50%!important;
-    }
-
-    .desktop-only{
-        height: 600px !important;
-    }
-
-
+  .scrollArea { flex: 1; }
+  .desktop-only { height: 100%; }
 }
-
 
 @media (max-width: 1600px) {
-
-    
-    .scrollArea{
-        height: 77%!important;
-    }
-
+  .scrollArea { flex: 1; }
 }
-
-
-
-
-
-

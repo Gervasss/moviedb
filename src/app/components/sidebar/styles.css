@@ -1,57 +1,272 @@
+/* ==========================================
+   DESKTOP BASE (Estrutura e Herança)
+   ========================================== */
+@media (min-width: 1024px) {
+  .appSidebar {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 24px 14px;
+  }
 
+  .appSidebar .top {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
+  .appSidebar .movie-logo {
+    width: 82px;
+    height: 82px;
+    margin: 0 auto 28px auto;
+    object-fit: contain; /* Garante que a logo grande não distorça */
+  }
+
+  /* Força toda a estrutura de botões a ocupar 100% da largura da sidebar */
+  .appSidebar .admin-buttons {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .appSidebar .admin-buttons .buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Alinha os botões verticalmente */
+    gap: 8px;
+    box-sizing: border-box;
+  }
+
+  /* Faz os botões expandirem e preencherem toda a largura */
+  .appSidebar .admin-buttons .buttons .sideButton {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha o texto/ícone do botão à esquerda */
+    box-sizing: border-box;
+  }
+
+  .appSidebar .sideButtonContent {
+    gap: 12px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVIDADE (Breakpoints de Tela)
+   ========================================== */
+
+/* Notebooks compactos */
+@media (min-width: 1024px) and (max-width: 1359px) {
+  .appSidebar {
+    padding: 20px 12px;
+  }
+
+  .appSidebar .movie-logo {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 22px;
+  }
+
+  .appSidebar .admin-buttons .buttons {
+    gap: 6px;
+  }
+
+  .appSidebar .admin-buttons .buttons .sideButton {
+    min-height: 44px;
+    padding: 0 10px;
+  }
+
+  .appSidebar .sideButtonContent {
+    gap: 10px;
+  }
+}
+
+/* Desktop 1366x768 */
 @media (min-width: 1360px) and (max-width: 1439px) {
-  .sidebar{
-    height: 100%;
+  .appSidebar {
+    padding: 22px 14px;
   }
 
- .sideButton {
-    margin-bottom: 27px;
- }
+  .appSidebar .movie-logo {
+    width: 86px;
+    height: 86px;
+    margin-bottom: 30px;
+  }
 
+  .appSidebar .admin-buttons .buttons {
+    gap: 12px;
+  }
+
+  .appSidebar .admin-buttons .buttons .sideButton {
+    min-height: 48px;
+    padding: 0 12px;
+  }
+
+  .appSidebar .sideButtonContent {
+    gap: 12px;
+  }
 }
 
-/* notebooks HD+ */
+/* Desktop 1366x768 e alturas próximas */
+@media (min-width: 1360px) and (max-width: 1439px) and (min-height: 740px) and (max-height: 800px) {
+  .appSidebar {
+    padding: 18px 12px;
+  }
+
+  .appSidebar .movie-logo {
+    width: 82px;
+    height: 82px;
+    margin-bottom: 34px;
+  }
+
+  .appSidebar .admin-buttons .buttons {
+    gap: 24px;
+  }
+
+  .appSidebar .admin-buttons .buttons .sideButton {
+    min-height: 46px;
+    padding: 0 11px;
+  }
+
+  .appSidebar .sideButtonContent {
+    gap: 11px;
+  }
+}
+
+/* Notebooks HD+ */
 @media (min-width: 1440px) and (max-width: 1535px) {
-  .sidebar{
-    height: 90%;
+  .appSidebar {
+    padding: 24px 14px;
   }
 
-   .sideButton {
-    margin-bottom: 50px;
- }
-}
+  .appSidebar .movie-logo {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 34px;
+  }
 
-/* notebooks e monitores médios */
-@media (min-width: 1536px) and (max-width: 1599px) {
-  .sidebar{
-    height: 100%;
+  .appSidebar .admin-buttons .buttons {
+    gap: 16px;
+  }
+
+  .appSidebar .admin-buttons .buttons .sideButton {
+    min-height: 50px;
+    padding: 0 13px;
+  }
+
+  .appSidebar .sideButtonContent {
+    gap: 12px;
   }
 }
 
-/* 1600x900 exato */
-@media (min-width: 1600px) and (max-width: 1680px) {
-  .sidebar{
-    height: 95%;
+/* Desktops médios */
+@media (min-width: 1536px) and (max-width: 1680px) {
+  .appSidebar {
+    padding: 26px 16px;
   }
 
-    .sideButton {
-    margin-bottom: 40px;
- }
-
-}
-
-
-@media (min-width: 1920px)  {
-  .sidebar{
-    height: 91%;
-    width: 90%;
+  .appSidebar .movie-logo {
+    width: 104px;
+    height: 104px;
+    margin-bottom: 38px;
   }
 
-    .sideButton {
-      margin-left: -10px;
-     margin-bottom: 50px;
- }
+  .appSidebar .admin-buttons .buttons {
+    gap: 20px;
+  }
 
+  .appSidebar .admin-buttons .buttons .sideButton {
+    min-height: 52px;
+    padding: 0 14px;
+  }
+
+  .appSidebar .sideButtonContent {
+    gap: 13px;
+  }
 }
 
+/* Full HD */
+@media (min-width: 1681px) and (max-width: 1919px) {
+  .appSidebar {
+    padding: 28px 16px;
+  }
+
+  .appSidebar .movie-logo {
+    width: 112px;
+    height: 112px;
+    margin-bottom: 44px;
+  }
+
+  .appSidebar .admin-buttons .buttons {
+    gap: 24px;
+  }
+
+  .appSidebar .admin-buttons .buttons .sideButton {
+    min-height: 54px;
+    padding: 0 15px;
+  }
+
+  .appSidebar .sideButtonContent {
+    gap: 14px;
+  }
+}
+
+/* Ultra-wide e Telas Grandes 1920px+ */
+@media (min-width: 1920px) {
+  .appSidebar {
+    padding: 32px 18px;
+  }
+
+  /* Ajustado para manter uma proporção imponente sem quebrar o layout */
+  .appSidebar .movie-logo {
+    width: 204px;
+    height: 204px; 
+    margin-bottom: 52px;
+  }
+
+  .appSidebar .admin-buttons .buttons {
+    margin-top: 0;
+    gap: 40px;
+  }
+
+  .appSidebar .admin-buttons .buttons .sideButton {
+    min-height: 56px;
+    padding: 0 16px;
+  }
+
+  .appSidebar .sideButtonContent {
+    gap: 14px;
+  }
+}
+
+/* ==========================================
+   OTIMIZAÇÃO PARA TELAS BAIXAS
+   ========================================== */
+@media (min-width: 1024px) and (max-height: 760px) {
+  .appSidebar {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .appSidebar .movie-logo {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 18px;
+  }
+
+  .appSidebar .admin-buttons .buttons {
+    gap: 30px;
+  }
+
+  .appSidebar .admin-buttons .buttons .sideButton {
+    min-height: 44px;
+    padding: 0 10px;
+  }
+
+  .appSidebar .sideButtonContent {
+    gap: 10px;
+  }
+}

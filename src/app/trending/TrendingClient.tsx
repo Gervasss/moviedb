@@ -21,7 +21,7 @@ export default function TrendingClient() {
   const [trendingMovies, setTrendingMovies] = useState<Movie[]>([]);
   const [message, setMessage] = useState<string>("");
   const [showMovies, setShowMovies] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [favoriteMovieIds, setFavoriteMovieIds] = useState<number[]>([]);
   const [currentFilter, setCurrentFilter] = useState<"trending" | "topRated">("trending");
   const [query, setQuery] = useState("");
@@ -55,8 +55,10 @@ export default function TrendingClient() {
       setTopMovies(topRated);
 
       const storedGenres = localStorage.getItem("Genres");
-      if (storedGenres) {
-        setGenres(JSON.parse(storedGenres));
+      const cachedGenres = storedGenres ? JSON.parse(storedGenres) : null;
+
+      if (Array.isArray(cachedGenres) && cachedGenres.length > 0) {
+        setGenres(cachedGenres);
       } else {
         const list = await getGenres();
         setGenres(list);
@@ -130,9 +132,7 @@ export default function TrendingClient() {
             </div>
           </aside>
           <main className="trd-main">
-            <div className="trd-mobileOnly">
-              <NavbarComponent />
-            </div>
+
             <header className="trd-pageHeader">
               <div className="trd-pageHeaderLeft">
                 <h1 className="trd-pageTitle">Trending Filmes</h1>

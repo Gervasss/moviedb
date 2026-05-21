@@ -8,7 +8,6 @@ import "./styles.css";
 import { MdLocalMovies, MdSpaceDashboard } from 'react-icons/md';
 import { ThemeContext } from "../ThemeContext/ThemeContext";
 import { GiRaiseZombie } from 'react-icons/gi';
-import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 import { FaRegStar } from 'react-icons/fa';
 import React from 'react';
 
@@ -27,7 +26,7 @@ export function SidebarComponent() {
 
 
   return (
-    <Sidebar darkMode={darkMode}  className='sidebar'>
+    <Sidebar darkMode={darkMode} className="appSidebar">
       <div className="top">
         <img
           className='movie-logo'
